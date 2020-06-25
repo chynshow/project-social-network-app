@@ -1,0 +1,25 @@
+.c-main-navigation {
+  grid-area: 3/2/4/3;
+  height: 70vh;
+  border-radius: $component-boder-radius;
+  list-style: none;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // background-image: url("/assets/02.svg");
+  //background-repeat: no-repeat;
+  //background-position: bottom;
+
+  &__link {
+    padding: 1.4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &--active {
+      border-right: 2px solid #3d72de;
+      background: #e9effb;
+    }
+  }
+}

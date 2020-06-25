@@ -1,0 +1,29 @@
+// COLORS
+$color-white: #fff;
+$color-white-light: #fafafa;
+$color-white-light-1: #e6e6e6;
+$color-black: #333;
+$color-black-dark: #202124;
+$color-light-blue: #f7f7ff;
+$color-main-background: #f1f5f9;
+$color-main-font: #202124;
+$color-component: $color-white;
+$color-icon: #202124;
+$color-link: #202124;
+$color-btn-text: #202124;
+
+// SHADOWS
+$shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+$shadow-inset: inset 0px 2px 8px #18191b;
+
+// COMPONENT BASE STYLE
+$component-boder-radius: 15px;
+
+// FONTS SIZE
+$font-ex-small: 0.8rem;
+$font-small: 1rem;
+$font-medium: 1.2rem;
+$font-large: 1.6rem;
+$font-ex-large: 2rem;
+
+$font-icon: 1rem;

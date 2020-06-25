@@ -5,5 +5,17 @@
 @import "./02-tools/normalize.scss";
 // 03-base
 @import "./03-base/base.scss";
+@import "./03-base/typography.scss";
 // 04-layout
 @import "./04-layout/layout.scss";
+// 05-components
+@import "./05-components/icon/icon.scss";
+@import "./05-components/link/link.scss";
+@import "./05-components/button/button.scss";
+@import "./05-components/header/main-header.scss";
+@import "./05-components/alert/alert.scss";
+@import "./05-components/navigation/main-navigation.scss";
+@import "./05-components/profile/profile.scss";
+@import "./05-components/profile/avatar/avatar.scss";
+@import "./05-components/profile/user-info/user-info.scss";
+@import "./05-components/profile/user-contacts/user-contacts.scss";

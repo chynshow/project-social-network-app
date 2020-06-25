@@ -1,0 +1,36 @@
+.c-user-info {
+  // background: $color-black-dark;
+  // color: $color-white;
+  border-radius: 0 0 10px 10px;
+
+  &__header {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-size: cover;
+    background-position: right;
+  }
+
+  &__btn-show-more {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    // box-shadow: inset 0px 1px 4px #0c0c0e;
+  }
+
+  &__icon {
+    color: $color-black-dark;
+  }
+
+  &__title {
+    font-weight: 400;
+  }
+
+  &__content {
+    padding: 1rem;
+  }
+}

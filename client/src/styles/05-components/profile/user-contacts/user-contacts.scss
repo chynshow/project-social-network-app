@@ -1,0 +1,23 @@
+.c-user-contacts {
+  &__item {
+    display: flex;
+    align-items: center;
+    padding: 0.7rem;
+    &:nth-child(1) {
+      transform: translateX(-1.2rem);
+    }
+    &:nth-child(2) {
+      transform: translateX(-0.2rem);
+    }
+    &:nth-child(3) {
+      transform: translateX(-1.2rem);
+    }
+  }
+  &__item-icon {
+    margin-right: 0.5rem;
+    font-size: 2rem;
+  }
+
+  &__item-text {
+  }
+}

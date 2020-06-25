@@ -1,0 +1,10 @@
+.l-grid {
+  display: grid;
+  grid-template-columns: 10% 20% 30% 30% 10%;
+  grid-template-rows: minmax(10vh, max-content) min-content min-content;
+  grid-gap: 0.2rem;
+}
+
+.l-main-content {
+  grid-area: 3/3/-1/5;
+}
