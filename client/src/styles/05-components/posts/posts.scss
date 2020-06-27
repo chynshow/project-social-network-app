@@ -1,0 +1,15 @@
+.c-posts {
+  padding: 1rem;
+  background: $color-component;
+  border-radius: $component-boder-radius;
+  min-height: 100%;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__title {
+    font-weight: 300;
+  }
+}

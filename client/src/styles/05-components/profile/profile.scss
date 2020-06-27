@@ -1,12 +1,16 @@
 .c-profile {
-  //   background: #363e49;
-  //   color: #fff;
+  // background: $color-black-dark;
+  // color: #fff;
   background: #fff;
   color: #363e49;
   border-radius: $component-boder-radius;
+  display: flex;
+  flex-direction: column;
 }
 
 .l-profile {
   display: flex;
   align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }

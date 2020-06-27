@@ -1,7 +1,29 @@
 .c-avatar {
-  padding: 1rem;
+  padding: 2rem;
+  padding-bottom: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 0 0 10px 10px;
+
   &__image {
     height: 15rem;
     border-radius: 50%;
+    box-shadow: 17px 41px 300px -29px rgba(61, 114, 222, 1);
+  }
+
+  &__user-name {
+    font-weight: 400;
+    padding-top: 2rem;
+  }
+
+  &__user-position {
+    padding: 0.5rem;
+    color: #808080;
+    text-transform: uppercase;
+    font-weight: 100;
+    letter-spacing: 3px;
   }
 }

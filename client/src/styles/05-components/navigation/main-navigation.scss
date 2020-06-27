@@ -7,9 +7,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  // background-image: url("/assets/02.svg");
-  //background-repeat: no-repeat;
-  //background-position: bottom;
+  background-image: url("/assets/directions.svg");
+  // background-size: cover;
+  background-position: bottom;
 
   &__link {
     padding: 1.4rem;
