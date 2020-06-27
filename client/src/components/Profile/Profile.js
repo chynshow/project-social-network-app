@@ -5,8 +5,8 @@ import Contacts from './Contacts/Contacts';
 
 const Profile = () => {
   return (
-    <div className='c-profile'>
-      <div className='l-profile'>
+    <div className="c-profile">
+      <div className="l-profile">
         <Avatar />
         <Contacts />
       </div>

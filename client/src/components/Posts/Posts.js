@@ -4,14 +4,14 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 const Posts = () => {
   return (
-    <div className='c-posts'>
-      <header className='c-posts__header'>
-        <h3 className='c-posts__title'>This is the posts contaniner</h3>
-        <button className='c-btn c-posts__btn'>
+    <div className="c-posts">
+      <header className="c-posts__header">
+        <h3 className="c-posts__title">This is the posts contaniner</h3>
+        <button className="c-btn c-posts__btn">
           <FontAwesomeIcon icon={faPlus} />
         </button>
       </header>
-      <div className='c-posts__container'></div>
+      <div className="c-posts__container"></div>
     </div>
   );
 };

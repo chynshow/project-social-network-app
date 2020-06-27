@@ -1,11 +1,6 @@
-import React from "react";
-import {
-  faSignOutAlt,
-  faCaravan,
-  faMountain,
-  faCompass,
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React from 'react';
+import { faSignOutAlt, faCompass } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Header = () => {
   return (
@@ -15,7 +10,11 @@ const Header = () => {
         Travels Place
       </h2>
       <div className="c-logout-container">
-        <button text="Logout" className="c-btn c-logout-container__btn">
+        <button
+          type="button"
+          text="Logout"
+          className="c-btn c-logout-container__btn"
+        >
           <FontAwesomeIcon
             className="c-logout-container__icon"
             icon={faSignOutAlt}
