@@ -1,16 +1,69 @@
-// COLORS
+//-------------------------------
+// MAIN COLORS
 $color-white: #fff;
+$color-blue-light: #f1f5f9;
+$color-black-dark: #333;
+$color-black-dark: #202124;
+$color-grey-dark: #606060;
+$color-grey-light: #888792;
+$color-red-dark: #cc0000;
+$color-violet-dark: #3f3d56;
+$color-violet-light: #6f6fff;
+
+$color-primary: $color-white;
+$color-primary-bg: $color-blue-light;
+$color-accent: $color-black-dark;
+
+// FEEDBACK
+$color-success: green;
+$color-error: $color-red-dark;
+$color-warning: yellow;
+
+// TYPOGRAPHY
+$color-text: $color-violet-dark;
+$color-text-subtle: $color-grey-dark;
+$color-link: $color-violet-dark;
+
+// BODY
+$color-body: $color-blue-light;
+
+// BUTTONS
+
+// ICONS
+$color-icon-primary: $color-black-dark;
+$color-icon-secondary: inherit;
+
+//-------------------------------
+
+// TYPOGRAPHY
+
+$font-primary: 'Roboto';
+$font-secondary: sans-serif;
+
+$font-base-size: 0.9em;
+
+$font-xs: 0.8rem;
+$font-sm: 1rem;
+$font-md: 1.2rem;
+$font-lg: 1.4rem;
+$font-xl: 1.6rem;
+$font-xxl: 1.8rem;
+$font-xxxl: 2rem;
+
+$heading-line-height: 1.2;
+$body-line-height: 1.7;
+
+// COLORS
 $color-white-light: #fafafa;
 $color-white-light-1: #e6e6e6;
-$color-black: #333;
 $color-black-dark: #202124;
 $color-light-blue: #f7f7ff;
 $color-main-background: #f1f5f9;
-$color-main-font: #202124;
+$color-main-font: $color-violet-dark;
 $color-component: $color-white;
-$color-icon: #202124;
-$color-link: #202124;
-$color-btn-text: #202124;
+$color-icon: $color-violet-dark;
+$color-link: $color-violet-dark;
+$color-btn-text: $color-violet-dark;
 
 // SHADOWS
 $shadow: 0 4px 8px 0 rgba(32, 33, 36, 0.2), 0 6px 20px 0 rgba(32, 33, 36, 0.19);

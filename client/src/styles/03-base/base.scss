@@ -4,10 +4,14 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: $font-base-size;
+}
+
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: $font-primary, $font-secondary;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: $color-main-background;
-  color: $color-main-font;
+  background: $color-body;
+  color: $color-text;
 }

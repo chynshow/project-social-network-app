@@ -8,16 +8,16 @@ const Info = () => {
   return (
     <section className="c-user-info">
       <header className="c-user-info__header">
-        {/* <button
+        <button
           onClick={() => setShowInfo(!showInfo)}
           className="c-btn  c-user-info__btn-show-more"
         >
           <FontAwesomeIcon className="c-user-info__icon" icon={faChevronDown} />
-        </button> */}
+        </button> 
       </header>
 
       <div className="l-user-info-content">
-        <MainInfo />
+        {showInfo && <MainInfo />}
       </div>
     </section>
   );

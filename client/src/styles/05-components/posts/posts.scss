@@ -3,6 +3,11 @@
   background: $color-component;
   border-radius: $component-boder-radius;
   min-height: 100%;
+  background-image: url('/assets/svg/undraw_personal_text_vkd8.svg');
+  background-repeat: no-repeat;
+  background-position-y: 98%;
+  background-position-x: 98%;
+  background-size: 30%;
 
   &__header {
     display: flex;

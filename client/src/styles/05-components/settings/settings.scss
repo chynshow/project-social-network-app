@@ -1,0 +1,15 @@
+.c-settings {
+  background: $color-white;
+  border-radius: 10px;
+  min-height: 100%;
+
+  @include bg-img('/assets/svg/undraw_settings_ii2j.svg', 35%, center);
+
+  &__header {
+    padding: 1rem;
+  }
+
+  &__title {
+    font-weight: 400;
+  }
+}

@@ -1,46 +1,60 @@
 .c-main-info {
-  color: #888792;
+  color: $color-grey-light;
   font-size: 0.9rem;
+  @include bg-img('/assets/svg/undraw_about_me_wa29.svg', 30%, 98% 98%);
 
   &__header {
-    padding: 1rem;
+    border-top: 1px solid $color-blue-light;
+    padding: 1.5rem 1rem 0 1.5rem;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+  }
+
+  &__content {
+    padding: 1rem;
   }
 
   &__title {
     font-weight: 400;
-    font-size: 1rem;
+    font-size: $font-md;
+    color: $color-violet-dark;
   }
 
   &__text {
+    border: 1px solid $color-blue-light;
     padding: 1rem;
-    line-height: 1.7rem;
+    line-height: $body-line-height;
+    border-radius: 5px;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    // box-shadow: 0px 1px 4px $color-blue-light;
+
+    &:nth-child(3) {
+      width: 73%;
+    }
+    &:nth-child(4) {
+      width: 69%;
+    }
+    &:not(:last-child) {
+      margin: 0.5rem 0;
+    }
   }
 
   &__btn {
     margin: 0 0.5rem;
+    font-size: $font-sm;
   }
   &__sub-text {
-    background: $color-black-dark;
-    padding: 0.4rem;
-    // color: $color-white;
+    padding: 0.4rem 0;
     position: relative;
-
     min-width: fit-content;
     display: flex;
-
-    // box-shadow: inset 0px 1px 4px #0c0c0e;
-    // border-radius: 10px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    font-size: $font-sm;
+    color: $color-violet-dark;
   }
 
   &__sub-text-icon {
     margin: 0 0.5rem;
-    font-size: 1rem;
   }
 }

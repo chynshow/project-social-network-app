@@ -2,29 +2,34 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPen,
+  faDownload,
+  faUser,
   faMapMarkerAlt,
   faUserCog,
-  faCommentDots,
-  faUser,
-  faFileDownload,
-  faDownload,
+  faCommentDots
 } from "@fortawesome/free-solid-svg-icons";
 
 const MainInfo = () => {
   return (
     <div className="c-main-info">
       <div className="c-main-info__header">
-        <button className="c-btn c-main-info__btn c-btn--shadow-circle">
+        <h4 className="c-main-info__title">
+          Personal information
+        </h4>
+        <div className="c-main-info__header-container">
+
+        <button className="c-btn c-main-info__btn">
           <FontAwesomeIcon icon={faPen} />
         </button>
-        <button className="c-btn c-main-info__btn c-btn--shadow-circle">
+        <button className="c-btn c-main-info__btn">
           <FontAwesomeIcon icon={faDownload} />
         </button>
+        </div>
       </div>
       <div className="c-main-info__content">
-        {/* <p className="c-main-info__text">
+        <p className="c-main-info__text c-main-info__text--about-me">
           <span className="c-main-info__sub-text">
-            Me
+            About Me
             <FontAwesomeIcon
               className="c-main-info__sub-text-icon"
               icon={faUser}
@@ -44,7 +49,7 @@ const MainInfo = () => {
               icon={faMapMarkerAlt}
             />
           </span>
-          Poland, Poznan
+          Poland, Poznan.
         </p>
         <p className="c-main-info__text">
           <span className="c-main-info__sub-text">
@@ -56,7 +61,7 @@ const MainInfo = () => {
           </span>
           HTML, CSS, SASS, BEM, Bootstrap, RWD, Styled components, JavaScript,
           React, Redux, Git, NPM, Nodejs, MongoDB, Express, Mongoose, Postman,
-          Linux
+          Linux.
         </p>
         <p className="c-main-info__text">
           <span className="c-main-info__sub-text">
@@ -67,18 +72,7 @@ const MainInfo = () => {
             />
           </span>
           English (pre-intermediate), Polish (advanced), Russian & Ukrainian
-          (native speaker)
-        </p> */}
-        <p className="c-main-info__text">
-          Hi my name is Serhii, I'm a web developer. I familiar with HTML, CSS,
-          SASS, BEM, Bootstrap, RWD, Styled components, JavaScript, React,
-          Redux, Git, NPM, Nodejs, MongoDB, Express, Mongoose, Postman, Linux. I
-          learn programming by using online courses. I like to code things from
-          scratch, and enjoy bringing ideas to life in the browser. I value
-          simple content structure, clean design patterns, and thoughtful
-          interactions. Lorem ipsum dolor sit, amet consectetur adipisicing
-          elit. Incidunt dolor mollitia eveniet doloribus dolore molestias
-          asperiores quas odit, alias porro.
+          (native speaker).
         </p>
       </div>
     </div>

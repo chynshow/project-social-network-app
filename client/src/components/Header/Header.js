@@ -1,13 +1,13 @@
 import React from 'react';
-import { faSignOutAlt, faCompass } from '@fortawesome/free-solid-svg-icons';
+import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Header = () => {
   return (
     <header className="c-main-header">
       <h2 className="c-main-header__title">
-        <FontAwesomeIcon className="c-main-header__icon" icon={faCompass} />
-        Travels Place
+        <span className="c-main-header__title--mode">Social</span>
+        <span className="c-main-header__title--mode">Network</span>
       </h2>
       <div className="c-logout-container">
         <button
