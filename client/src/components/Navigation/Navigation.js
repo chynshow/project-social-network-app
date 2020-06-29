@@ -27,14 +27,14 @@ const Navigation = () => {
         Users
         <Icon icon={faUsers} />
       </NavLink>
-      <NavLink
+      {/* <NavLink
         activeClassName="c-main-navigation__link--active"
         className="c-link c-main-navigation__link"
         to="/posts"
       >
-        Posts
+        Messages
         <Icon icon={faCommentAlt} />
-      </NavLink>
+      </NavLink> */}
       <NavLink
         activeClassName="c-main-navigation__link--active"
         className="c-link c-main-navigation__link"

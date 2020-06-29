@@ -2,10 +2,10 @@
   display: grid;
   grid-template-columns: 10% 20% 30% 30% 10%;
   grid-template-rows: minmax(15vh, max-content) min-content min-content;
-  grid-gap: 0.2rem;
+  grid-gap: $layout-gap;
 }
 
 .l-main-content {
   grid-area: 3/3/-1/5;
-  margin-bottom: 5rem;
+  // margin-bottom: 5rem;
 }

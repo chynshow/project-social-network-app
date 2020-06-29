@@ -12,7 +12,7 @@ $color-violet-light: #6f6fff;
 
 $color-primary: $color-white;
 $color-primary-bg: $color-blue-light;
-$color-accent: $color-black-dark;
+$color-accent: $color-violet-dark;
 
 // FEEDBACK
 $color-success: green;
@@ -20,8 +20,9 @@ $color-error: $color-red-dark;
 $color-warning: yellow;
 
 // TYPOGRAPHY
-$color-text: $color-violet-dark;
-$color-text-subtle: $color-grey-dark;
+$color-text: $color-grey-dark;
+$color-title: $color-violet-dark;
+$color-text-sub: $color-grey-dark;
 $color-link: $color-violet-dark;
 
 // BODY
@@ -53,24 +54,14 @@ $font-xxxl: 2rem;
 $heading-line-height: 1.2;
 $body-line-height: 1.7;
 
-// COLORS
-$color-white-light: #fafafa;
-$color-white-light-1: #e6e6e6;
-$color-black-dark: #202124;
-$color-light-blue: #f7f7ff;
-$color-main-background: #f1f5f9;
-$color-main-font: $color-violet-dark;
-$color-component: $color-white;
-$color-icon: $color-violet-dark;
-$color-link: $color-violet-dark;
-$color-btn-text: $color-violet-dark;
-
 // SHADOWS
 $shadow: 0 4px 8px 0 rgba(32, 33, 36, 0.2), 0 6px 20px 0 rgba(32, 33, 36, 0.19);
 $shadow-inset: inset 0px 2px 8px #18191b;
 $shadow-inset-black: inset 0px 1px 4px #0c0c0e;
+
 // COMPONENT BASE STYLE
 $component-boder-radius: 15px;
+$color-component-bg: $color-white;
 
 // FONTS SIZE
 $font-ex-small: 0.8rem;
@@ -80,3 +71,6 @@ $font-large: 1.6rem;
 $font-ex-large: 2rem;
 
 $font-icon: 1rem;
+
+// LAYOUT
+$layout-gap: 0.2rem;

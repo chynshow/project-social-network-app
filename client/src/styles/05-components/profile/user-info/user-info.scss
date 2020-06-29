@@ -1,34 +1,29 @@
 .c-user-info {
-  // background: $color-black-dark;
-  // color: $color-white;
-  border-radius: 0px 0px 10px 10px;
+  background: $color-white;
+  border-radius: 0 0 10px 10px;
 
   &__header {
-    padding: 1rem;
+    padding: 1.5rem;
+    padding-top: 0.5rem;
     display: flex;
-    justify-content: flex-end;
     align-items: center;
+    justify-content: space-between;
+    @include bg-img('/assets/svg/bg-2.svg', cover, top);
   }
 
-  &__btn-show-more {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 50%;
-    // box-shadow: inset 0px 1px 4px #0c0c0e;
-  }
-
-  &__icon {
-    color: $color-black-dark;
-  }
-
-  &__title {
+  &__user-name {
     font-weight: 400;
+    color: $color-violet-dark;
+    font-size: $font-lg;
   }
 
-  &__content {
-    padding: 1rem;
+  &__user-position {
+    padding: 0.5rem;
+    // color: $color-grey-dark;
+    color: $color-violet-light;
+    text-transform: uppercase;
+    font-weight: 100;
+    letter-spacing: 3px;
+    font-size: $font-md;
   }
 }

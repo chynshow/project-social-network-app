@@ -1,20 +1,35 @@
 .c-posts {
-  padding: 1rem;
-  background: $color-component;
-  border-radius: $component-boder-radius;
-  min-height: 100%;
-  background-image: url('/assets/svg/undraw_personal_text_vkd8.svg');
-  background-repeat: no-repeat;
-  background-position-y: 98%;
-  background-position-x: 98%;
-  background-size: 30%;
+  border-top: $layout-gap solid $color-body;
+  background: $color-component-bg;
+  border-radius: 0 0 10px 10px;
+  min-height: 25vh;
+  @include bg-img('/assets/svg/undraw_personal_text_vkd8.svg', 20%, 98% 98%);
 
   &__header {
+    padding: 1.5rem;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid $color-body;
   }
 
   &__title {
-    font-weight: 300;
+    font-weight: 400;
+    display: flex;
+    color: $color-violet-dark;
+    font-size: $font-md;
+
+    &::first-letter {
+      color: $color-violet-light;
+    }
+  }
+
+  &__title-icon {
+    font-size: $font-sm;
+    margin-left: 0.5rem;
+  }
+
+  &__info {
+    padding: 1.5rem;
   }
 }

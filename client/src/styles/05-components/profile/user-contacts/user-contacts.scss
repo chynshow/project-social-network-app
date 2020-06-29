@@ -1,17 +1,22 @@
 .c-user-contacts {
   display: flex;
-  padding-top: 1rem;
+  flex-direction: column;
+  justify-content: center;
 
   &__item {
     display: flex;
     align-items: center;
     padding: 0.7rem;
+    color: $color-violet-dark;
     &:nth-child(1) {
+      transform: translateX(-1rem);
       // color: #cf4312;
     }
     &:nth-child(2) {
+      transform: translateX();
     }
     &:nth-child(3) {
+      transform: translateX(-1rem);
       // color: #3d72de;
     }
   }
