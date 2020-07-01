@@ -1,0 +1,27 @@
+.c-user {
+  background: rgba($color: $color-component-bg, $alpha: 0.8);
+  border: 1px solid $color-body;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 0.2rem;
+  flex-basis: calc(25% - 0.4rem);
+
+  &__user-name {
+    padding-top: 1rem;
+    border-top: 1px solid $color-body;
+    font-weight: 400;
+    text-align: center;
+  }
+
+  &__user-profession {
+    padding: 1rem;
+  }
+}
+
+.l-user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

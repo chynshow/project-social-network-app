@@ -2,14 +2,12 @@
   background: $color-white;
   border-radius: 10px;
   min-height: 100%;
+  @include bg-img('/assets/svg/undraw_friends_online_klj6.svg', 30%, 98% 98%);
 
-  @include bg-img('/assets/svg/undraw_online_friends_x73e.svg', 35%, center);
-
-  &__header {
-    padding: 1rem;
-  }
-
-  &__title {
-    font-weight: 400;
+  &__items-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    padding: calc(1rem - 0.3rem);
   }
 }

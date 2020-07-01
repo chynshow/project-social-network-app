@@ -1,6 +1,7 @@
 //-------------------------------
 // MAIN COLORS
 $color-white: #fff;
+$color-white-light: #fafafa;
 $color-blue-light: #f1f5f9;
 $color-black-dark: #333;
 $color-black-dark: #202124;
@@ -22,11 +23,12 @@ $color-warning: yellow;
 // TYPOGRAPHY
 $color-text: $color-grey-dark;
 $color-title: $color-violet-dark;
-$color-text-sub: $color-grey-dark;
+$color-paragraph: $color-grey-light;
 $color-link: $color-violet-dark;
-
+$color-placeholder: $color-grey-light;
 // BODY
 $color-body: $color-blue-light;
+$color-border: $color-blue-light;
 
 // BUTTONS
 
@@ -41,7 +43,7 @@ $color-icon-secondary: inherit;
 $font-primary: 'Roboto';
 $font-secondary: sans-serif;
 
-$font-base-size: 0.9em;
+$font-base-size: 0.8em;
 
 $font-xs: 0.8rem;
 $font-sm: 1rem;
@@ -57,7 +59,7 @@ $body-line-height: 1.7;
 // SHADOWS
 $shadow: 0 4px 8px 0 rgba(32, 33, 36, 0.2), 0 6px 20px 0 rgba(32, 33, 36, 0.19);
 $shadow-inset: inset 0px 2px 8px #18191b;
-$shadow-inset-black: inset 0px 1px 4px #0c0c0e;
+$shadow-component: 0 4px 8px 0 rgba(63, 61, 86, 0.1);
 
 // COMPONENT BASE STYLE
 $component-boder-radius: 15px;
@@ -74,3 +76,6 @@ $font-icon: 1rem;
 
 // LAYOUT
 $layout-gap: 0.2rem;
+
+// TRANSITION
+$transition: 0.2s easy-in-out;

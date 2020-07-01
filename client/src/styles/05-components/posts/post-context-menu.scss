@@ -1,0 +1,35 @@
+.c-post-context-menu {
+  position: absolute;
+  top: 1.5rem;
+  right: 2.5rem;
+  background: $color-component-bg;
+  border-radius: 10px;
+  box-shadow: $shadow-component;
+  z-index: 3;
+
+  &__item {
+    list-style: none;
+    display: flex;
+    align-items: center;
+  }
+
+  &__item:not(:last-child) {
+    border-bottom: 1px solid $color-border;
+  }
+
+  &__btn {
+    padding: 1.2rem;
+    display: flex;
+    align-items: center;
+    min-width: fit-content;
+
+    &--disabled {
+      pointer-events: none;
+      color: $color-grey-light;
+    }
+  }
+  &__icon {
+    margin-left: 0.5rem;
+    font-size: $font-sm;
+  }
+}

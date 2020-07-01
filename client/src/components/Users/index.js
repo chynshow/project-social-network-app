@@ -1,13 +1,30 @@
-import React from 'react'
+import React from 'react';
+import User from './User';
 
 const Users = () => {
-    return (
-        <section className="c-users">
-            <header className="c-users__header">
-                <h3 className="c-users__title">Users</h3>
-            </header>
-        </section>
-    )
-}
+  return (
+    <section className="c-users">
+      <div className="c-users__items-container">
+        <User />
+        <User />
+        <User />
+        <User />
+        <User />
+        <User />
+        <User />
+        <User />
+        <User />
+        <User />
+        <User />
+        <User />
+        <User />
+        <User />
+        <User />
+        <User />
+        <User />
+      </div>
+    </section>
+  );
+};
 
-export default Users
+export default Users;

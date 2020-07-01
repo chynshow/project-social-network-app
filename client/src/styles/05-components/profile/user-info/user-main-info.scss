@@ -1,11 +1,7 @@
 .c-main-info {
-  color: $color-grey-light;
-  font-size: 0.9rem;
-  @include bg-img('/assets/svg/undraw_about_me_wa29.svg', 30%, 98% 98%);
-
   &__header {
-    border-top: 1px solid $color-blue-light;
-    padding: 1.5rem 1rem 0 1.5rem;
+    border-top: 1px solid $color-border;
+    padding: 2.5rem 1rem 0.5rem 1.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -15,27 +11,17 @@
     padding: 1rem;
   }
 
-  &__title {
-    font-weight: 400;
-    font-size: $font-md;
-    color: $color-violet-dark;
-  }
-
   &__text {
-    border: 1px solid $color-blue-light;
+    font-size: $font-sm;
+    color: $color-paragraph;
+    border: 1px solid $color-border;
     padding: 1rem;
     line-height: $body-line-height;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
-    // box-shadow: 0px 1px 4px $color-blue-light;
+    background: rgba($color-white, $alpha: 0.8);
 
-    &:nth-child(3) {
-      width: 73%;
-    }
-    &:nth-child(4) {
-      width: 69%;
-    }
     &:not(:last-child) {
       margin: 0.5rem 0;
     }
@@ -47,8 +33,6 @@
   }
   &__sub-text {
     padding: 0.4rem 0;
-    position: relative;
-    min-width: fit-content;
     display: flex;
     font-size: $font-sm;
     color: $color-violet-dark;

@@ -1,25 +1,29 @@
 import React from 'react';
-import UserAvatar from './UserAvatar';
+import UserAvatar from '../Common/UserAvatar';
 import UserInfo, { UserInfoHeader } from './UserInfo';
 import UserContacts from './UserContacts';
-import Posts from '../Posts/Posts';
+import Posts from '../Posts';
 
 const Profile = () => {
   const [showContent, setShowContent] = React.useState(false);
   return (
     <div className="c-profile">
-      <div className="c-profile__user-info-area">
+      <div className="c-profile__user-info-container">
         <div className="l-profile">
-          <UserAvatar />
+          <UserAvatar
+            size="15rem"
+            src="/assets/images/guilherme-stecanella-_dH-oQF9w-Y-unsplash.jpg"
+            alt="User Avatar"
+          />
           <UserContacts />
         </div>
         <UserInfoHeader
           setShowContent={setShowContent}
           showContent={showContent}
         />
-        {showContent && <UserInfo />}
+        <UserInfo showContent={showContent} />
       </div>
-      {!showContent && <Posts />}
+      <Posts />
     </div>
   );
 };

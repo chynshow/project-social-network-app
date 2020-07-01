@@ -1,10 +1,12 @@
 .c-user-info {
-  background: $color-white;
+  background: $color-component-bg;
   border-radius: 0 0 10px 10px;
+  max-height: 0;
+  transition: 0.2s ease-out;
+  @include bg-img('/assets/svg/undraw_online_cv_qy9w.svg', 15%, 98% 98%);
 
   &__header {
     padding: 1.5rem;
-    padding-top: 0.5rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -12,18 +14,25 @@
   }
 
   &__user-name {
-    font-weight: 400;
-    color: $color-violet-dark;
     font-size: $font-lg;
+    display: flex;
+    align-items: center;
   }
 
   &__user-position {
-    padding: 0.5rem;
-    // color: $color-grey-dark;
-    color: $color-violet-light;
+    margin: 0 0.4rem;
+    padding: 0.4rem;
+    background: $color-violet-dark;
+    color: $color-white;
     text-transform: uppercase;
     font-weight: 100;
     letter-spacing: 3px;
-    font-size: $font-md;
+    font-size: $font-sm;
+    border-radius: 1px;
+  }
+
+  &--active {
+    transition: 0.3s ease-in;
+    max-height: 100vh;
   }
 }

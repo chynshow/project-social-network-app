@@ -1,2 +1,25 @@
 // FONTS
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+
+// TITLES
+
+.c-title-primary,
+.c-title-secondary,
+.c-title-tertiary {
+  color: $color-violet-dark;
+  line-height: $heading-line-height;
+}
+
+.c-title-primary {
+  font-weight: 500;
+  font-size: $font-xl;
+}
+
+.c-title-secondary {
+  font-weight: 400;
+  font-size: $font-lg;
+}
+.c-title-tertiary {
+  font-weight: 400;
+  font-size: $font-md;
+}

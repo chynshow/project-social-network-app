@@ -2,26 +2,21 @@
   border-top: $layout-gap solid $color-body;
   background: $color-component-bg;
   border-radius: 0 0 10px 10px;
-  min-height: 25vh;
+  min-height: 39vh;
   @include bg-img('/assets/svg/undraw_personal_text_vkd8.svg', 20%, 98% 98%);
+  padding-bottom: 15rem;
+  position: relative;
 
   &__header {
-    padding: 1.5rem;
+    padding: 2rem 1.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid $color-body;
   }
 
   &__title {
-    font-weight: 400;
+    padding-top: 0.5rem;
     display: flex;
-    color: $color-violet-dark;
-    font-size: $font-md;
-
-    &::first-letter {
-      color: $color-violet-light;
-    }
   }
 
   &__title-icon {
@@ -29,7 +24,16 @@
     margin-left: 0.5rem;
   }
 
+  &__add-post-btn {
+    padding-top: 0.5rem;
+  }
+
   &__info {
-    padding: 1.5rem;
+    padding: 0.5rem;
+    color: $color-grey-light;
+  }
+
+  &__items-container {
+    padding: 0 1rem;
   }
 }

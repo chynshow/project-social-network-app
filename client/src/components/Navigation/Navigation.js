@@ -1,12 +1,12 @@
-import React from "react";
-import Icon from "../Common/Icon/Icon";
+import React from 'react';
+import Icon from '../Common/Icon/Icon';
 import {
   faUsers,
   faUser,
   faCogs,
-  faCommentAlt,
-} from "@fortawesome/free-solid-svg-icons";
-import { NavLink } from "react-router-dom";
+  // faCommentAlt,
+} from '@fortawesome/free-solid-svg-icons';
+import { NavLink } from 'react-router-dom';
 
 const Navigation = () => {
   return (
