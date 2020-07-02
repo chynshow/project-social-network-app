@@ -8,16 +8,21 @@
     align-items: center;
     padding: 0.7rem;
     color: $color-violet-dark;
+    transform: scale(1);
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
     &:nth-child(1) {
       transform: translateX(-1rem);
-      // color: #cf4312;
     }
     &:nth-child(2) {
-      transform: translateX();
+      transform: translateX(0);
     }
     &:nth-child(3) {
       transform: translateX(-1rem);
-      // color: #3d72de;
+    }
+
+    &:hover {
+      transform: scale(1.1);
     }
   }
   &__item-icon {

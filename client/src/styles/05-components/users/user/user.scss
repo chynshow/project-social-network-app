@@ -7,6 +7,8 @@
   flex-direction: column;
   margin: 0.2rem;
   flex-basis: calc(25% - 0.4rem);
+  transform: scale(1);
+  transition: 0.2s ease;
 
   &__user-name {
     padding-top: 1rem;
@@ -17,6 +19,11 @@
 
   &__user-profession {
     padding: 1rem;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+    z-index: 1;
   }
 }
 
