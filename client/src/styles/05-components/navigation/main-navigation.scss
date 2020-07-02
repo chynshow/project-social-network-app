@@ -2,16 +2,20 @@
   grid-area: 3/2/4/3;
   height: 70vh;
   border-radius: $component-boder-radius;
-  list-style: none;
-  background: $color-white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  background: $color-component-bg;
   @include bg-img(
     '/assets/svg/undraw_current_location_rypt.svg',
     70%,
     center 98%
   );
+
+  &__links-container {
+    margin-top: 1rem;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
   &__link {
     padding: 1.4rem;
