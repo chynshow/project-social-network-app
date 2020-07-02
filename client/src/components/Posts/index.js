@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faCommentAlt } from '@fortawesome/free-solid-svg-icons';
 import Post from './Post';
 import ModalAddPost from './ModalAddPost';
+import Tooltip from '../Common/Tooltip';
 
 const Posts = () => {
   const [showModal, setShowModal] = React.useState(false);
@@ -16,13 +17,15 @@ const Posts = () => {
             icon={faCommentAlt}
           />
         </h3>
-        <button
-          type="button"
-          className="c-btn c-posts__add-post-btn"
-          onClick={() => setShowModal(!showModal)}
-        >
-          <FontAwesomeIcon className="c-icon" icon={faPlus} />
-        </button>
+        <Tooltip label="Add post">
+          <button
+            type="button"
+            className="c-btn c-posts__add-post-btn"
+            onClick={() => setShowModal(!showModal)}
+          >
+            <FontAwesomeIcon className="c-icon" icon={faPlus} />
+          </button>
+        </Tooltip>
       </div>
       <div className="c-posts__items-container">
         {/* <p className="c-posts__info">You don't have any posts yet!</p> */}

@@ -10,6 +10,7 @@ import {
   faCommentDots,
   faChevronUp,
 } from '@fortawesome/free-solid-svg-icons';
+import Tooltip from '../../Common/Tooltip';
 
 export const UserInfoHeader = ({ setShowContent, showContent }) => {
   return (
@@ -18,13 +19,15 @@ export const UserInfoHeader = ({ setShowContent, showContent }) => {
         Jane Moren
         <span className="c-user-info__user-position">Designer</span>
       </h3>
-      <button
-        className="c-btn"
-        type="button"
-        onClick={() => setShowContent(!showContent)}
-      >
-        <FontAwesomeIcon icon={showContent ? faChevronUp : faChevronDown} />
-      </button>
+      <Tooltip label="Show more">
+        <button
+          className="c-btn c-btn--secondary"
+          type="button"
+          onClick={() => setShowContent(!showContent)}
+        >
+          <FontAwesomeIcon icon={showContent ? faChevronUp : faChevronDown} />
+        </button>
+      </Tooltip>
     </header>
   );
 };
@@ -41,12 +44,16 @@ const UserInfo = ({ showContent }) => {
           <div className="c-main-info__header">
             <h3 className="c-title-tertiary">Personal information</h3>
             <div className="l-main-info__header-container">
-              <button className="c-btn c-main-info__btn" type="button">
-                <FontAwesomeIcon icon={faPen} />
-              </button>
-              <button className="c-btn c-main-info__btn" type="button">
-                <FontAwesomeIcon icon={faDownload} />
-              </button>
+              <Tooltip label="Edit">
+                <button className="c-btn c-main-info__btn" type="button">
+                  <FontAwesomeIcon icon={faPen} />
+                </button>
+              </Tooltip>
+              <Tooltip label="Download resume">
+                <button className="c-btn c-main-info__btn" type="button">
+                  <FontAwesomeIcon icon={faDownload} />
+                </button>
+              </Tooltip>
             </div>
           </div>
           <div className="c-main-info__content">

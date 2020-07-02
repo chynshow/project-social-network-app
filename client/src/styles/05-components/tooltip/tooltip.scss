@@ -1,0 +1,34 @@
+.c-tooltip {
+  position: relative;
+  &__label {
+    display: flex;
+    padding: 1rem;
+    margin: 1rem 0;
+    background: $color-violet-dark;
+    color: $color-white;
+    white-space: nowrap;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(1rem);
+    border-radius: 5px;
+    opacity: 0;
+    transition: 0.2s ease-in-out;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translate(-50%);
+      border-left: 0.8rem solid transparent;
+      border-top: 0.8rem solid $color-violet-dark;
+      border-right: 0.8rem solid transparent;
+    }
+  }
+  &:hover .c-tooltip__label {
+    transition: 0.2s ease-in-out;
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+}
