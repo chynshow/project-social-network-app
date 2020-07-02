@@ -12,8 +12,6 @@
   border: 1px solid $color-border;
   border-radius: 5px;
   background: $color-component-bg;
-  transform: scale(1);
-  transition: 0.2s ease;
 
   &:not(:last-child) {
     margin-bottom: 0.5rem;
@@ -55,12 +53,8 @@
   &__post-footer {
     padding: 1.5rem;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  &:hover {
-    transform: scale(1.02);
-    z-index: 2;
+    flex-direction: column;
+    // justify-content: space-between;
+    // align-items: center;
   }
 }

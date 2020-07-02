@@ -1,0 +1,36 @@
+.l-modal-add-comment {
+  display: flex;
+  align-items: center;
+}
+.c-modal-add-comment {
+  position: absolute;
+  bottom: 120%;
+  left: 5%;
+  background: $color-component-bg;
+  box-shadow: $shadow-component;
+  border-radius: 5px;
+  z-index: 3;
+  min-width: 20vw;
+  &__header {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid $color-border;
+    background: rgba($color-white-light, $alpha: 0.5);
+  }
+
+  &__close-btn {
+    padding: 0 0.5rem;
+  }
+
+  &__text-area {
+    min-height: 15vh;
+  }
+  &__action-panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+  }
+}

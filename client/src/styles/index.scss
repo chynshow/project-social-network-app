@@ -27,7 +27,9 @@
 @import './05-components/posts/post.scss';
 @import './05-components/posts/post-context-menu.scss';
 @import './05-components/posts/post-modal.scss';
-@import './05-components/comments/comments.scss';
+@import './05-components/posts/comments/comments.scss';
+@import './05-components/posts/comments/comment/comment.scss';
+@import './05-components/posts/comments/comment-modal.scss';
 @import './05-components/settings/settings.scss';
 @import './05-components/users/users.scss';
 @import './05-components/users/user/user.scss';

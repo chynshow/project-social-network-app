@@ -9,6 +9,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import UserAvatar from '../../Common/UserAvatar';
 import Overlay from '../../Common/Overlay';
+import Comments from '../Comments';
 
 const Post = () => {
   const [showContextMenu, setShowContextMenu] = React.useState(false);
@@ -58,15 +59,16 @@ const Post = () => {
       </div>
       <div className="c-post__post-footer">
         {/* comment component */}
-        <button className="c-btn c-btn--primary" type="button">
+        <Comments />
+        {/* <button className="c-btn c-btn--primary" type="button">
           Comment
           <FontAwesomeIcon className="c-btn__icon" icon={faComment} />
-        </button>
-        <div className="c-like">
-          {/* Like component */}
+        </button> */}
+        {/* <div className="c-like">
+          
 
           <FontAwesomeIcon className="c-icon" icon={faHeart} />
-        </div>
+        </div> */}
       </div>
     </div>
   );
