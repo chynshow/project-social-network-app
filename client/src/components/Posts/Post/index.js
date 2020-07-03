@@ -25,7 +25,7 @@ const Post = () => {
           />
           <div className="l-post-title-box">
             <h3 className="c-title-tertiary">Jane Moren</h3>
-            <span className="c-post__post-date">30-06-2020</span>
+            <span className="c-post__date">30-06-2020</span>
           </div>
         </div>
         <button
@@ -43,8 +43,8 @@ const Post = () => {
           <Overlay zIndex="2" onClick={() => setShowContextMenu(false)} />
         )}
       </header>
-      <div className="c-post__post-text-container">
-        <p className="c-post__post-text">
+      <div className="c-post__text-container">
+        <p className="c-post__text">
           This is the posts textlore Lorem ipsum dolor sit, amet consectetur
           adipisicing elit. Unde nisi ab voluptas doloribus omnis sunt cumque
           saepe corrupti repellendus repudiandae? Lorem ipsum dolor, sit amet
@@ -57,7 +57,7 @@ const Post = () => {
           voluptates consectetur similique dicta voluptas.
         </p>
       </div>
-      <div className="c-post__post-footer">
+      <div className="c-post__action-panel">
         {/* comment component */}
         <Comments />
         {/* <button className="c-btn c-btn--primary" type="button">

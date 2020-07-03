@@ -7,6 +7,8 @@
   height: 100%;
   color: $color-grey-dark;
   padding: 1rem;
+  font-size: $font-md;
+  background: transparent;
 
   &::placeholder {
     color: $color-placeholder;

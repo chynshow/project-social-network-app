@@ -25,7 +25,13 @@
   }
 
   &__add-post-btn {
-    padding-top: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    transition: 0.4s ease-in-out;
   }
 
   &__info {
@@ -35,5 +41,11 @@
 
   &__items-container {
     padding: 0 1rem;
+  }
+
+  &__header:hover .c-posts__add-post-btn {
+    background: $color-violet-dark;
+    color: $color-white;
+    animation: pulse 2s linear 2;
   }
 }

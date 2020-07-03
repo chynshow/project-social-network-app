@@ -1,6 +1,8 @@
 .c-comments {
   &__header {
     position: relative;
+    display: flex;
+    align-items: center;
   }
   &__items-container {
     display: flex;
@@ -16,5 +18,22 @@
   }
 
   &__add-comment-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    transition: 0.4s ease-in-out;
+  }
+
+  &__show-comments-btn {
+    margin-left: 0.5rem;
+  }
+
+  &__header:hover .c-comments__add-comment-btn {
+    background: $color-violet-dark;
+    color: $color-white;
+    animation: pulse 2s linear 1;
   }
 }

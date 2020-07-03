@@ -1,35 +1,68 @@
 .c-modal-add-post {
   position: absolute;
-  top: 5rem;
-  right: 3.5rem;
-  background: $color-component-bg;
-  box-shadow: $shadow-component;
+  top: 0;
+  right: 10%;
   border-radius: 10px;
-  min-width: 40vw;
-  z-index: 5;
+  display: flex;
+  align-items: center;
+  z-index: 1;
 
   &__header {
     padding: 2rem 1.5rem;
-    border-bottom: 1px solid $color-border;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    @include bg-img('/assets/svg/bg-2.svg', 60%, center);
+    align-items: center;
+    @include bg-img('/assets/svg/bg-2.svg', 50%, center);
+    order: 1;
+    position: relative;
+  }
+
+  &__close-btn {
+    position: absolute;
+    top: 20%;
+    right: 10%;
   }
 
   &__content {
-    background: rgba($color-white-light, $alpha: 0.5);
-    padding: 1rem;
+    position: relative;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    background: $color-violet-dark;
+    box-shadow: $shadow-component;
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 100%;
+      transform: translateY(-50%);
+      border-left: 0.7rem solid rgba($color: $color-violet-dark, $alpha: 1);
+      border-top: 0.7rem solid transparent;
+      border-bottom: 0.7rem solid transparent;
+    }
   }
   &__text-area {
-    border: 1px solid $color-border;
-    min-height: 15vh;
+    min-height: 10vh;
+    min-width: 20vw;
+    color: $color-white;
+    transition: 0.3s;
+
+    &::placeholder {
+      color: $color-white;
+    }
+
+    &--expand {
+      min-height: 40vh;
+      min-width: 50vw;
+    }
   }
 
   &__action-panel {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
-    background: rgba($color-white-light, $alpha: 0.5);
-    padding: 1rem;
+    padding: 0.5rem;
   }
 }
