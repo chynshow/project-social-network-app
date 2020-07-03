@@ -1,37 +1,16 @@
-.c-modal-add-post {
-  position: absolute;
-  top: 0;
-  right: 10%;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  z-index: 1;
+// main component c-modal-add-message
+.c-posts-modal-add-post {
+  top: 5%;
+  right: 8%;
 
   &__header {
-    padding: 2rem 1.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    @include bg-img('/assets/svg/bg-2.svg', 50%, center);
     order: 1;
-    position: relative;
   }
-
   &__close-btn {
-    position: absolute;
     top: 20%;
     right: 10%;
   }
-
   &__content {
-    position: relative;
-    padding: 0.5rem;
-    display: flex;
-    flex-direction: column;
-    border-radius: 5px;
-    background: $color-violet-dark;
-    box-shadow: $shadow-component;
     &::after {
       content: '';
       position: absolute;
@@ -43,26 +22,13 @@
       border-bottom: 0.7rem solid transparent;
     }
   }
-  &__text-area {
-    min-height: 10vh;
-    min-width: 20vw;
-    color: $color-white;
-    transition: 0.3s;
 
-    &::placeholder {
-      color: $color-white;
-    }
-
-    &--expand {
-      min-height: 40vh;
-      min-width: 50vw;
-    }
+  &__text-area--expand {
+    min-height: 40vh;
+    min-width: 50vw;
   }
 
   &__action-panel {
-    display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem;
   }
 }

@@ -1,36 +1,14 @@
-.l-modal-add-comment {
-  display: flex;
-  align-items: center;
-}
-.c-modal-add-comment {
-  position: absolute;
+// main component c-modal-add-message
+.c-comments-modal-add-comment {
   top: 50%;
   left: 5%;
   transform: translateY(-50%);
-  z-index: 2;
-  display: flex;
-  &__header {
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    @include bg-img('/assets/svg/bg-2.svg', 50%, center);
-    position: relative;
-  }
 
-  &__title {
-    text-align: center;
+  &__header {
+    order: -1;
   }
 
   &__content {
-    position: relative;
-    padding: 0.5rem;
-    display: flex;
-    flex-direction: column;
-    border-radius: 5px;
-    background: $color-violet-dark;
-    box-shadow: $shadow-component;
     &::after {
       content: '';
       position: absolute;
@@ -44,31 +22,11 @@
   }
 
   &__close-btn {
-    position: absolute;
     top: 20%;
     left: 10%;
-    padding: 0 0.5rem;
   }
 
-  &__text-area {
-    min-height: 10vh;
-    min-width: 20vw;
-    color: $color-white;
-    transition: 0.3s;
-
-    &::placeholder {
-      color: $color-white;
-    }
-
-    &--expand {
-      min-height: 40vh;
-      min-width: 50vw;
-    }
-  }
   &__action-panel {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem;
+    justify-content: flex-end;
   }
 }

@@ -1,0 +1,47 @@
+.c-modal-add-message {
+  position: absolute;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  z-index: 3;
+
+  &__header {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    @include bg-img('/assets/svg/bg-2.svg', 100%, center);
+    position: relative;
+  }
+
+  &__close-btn {
+    position: absolute;
+  }
+
+  &__content {
+    position: relative;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    background: $color-violet-dark;
+    box-shadow: $shadow-component;
+  }
+  &__text-area {
+    min-height: 10vh;
+    min-width: 20vw;
+    color: $color-white;
+    transition: 0.3s;
+
+    &::placeholder {
+      color: $color-white;
+    }
+  }
+
+  &__action-panel {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+  }
+}

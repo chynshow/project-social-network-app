@@ -14,8 +14,8 @@ const ModalAddPost = ({ setShowModal }) => {
   const [expandModal, setExpandModal] = React.useState(false);
   return (
     <>
-      <div className="c-modal-add-post">
-        <div className="c-modal-add-post__header">
+      <div className="c-modal-add-message c-posts-modal-add-post">
+        <div className="c-modal-add-message__header c-posts-modal-add-post__header">
           <UserAvatar
             size="4rem"
             src="/assets/images/guilherme-stecanella-_dH-oQF9w-Y-unsplash.jpg"
@@ -25,23 +25,23 @@ const ModalAddPost = ({ setShowModal }) => {
             Jane Moren
           </h3>
           <button
-            className="c-btn c-modal-add-post__close-btn"
+            className="c-btn c-modal-add-message__close-btn c-posts-modal-add-post__close-btn"
             type="button"
             onClick={() => setShowModal(false)}
           >
             <FontAwesomeIcon icon={faTimes} />
           </button>
         </div>
-        <div className="c-modal-add-post__content">
+        <div className="c-modal-add-message__content c-posts-modal-add-post__content">
           <TextArea
             placeholder="New post"
             className={
               expandModal
-                ? 'c-text-area c-modal-add-post__text-area c-modal-add-post__text-area--expand'
-                : 'c-text-area c-modal-add-post__text-area'
+                ? 'c-text-area c-modal-add-message__text-area c-posts-modal-add-post__text-area--expand'
+                : 'c-text-area c-modal-add-message__text-area'
             }
           />
-          <div className="c-modal-add-post__action-panel">
+          <div className="c-modal-add-message__action-panel c-posts-modal-add-post__action-panel">
             <button
               className="c-btn c-btn--primary"
               type="button"
@@ -58,6 +58,7 @@ const ModalAddPost = ({ setShowModal }) => {
       <Overlay
         opacity=".2"
         background="#fff"
+        zIndex="2"
         onClick={() => setShowModal(false)}
       />
     </>

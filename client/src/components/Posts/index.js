@@ -31,6 +31,7 @@ const Posts = () => {
         {/* <p className="c-posts__info">You don't have any posts yet!</p> */}
         <Post />
         <Post />
+
         {showModal && <ModalAddPost setShowModal={setShowModal} />}
       </div>
     </div>
