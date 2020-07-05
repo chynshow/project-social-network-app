@@ -6,13 +6,13 @@
   padding: 0;
   cursor: pointer;
   color: $color-violet-dark;
+  border-radius: 5px;
 
   &__icon {
     margin: 0 0.5rem;
   }
 
   &--primary {
-    border-radius: 5px;
     padding: 0.7rem;
     background: $color-violet-dark;
     color: $color-white;
@@ -20,5 +20,6 @@
 
   &--secondary {
     padding: 0.7rem;
+    border: 1px solid $color-blue-light;
   }
 }

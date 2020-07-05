@@ -3,15 +3,17 @@ import PropTypes from 'prop-types';
 import { Field, ErrorMessage } from 'formik';
 import TextError from '../TextError';
 
-const TextArea = ({ label, name, placeholder, ...rest }) => {
+const TextArea = ({ label, name, placeholder, className, ...rest }) => {
   return (
-    <div>
-      <label htmlFor={name}>{label}</label>
+    <div className="c-form__field-container">
+      <label className="c-form__field-label" htmlFor={name}>
+        {label}
+      </label>
       <Field
         as="textarea"
         id={name}
         name={name}
-        className="c-text-area"
+        className={className ? `c-text-area ${className}` : 'c-text-area'}
         placeholder={placeholder}
         {...rest}
       />
