@@ -1,8 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  // faHeart,
-  // faComment,
   faEllipsisH,
   faShare,
   faTrash,
@@ -10,6 +8,7 @@ import {
 import UserAvatar from '../../Common/UserAvatar';
 import Overlay from '../../Common/Overlay';
 import Comments from '../Comments';
+import Like from '../Like';
 
 const Post = () => {
   const [showContextMenu, setShowContextMenu] = React.useState(false);
@@ -58,17 +57,8 @@ const Post = () => {
         </p>
       </div>
       <div className="c-post__action-panel">
-        {/* comment component */}
         <Comments />
-        {/* <button className="c-btn c-btn--primary" type="button">
-          Comment
-          <FontAwesomeIcon className="c-btn__icon" icon={faComment} />
-        </button> */}
-        {/* <div className="c-like">
-          
-
-          <FontAwesomeIcon className="c-icon" icon={faHeart} />
-        </div> */}
+        <Like />
       </div>
     </div>
   );

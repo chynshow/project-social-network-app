@@ -4,3 +4,13 @@
   background-repeat: no-repeat;
   background-position: $pos;
 }
+
+@mixin hide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+@mixin show {
+  opacity: 1;
+  visibility: visible;
+}

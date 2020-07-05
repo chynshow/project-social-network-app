@@ -1,0 +1,15 @@
+.c-like {
+  position: relative;
+  padding: 0.7rem 0;
+  &__count {
+    position: absolute;
+    right: 100%;
+    @include hide;
+    transition: $transition;
+  }
+
+  &:hover .c-like__count {
+    transform: translateX(-150%);
+    @include show;
+  }
+}
