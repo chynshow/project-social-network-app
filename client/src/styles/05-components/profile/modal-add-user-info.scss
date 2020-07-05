@@ -1,0 +1,12 @@
+.c-modal-add-user-info {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 1px solid red;
+  padding: 1rem;
+  background: $color-component-bg;
+  min-height: 50vh;
+  min-width: 20vw;
+  z-index: 2;
+}

@@ -11,6 +11,7 @@ import {
   faChevronUp,
 } from '@fortawesome/free-solid-svg-icons';
 import Tooltip from '../../Common/Tooltip';
+import ModalAddUserInfo from '../ModalAddUserInfo';
 
 export const UserInfoHeader = ({ setShowContent, showContent }) => {
   return (
@@ -33,6 +34,7 @@ export const UserInfoHeader = ({ setShowContent, showContent }) => {
 };
 
 const UserInfo = ({ showContent }) => {
+  const [showModal, setShowModal] = React.useState(false);
   return (
     <section
       className={
@@ -45,7 +47,11 @@ const UserInfo = ({ showContent }) => {
             <h3 className="c-title-tertiary">Personal information</h3>
             <div className="l-main-info__header-container">
               <Tooltip label="Edit">
-                <button className="c-btn c-main-info__btn" type="button">
+                <button
+                  className="c-btn c-main-info__btn"
+                  type="button"
+                  onClick={() => setShowModal(!showModal)}
+                >
                   <FontAwesomeIcon icon={faPen} />
                 </button>
               </Tooltip>
@@ -55,6 +61,7 @@ const UserInfo = ({ showContent }) => {
                 </button>
               </Tooltip>
             </div>
+            {showModal && <ModalAddUserInfo setShowModal={setShowModal} />}
           </div>
           <div className="c-main-info__content">
             <p className="c-main-info__text c-main-info__text--about-me">
