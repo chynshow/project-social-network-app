@@ -1,8 +1,8 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faHeart,
-  faComment,
+  // faHeart,
+  // faComment,
   faEllipsisH,
   faShare,
   faTrash,

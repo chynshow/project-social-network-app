@@ -1,17 +1,11 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import PropTypes from 'prop-types';
-import {
-  faExpandAlt,
-  faPaperPlane,
-  faTimes,
-} from '@fortawesome/free-solid-svg-icons';
-import TextArea from '../../Common/TextArea';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import Overlay from '../../Common/Overlay';
 import UserAvatar from '../../Common/UserAvatar';
+import AddPostForm from './AddPostForm';
 
 const ModalAddPost = ({ setShowModal }) => {
-  const [expandModal, setExpandModal] = React.useState(false);
   return (
     <>
       <div className="c-modal-add-message c-posts-modal-add-post">
@@ -33,26 +27,7 @@ const ModalAddPost = ({ setShowModal }) => {
           </button>
         </div>
         <div className="c-modal-add-message__content c-posts-modal-add-post__content">
-          <TextArea
-            placeholder="New post"
-            className={
-              expandModal
-                ? 'c-text-area c-modal-add-message__text-area c-posts-modal-add-post__text-area--expand'
-                : 'c-text-area c-modal-add-message__text-area'
-            }
-          />
-          <div className="c-modal-add-message__action-panel c-posts-modal-add-post__action-panel">
-            <button
-              className="c-btn c-btn--primary"
-              type="button"
-              onClick={() => setExpandModal(!expandModal)}
-            >
-              <FontAwesomeIcon icon={faExpandAlt} />
-            </button>
-            <button className="c-btn c-btn--primary" type="button">
-              <FontAwesomeIcon icon={faPaperPlane} />
-            </button>
-          </div>
+          <AddPostForm />
         </div>
       </div>
       <Overlay
@@ -63,10 +38,6 @@ const ModalAddPost = ({ setShowModal }) => {
       />
     </>
   );
-};
-
-ModalAddPost.propTypes = {
-  setShowModal: PropTypes.func.isRequired,
 };
 
 export default ModalAddPost;

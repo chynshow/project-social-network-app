@@ -27,8 +27,13 @@
     border-radius: 5px;
     background: $color-violet-dark;
     box-shadow: $shadow-component;
+
+    .c-text-error {
+      padding: 0 0.5rem;
+    }
   }
   &__text-area {
+    border: 0;
     min-height: 10vh;
     min-width: 20vw;
     color: $color-white;

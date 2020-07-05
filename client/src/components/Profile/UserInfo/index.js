@@ -20,9 +20,9 @@ export const UserInfoHeader = ({ setShowContent, showContent }) => {
         Jane Moren
         <span className="c-user-info__user-position">Designer</span>
       </h3>
-      <Tooltip label="Show more">
+      <Tooltip label="User information">
         <button
-          className="c-btn c-btn--secondary"
+          className="c-btn c-user-info__show-more-btn"
           type="button"
           onClick={() => setShowContent(!showContent)}
         >
@@ -35,6 +35,9 @@ export const UserInfoHeader = ({ setShowContent, showContent }) => {
 
 const UserInfo = ({ showContent }) => {
   const [showModal, setShowModal] = React.useState(false);
+  const handlerDownloadCV = () => {
+    console.log('DownloadCV');
+  };
   return (
     <section
       className={
@@ -55,8 +58,12 @@ const UserInfo = ({ showContent }) => {
                   <FontAwesomeIcon icon={faPen} />
                 </button>
               </Tooltip>
-              <Tooltip label="Download resume">
-                <button className="c-btn c-main-info__btn" type="button">
+              <Tooltip label="Download CV">
+                <button
+                  className="c-btn c-main-info__btn"
+                  type="button"
+                  onClick={() => handlerDownloadCV()}
+                >
                   <FontAwesomeIcon icon={faDownload} />
                 </button>
               </Tooltip>

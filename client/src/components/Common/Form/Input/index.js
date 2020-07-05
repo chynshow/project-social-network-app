@@ -5,9 +5,11 @@ import TextError from '../TextError';
 const Input = ({ label, name, placeholder, className, ...rest }) => {
   return (
     <div className="c-form__field-container">
-      <label className="c-form__field-label" htmlFor={name}>
-        {label}
-      </label>
+      {label && (
+        <label className="c-form__field-label" htmlFor={name}>
+          {label}
+        </label>
+      )}
       <Field
         className={className ? `c-input ${className}` : 'c-input'}
         id={name}
