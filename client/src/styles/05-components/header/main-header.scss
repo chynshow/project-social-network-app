@@ -1,20 +1,19 @@
 .c-main-header {
   grid-area: 1/2/2/5;
-  border-radius: $component-boder-radius;
+  border-radius: $component-border-radius;
   display: flex;
   justify-content: space-between;
   background: $color-component-bg;
   margin-top: 0.5rem;
-  background-image: url('/assets/svg/undraw_connected_world_wuay.svg');
-  background-size: 10%;
-  background-repeat: no-repeat;
-  background-position-y: center;
-  background-position-x: 2%;
+  @include bg-img(
+    '/assets/svg/undraw_connected_world_wuay.svg',
+    10%,
+    2% center
+  );
 
   &__title {
-    margin-left: 10rem;
+    margin-left: 11.1rem;
     padding: 1.5rem;
-    font-weight: 400;
     font-size: 2rem;
     display: flex;
     align-items: center;
@@ -30,31 +29,20 @@
       }
     }
   }
-
-  &__icon {
-    font-size: 3rem;
-    margin-right: 0.5rem;
-  }
 }
 
 .c-logout-container {
-  background-image: url('/assets/subtracts/01.svg');
-  background-size: cover;
-  border-radius: 0 10px 10px 0;
-  min-height: 100%;
-
-  background: $color-violet-dark;
   display: flex;
   justify-content: center;
   align-items: center;
+  background: $color-violet-dark;
+  border-radius: 0 10px 10px 0;
 
   &__btn {
     padding: 0.8rem;
   }
 
   &__icon {
-    font-size: 1rem;
-    margin-left: 0.5rem;
     color: $color-white;
   }
 }

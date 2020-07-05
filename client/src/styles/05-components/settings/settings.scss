@@ -22,8 +22,14 @@
     border-radius: 5px;
     display: flex;
     justify-content: space-between;
+    transform: scale(1);
+    transition: $transition;
     &:not(:last-child) {
       margin-bottom: 0.2rem;
+    }
+
+    &:hover {
+      transform: scale(1.01);
     }
   }
 }

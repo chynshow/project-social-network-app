@@ -8,7 +8,7 @@
   margin: 0.2rem;
   flex-basis: calc(25% - 0.4rem);
   transform: scale(1);
-  transition: 0.2s ease;
+  transition: $transition;
 
   &__user-name {
     padding-top: 1rem;

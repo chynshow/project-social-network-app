@@ -1,7 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
-import Tooltip from '../Common/Tooltip';
 
 const Settings = () => {
   return (
@@ -11,15 +10,6 @@ const Settings = () => {
           Delete Account
           <FontAwesomeIcon icon={faChevronRight} />
         </div>
-        <Tooltip label="This is tooltip">
-          <button
-            type="button"
-            className="c-btn"
-            onClick={() => console.log('this is a tool tip')}
-          >
-            Test
-          </button>
-        </Tooltip>
       </div>
     </section>
   );

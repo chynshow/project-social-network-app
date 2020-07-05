@@ -1,7 +1,7 @@
 .c-main-navigation {
   grid-area: 3/2/4/3;
   height: 70vh;
-  border-radius: $component-boder-radius;
+  border-radius: $component-border-radius;
   background: $color-component-bg;
   @include bg-img(
     '/assets/svg/undraw_current_location_rypt.svg',

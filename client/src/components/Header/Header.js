@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const Header = () => {
   return (
     <header className="c-main-header">
-      <h2 className="c-main-header__title">
+      <h2 className="c-title-secondary c-main-header__title">
         <span className="c-main-header__title--mode">Social</span>
         <span className="c-main-header__title--mode">Network</span>
       </h2>
@@ -16,7 +16,7 @@ const Header = () => {
           className="c-btn c-logout-container__btn"
         >
           <FontAwesomeIcon
-            className="c-logout-container__icon"
+            className="c-btn__icon c-logout-container__icon"
             icon={faSignOutAlt}
           />
         </button>

@@ -3,6 +3,7 @@
     position: relative;
     display: flex;
     align-items: center;
+    transition: $transition;
   }
   &__items-container {
     display: flex;
@@ -28,12 +29,21 @@
   }
 
   &__show-comments-btn {
-    margin-left: 0.5rem;
+    margin-left: 1.5rem;
+    transition: $transition;
+    @include hide;
+    position: absolute;
+    left: 0;
   }
 
   &__header:hover .c-comments__add-comment-btn {
     background: $color-violet-dark;
     color: $color-white;
     animation: pulse 2s linear 1;
+  }
+
+  &__header:hover .c-comments__show-comments-btn {
+    @include show;
+    transform: translateX(150%);
   }
 }
