@@ -2,7 +2,6 @@
   grid-area: 1/2/2/5;
   border-radius: $component-border-radius;
   display: flex;
-  justify-content: space-between;
   background: $color-component-bg;
   margin-top: 0.5rem;
   @include bg-img(
@@ -31,18 +30,18 @@
   }
 }
 
-.c-logout-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: $color-violet-dark;
-  border-radius: 0 10px 10px 0;
+// .c-logout-container {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   background: $color-violet-dark;
+//   border-radius: 0 10px 10px 0;
 
-  &__btn {
-    padding: 0.8rem;
-  }
+//   &__btn {
+//     padding: 0.8rem;
+//   }
 
-  &__icon {
-    color: $color-white;
-  }
-}
+//   &__icon {
+//     color: $color-white;
+//   }
+// }

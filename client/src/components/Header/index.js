@@ -1,6 +1,6 @@
 import React from 'react';
-import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Header = () => {
   return (
@@ -9,7 +9,7 @@ const Header = () => {
         <span className="c-main-header__title--mode">Social</span>
         <span className="c-main-header__title--mode">Network</span>
       </h2>
-      <div className="c-logout-container">
+      {/* <div className="c-logout-container">
         <button
           type="button"
           text="Logout"
@@ -20,7 +20,7 @@ const Header = () => {
             icon={faSignOutAlt}
           />
         </button>
-      </div>
+      </div> */}
     </header>
   );
 };

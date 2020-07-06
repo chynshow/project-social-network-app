@@ -9,6 +9,7 @@
   border-radius: 5px;
   transition: 0.1s;
   transform: scale(1);
+  min-width: fit-content;
 
   &__icon {
     margin: 0 0.5rem;

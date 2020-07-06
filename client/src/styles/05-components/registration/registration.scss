@@ -1,0 +1,44 @@
+.c-registration,
+.c-login {
+  grid-area: 2/2/4/5;
+  background: $color-component-bg;
+  border-radius: $component-border-radius;
+  min-height: 100%;
+  z-index: 2;
+
+  &__title {
+    padding: 2.5rem 1rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-weight: 200;
+  }
+
+  &__form {
+    border: 1px solid $color-blue-light;
+    border-radius: 5px;
+    padding: 2rem;
+    width: 60%;
+    margin: 0 auto;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+  }
+
+  &__btn-container {
+    padding-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.c-registration {
+  @include bg-img('/assets/svg/undraw_profile_data_mk6k.svg', 20%, 98% 98%);
+}
+
+.c-login {
+  @include bg-img('/assets/svg/undraw_profile_data_mk6k.svg', 20%, 98% 98%);
+}
