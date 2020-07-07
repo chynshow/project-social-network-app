@@ -2,6 +2,7 @@ import React from 'react';
 import { Formik, Form } from 'formik';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExpandAlt, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
+import * as Yup from 'yup';
 import FormControl from '../../../Common/Form/FormControl';
 
 const AddPostForm = () => {
@@ -14,20 +15,15 @@ const AddPostForm = () => {
     console.log(value);
   };
 
-  const validate = (value) => {
-    const errors = {};
-    if (!value.post) {
-      errors.post = 'Require!';
-    }
-
-    return errors;
-  };
+  const validationSchema = Yup.object({
+    post: Yup.string().required('Field is required!'),
+  });
 
   return (
     <Formik
       initialValues={initialValues}
       onSubmit={onSubmit}
-      validate={validate}
+      validationSchema={validationSchema}
       validateOnBlur={false}
     >
       {() => (

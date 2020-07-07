@@ -1,8 +1,8 @@
 import React from 'react';
 import { Formik, Form } from 'formik';
 import { Link } from 'react-router-dom';
+import * as Yup from 'yup';
 import FormControl from '../Common/Form/FormControl';
-import { required } from '../../utils/validators';
 
 const Registration = () => {
   return (
@@ -20,11 +20,35 @@ const RegistrationForm = () => {
     password: '',
     confirmPassword: '',
   };
+
+  const validationSchema = Yup.object({
+    name: Yup.string().required('Field is required!'),
+    email: Yup.string()
+      .required('Field is required!')
+      .email('Email is not valid!'),
+    password: Yup.string()
+      .required('Field is required!')
+      .min(6, 'Password should be more than 6 characters!'),
+    confirmPassword: Yup.string()
+      .required('Field is required!')
+      .when('password', {
+        is: (val) => !!(val && val.length > 0),
+        then: Yup.string().oneOf(
+          [Yup.ref('password')],
+          "Passwords don't match!"
+        ),
+      }),
+  });
+
   const onSubmit = (value) => {
     console.log(value);
   };
   return (
-    <Formik initialValues={initialValues} onSubmit={onSubmit}>
+    <Formik
+      initialValues={initialValues}
+      onSubmit={onSubmit}
+      validationSchema={validationSchema}
+    >
       {() => (
         <Form className="c-registration__form">
           <FormControl
@@ -33,7 +57,6 @@ const RegistrationForm = () => {
             label="Name"
             placeholder="Name"
             name="name"
-            validate={required}
           />
           <FormControl
             control="input"
@@ -41,7 +64,6 @@ const RegistrationForm = () => {
             label="Email"
             placeholder="Type your email"
             name="email"
-            validate={required}
           />
           <FormControl
             control="input"
@@ -49,7 +71,6 @@ const RegistrationForm = () => {
             label="Password"
             placeholder="Password"
             name="password"
-            validate={required}
           />
           <FormControl
             control="input"
@@ -57,7 +78,6 @@ const RegistrationForm = () => {
             label="Confirm Password"
             placeholder="Confirm Password"
             name="confirmPassword"
-            validate={required}
           />
           <div className="c-registration__btn-container">
             <button className="c-btn c-btn--primary" type="submit">

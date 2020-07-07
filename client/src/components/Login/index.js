@@ -1,8 +1,8 @@
 import React from 'react';
 import { Formik, Form } from 'formik';
 import { Link } from 'react-router-dom';
+import * as Yup from 'yup';
 import FormControl from '../Common/Form/FormControl';
-import { required } from '../../utils/validators';
 
 const Login = () => {
   return (
@@ -18,11 +18,25 @@ const LoginForm = () => {
     email: '',
     password: '',
   };
+
+  const validationSchema = Yup.object({
+    email: Yup.string()
+      .required('Field is required!')
+      .email('Email is not valid!'),
+    password: Yup.string()
+      .required('Field is required!')
+      .min(6, 'Password should be more than 6 characters!'),
+  });
+
   const onSubmit = (value) => {
     console.log(value);
   };
   return (
-    <Formik initialValues={initialValues} onSubmit={onSubmit}>
+    <Formik
+      initialValues={initialValues}
+      onSubmit={onSubmit}
+      validationSchema={validationSchema}
+    >
       {() => (
         <Form className="c-login__form">
           <FormControl
@@ -31,15 +45,13 @@ const LoginForm = () => {
             label="Email"
             placeholder="Type your email"
             name="email"
-            validate={required}
           />
           <FormControl
             control="input"
-            type="text"
+            type="password"
             label="Password"
             placeholder="Password"
             name="password"
-            validate={required}
           />
 
           <div className="c-login__btn-container">
