@@ -1,3 +1,24 @@
 .c-alert {
   grid-area: 2/2/3/5;
+  padding: 2rem;
+  color: $color-white;
+  background: $color-white;
+  border-radius: $component-border-radius;
+  font-size: $font-md;
+
+  &__icon-container {
+    padding: 0.5rem;
+  }
+
+  &--danger {
+    background: #e76f51;
+  }
+
+  &--success {
+    background: #2a9d8f;
+    color: $color-white;
+  }
+  &--warning {
+    background: #e9c46a;
+  }
 }
