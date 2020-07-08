@@ -7,9 +7,7 @@ import { useDispatch } from 'react-redux';
 const Settings = () => {
   const dispatch = useDispatch();
   const onHandleClick = () => {
-    dispatch(
-      showAlert('This is warning', 'This is warning2', 5000, 'c-alert--danger')
-    );
+    dispatch(showAlert('This is warning', 'danger', 5000));
 
     console.log('Click');
   };

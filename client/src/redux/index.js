@@ -5,8 +5,8 @@ import authReducer from './auth/authReducer';
 import alertReducer from './alert/alertReducer';
 
 const rootReducer = combineReducers({
-  authReducer,
-  alertReducer,
+  auth: authReducer,
+  alert: alertReducer,
 });
 
 export default createStore(

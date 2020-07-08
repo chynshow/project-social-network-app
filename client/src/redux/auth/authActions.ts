@@ -6,6 +6,6 @@ export const initApp = () => (dispatch: any) => {
     dispatch(initAppSuccessAC());
   } catch (error) {
     dispatch(initAppFailAC());
-    showAlert('Initialization fail!', 'c-alert--danger');
+    showAlert('Initialization fail!', 'danger');
   }
 };

@@ -1,5 +1,9 @@
-import { ShowAlertType, RemoveAlertType } from './alert.types';
-import { SHOW_ALERT, REMOVE_ALERT } from './alertTypes';
+import {
+  SHOW_ALERT,
+  HIDE_ALERT,
+  ShowAlertType,
+  RemoveAlertType,
+} from './alertTypes';
 
 export const showAlertAC = (msg: string, styles: string): ShowAlertType => ({
   type: SHOW_ALERT,
@@ -9,4 +13,4 @@ export const showAlertAC = (msg: string, styles: string): ShowAlertType => ({
   },
 });
 
-export const removeAlertAC = (): RemoveAlertType => ({ type: REMOVE_ALERT });
+export const removeAlertAC = (): RemoveAlertType => ({ type: HIDE_ALERT });

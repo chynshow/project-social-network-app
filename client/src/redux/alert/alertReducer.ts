@@ -1,11 +1,18 @@
-import { SHOW_ALERT, REMOVE_ALERT } from './alertTypes';
-import { InitialStateType } from './alert.types';
+import {
+  SHOW_ALERT,
+  HIDE_ALERT,
+  AlertActionTypes,
+  InitialStateType,
+} from './alertTypes';
 
 const initialState: InitialStateType = {
   msg: '',
   styles: null,
 };
-export default (state = initialState, action: any): InitialStateType => {
+export default (
+  state = initialState,
+  action: AlertActionTypes
+): InitialStateType => {
   switch (action.type) {
     case SHOW_ALERT:
       return {
@@ -13,7 +20,7 @@ export default (state = initialState, action: any): InitialStateType => {
         msg: action.payload.msg,
         styles: action.payload.styles,
       };
-    case REMOVE_ALERT:
+    case HIDE_ALERT:
       return { ...state, msg: '', styles: null };
     default:
       return state;

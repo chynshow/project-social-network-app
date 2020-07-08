@@ -13,7 +13,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { initApp } from './redux/auth/authActions';
 
 const App = () => {
-  const { initialization, loading } = useSelector((state) => state.authReducer);
+  const { isinit, loading } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   React.useEffect(() => {
     dispatch(initApp());
@@ -22,7 +22,7 @@ const App = () => {
 
   return (
     <>
-      {!initialization && loading ? (
+      {!isinit && loading ? (
         <Loader />
       ) : (
         <div className="l-grid">

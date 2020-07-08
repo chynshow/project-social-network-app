@@ -1,17 +1,27 @@
-import { InitialStateType } from './auth.types';
-import { INIT_SUCCESS, INIT_FAIL } from './authTypes';
+import {
+  INIT_SUCCESS,
+  INIT_FAIL,
+  InitialStateType,
+  AuthActionTypes,
+} from './authTypes';
 
 const initialState: InitialStateType = {
-  initialization: false,
+  isInit: false,
+  isAuth: false,
+  token: null,
+  user: null,
   loading: true,
 };
 
-export default (state = initialState, action: any): InitialStateType => {
+export default (
+  state = initialState,
+  action: AuthActionTypes
+): InitialStateType => {
   switch (action.type) {
     case INIT_SUCCESS:
-      return { ...state, initialization: true, loading: false };
+      return { ...state, isAuth: true, loading: false };
     case INIT_FAIL:
-      return { ...state, initialization: false, loading: false };
+      return { ...state, isAuth: false, loading: false };
     default:
       return state;
   }

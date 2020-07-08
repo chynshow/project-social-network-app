@@ -9,8 +9,6 @@ import {
   LOGIN_FAIL,
   REMOVE_ACCOUNT_SUCCESS,
   REMOVE_ACCOUNT_FAIL,
-} from './authTypes';
-import {
   InitAppSuccessType,
   InitAppFailType,
   FetchAuthSuccessType,
@@ -21,7 +19,7 @@ import {
   LoginFailType,
   RemoveAccountSuccessType,
   RemoveAccountFailType,
-} from './auth.types';
+} from './authTypes';
 
 export const initAppSuccessAC = (): InitAppSuccessType => ({
   type: INIT_SUCCESS,

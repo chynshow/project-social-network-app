@@ -8,7 +8,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 const Alert = () => {
-  const { msg, styles } = useSelector((state) => state.alertReducer);
+  const { msg, styles } = useSelector((state) => state.alert);
 
   const renderSwitch = (key) => {
     switch (key) {
