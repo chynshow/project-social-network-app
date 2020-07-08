@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import * as Yup from 'yup';
 import FormControl from '../Common/Form/FormControl';
 
-const Login = () => {
+const Login: React.FC<{}> = () => {
   return (
     <div className="c-login">
       <h3 className="c-title-secondary c-login__title">Login</h3>
@@ -13,7 +13,7 @@ const Login = () => {
   );
 };
 
-const LoginForm = () => {
+const LoginForm: React.FC<{}> = () => {
   const initialValues = {
     email: '',
     password: '',
@@ -28,7 +28,12 @@ const LoginForm = () => {
       .min(6, 'Password should be more than 6 characters!'),
   });
 
-  const onSubmit = (value) => {
+  interface OnSubmitValueTypes {
+    email: string;
+    password: string;
+  }
+
+  const onSubmit = (value: OnSubmitValueTypes): void => {
     console.log(value);
   };
   return (

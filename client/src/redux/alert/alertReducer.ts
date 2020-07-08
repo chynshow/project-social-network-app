@@ -7,7 +7,7 @@ import {
 
 const initialState: InitialStateType = {
   msg: '',
-  styles: null,
+  styles: '',
 };
 
 export default (
@@ -22,7 +22,7 @@ export default (
         styles: action.payload.styles,
       };
     case HIDE_ALERT:
-      return { ...state, msg: '', styles: null };
+      return { ...state, msg: '', styles: '' };
     default:
       return state;
   }

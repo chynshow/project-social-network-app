@@ -9,7 +9,7 @@ import {
   faComments,
 } from '@fortawesome/free-solid-svg-icons';
 
-const Navigation = () => {
+const Navigation: React.FC<{}> = () => {
   return (
     <div className="c-main-navigation">
       <ul className="c-main-navigation__links-container">

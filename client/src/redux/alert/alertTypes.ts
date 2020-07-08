@@ -1,6 +1,6 @@
 export interface InitialStateType {
   msg: string;
-  styles: string | null;
+  styles: string;
 }
 
 export const SHOW_ALERT = 'SHOW_ALERT';

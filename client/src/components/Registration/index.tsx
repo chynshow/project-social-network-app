@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import * as Yup from 'yup';
 import FormControl from '../Common/Form/FormControl';
 
-const Registration = () => {
+const Registration: React.FC<{}> = () => {
   return (
     <div className="c-registration">
       <h3 className="c-title-secondary c-registration__title">Registration</h3>
@@ -13,7 +13,7 @@ const Registration = () => {
   );
 };
 
-const RegistrationForm = () => {
+const RegistrationForm: React.FC<{}> = () => {
   const initialValues = {
     name: '',
     email: '',
@@ -40,7 +40,14 @@ const RegistrationForm = () => {
       }),
   });
 
-  const onSubmit = (value) => {
+  interface OnSubmitValueTypes {
+    name: string;
+    email: string;
+    password: string;
+    confirmPassword: string;
+  }
+
+  const onSubmit = (value: OnSubmitValueTypes): void => {
     console.log(value);
   };
   return (

@@ -1,7 +1,18 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const UserAvatar = ({ src = '/', size = '5rem', alt = '', className = '' }) => {
+interface UserAvatarPropTypes {
+  src: string;
+  size: string;
+  alt: string;
+  className?: string;
+}
+
+const UserAvatar: React.FC<UserAvatarPropTypes> = ({
+  src,
+  size,
+  alt,
+  className,
+}) => {
   return (
     <div className={`c-user-avatar ${className}`}>
       <img
@@ -12,13 +23,6 @@ const UserAvatar = ({ src = '/', size = '5rem', alt = '', className = '' }) => {
       />
     </div>
   );
-};
-
-UserAvatar.propTypes = {
-  src: PropTypes.string.isRequired,
-  size: PropTypes.string.isRequired,
-  alt: PropTypes.string,
-  className: PropTypes.string,
 };
 
 export default React.memo(UserAvatar);

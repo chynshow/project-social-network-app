@@ -2,7 +2,22 @@ import React from 'react';
 import { Field, ErrorMessage } from 'formik';
 import TextError from '../TextError';
 
-const Input = ({ label, name, placeholder, className, ...rest }) => {
+interface InputPropTypes {
+  label?: string;
+  name: string;
+  placeholder?: string;
+  className?: string;
+  type: string;
+}
+
+const Input: React.FC<InputPropTypes> = ({
+  label,
+  name,
+  placeholder,
+  className,
+  type,
+  ...rest
+}) => {
   return (
     <div className="c-form__field-container">
       {label && (
@@ -14,6 +29,7 @@ const Input = ({ label, name, placeholder, className, ...rest }) => {
         className={className ? `c-input ${className}` : 'c-input'}
         id={name}
         name={name}
+        type={type}
         {...rest}
         placeholder={placeholder}
       />

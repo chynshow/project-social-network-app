@@ -4,7 +4,7 @@ import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { showAlert } from '../../redux/alert/alertActions';
 import { useDispatch } from 'react-redux';
 
-const Settings = () => {
+const Settings: React.FC<{}> = () => {
   const dispatch = useDispatch();
   const onHandleClick = () => {
     dispatch(showAlert('This is warning', 'danger', 5000));

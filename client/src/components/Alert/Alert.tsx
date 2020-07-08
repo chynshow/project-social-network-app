@@ -6,11 +6,12 @@ import {
   faExclamationTriangle,
   faTimesCircle,
 } from '@fortawesome/free-solid-svg-icons';
+import { RootStateType } from './alertTypes';
 
-const Alert = () => {
-  const { msg, styles } = useSelector((state) => state.alert);
+const Alert: React.FC<{}> = () => {
+  const { msg, styles } = useSelector((state: RootStateType) => state.alert);
 
-  const renderSwitch = (key) => {
+  const renderSwitch = (key: string): React.ReactNode => {
     switch (key) {
       case 'success':
         return (
