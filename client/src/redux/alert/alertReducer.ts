@@ -9,6 +9,7 @@ const initialState: InitialStateType = {
   msg: '',
   styles: null,
 };
+
 export default (
   state = initialState,
   action: AlertActionTypes

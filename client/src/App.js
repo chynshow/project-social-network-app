@@ -17,7 +17,7 @@ const App = () => {
   const dispatch = useDispatch();
   React.useEffect(() => {
     dispatch(initApp());
-    // eslint-disable-next-line
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
