@@ -1,11 +1,11 @@
 import React from 'react';
 import UserAvatar from '../../../Common/UserAvatar';
 
-interface CommentPropTypes {
+interface PropTypes {
   className: string;
 }
 
-const Comment: React.FC<CommentPropTypes> = ({ className }) => {
+const Comment: React.FC<PropTypes> = ({ className }) => {
   return (
     <div className={className ? `c-comment ${className}` : 'c-comment'}>
       <div className="c-comment__header">

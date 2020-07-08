@@ -5,7 +5,7 @@ import Post from './Post';
 import ModalAddPost from './ModalAddPost';
 import Tooltip from '../Common/Tooltip';
 
-const Posts = () => {
+const Posts: React.FC<{}> = () => {
   const [showModal, setShowModal] = React.useState(false);
   return (
     <div className="c-posts">

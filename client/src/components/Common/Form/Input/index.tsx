@@ -2,7 +2,7 @@ import React from 'react';
 import { Field, ErrorMessage } from 'formik';
 import TextError from '../TextError';
 
-interface InputPropTypes {
+interface PropTypes {
   label?: string;
   name: string;
   placeholder?: string;
@@ -10,10 +10,9 @@ interface InputPropTypes {
   type: string;
 }
 
-const Input: React.FC<InputPropTypes> = ({
+const Input: React.FC<PropTypes> = ({
   label,
   name,
-  placeholder,
   className,
   type,
   ...rest
@@ -31,7 +30,6 @@ const Input: React.FC<InputPropTypes> = ({
         name={name}
         type={type}
         {...rest}
-        placeholder={placeholder}
       />
       <ErrorMessage name={name} component={TextError} />
     </div>

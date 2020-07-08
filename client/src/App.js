@@ -2,7 +2,7 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import Header from './components/Header';
 import Navigation from './components/Navigation';
-import Alert from './components/Alert/Alert';
+import Alert from './components/Alert';
 import Profile from './components/Profile/Profile';
 import Settings from './components/Settings';
 import Users from './components/Users';

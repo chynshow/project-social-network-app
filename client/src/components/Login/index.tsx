@@ -14,12 +14,12 @@ const Login: React.FC<{}> = () => {
 };
 
 const LoginForm: React.FC<{}> = () => {
-  interface initialValues {
+  interface InitialValueTypes {
     email: string;
     password: string;
   }
 
-  const initialValues: initialValues = {
+  const initialValues: InitialValueTypes = {
     email: '',
     password: '',
   };
@@ -33,7 +33,7 @@ const LoginForm: React.FC<{}> = () => {
       .min(6, 'Password should be more than 6 characters!'),
   });
 
-  const onSubmit = (value: initialValues): void => {
+  const onSubmit = (value: InitialValueTypes): void => {
     console.log(value);
   };
   return (

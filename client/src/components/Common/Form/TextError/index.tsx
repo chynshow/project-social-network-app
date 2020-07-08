@@ -1,10 +1,10 @@
 import React from 'react';
 
-interface TextError {
+interface PropTypes {
   children?: React.ReactNode;
 }
 
-const TextError: React.FC<TextError> = ({ children }) => (
+const TextError: React.FC<PropTypes> = ({ children }) => (
   <div className="c-text-error">{children}</div>
 );
 

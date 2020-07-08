@@ -6,14 +6,12 @@ import FormControl from '../../Common/Form/FormControl';
 import Overlay from '../../Common/Overlay';
 import * as Yup from 'yup';
 
-interface ModalAddUserInfoPropTypes {
+interface PropTypes {
   setShowModal: (value: boolean) => void;
 }
 
-const ModalAddUserInfo: React.FC<ModalAddUserInfoPropTypes> = ({
-  setShowModal,
-}) => {
-  interface InitialValuesPropTypes {
+const ModalAddUserInfo: React.FC<PropTypes> = ({ setShowModal }) => {
+  interface InitialValueTypes {
     name: string;
     about: string;
     location: string;
@@ -21,7 +19,7 @@ const ModalAddUserInfo: React.FC<ModalAddUserInfoPropTypes> = ({
     languages: string;
   }
 
-  const initialValues: InitialValuesPropTypes = {
+  const initialValues: InitialValueTypes = {
     name: '',
     about: '',
     location: '',
@@ -37,8 +35,7 @@ const ModalAddUserInfo: React.FC<ModalAddUserInfoPropTypes> = ({
     languages: Yup.string().required('Field is required!'),
   });
 
-  const onSubmit = (values: InitialValuesPropTypes) =>
-    console.log('Formik', values);
+  const onSubmit = (values: InitialValueTypes) => console.log('Formik', values);
   return (
     <>
       <div className="c-modal-add-user-info">

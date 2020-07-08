@@ -1,18 +1,13 @@
 import React from 'react';
 
-interface UserAvatarPropTypes {
+interface PropTypes {
   src: string;
   size: string;
   alt: string;
   className?: string;
 }
 
-const UserAvatar: React.FC<UserAvatarPropTypes> = ({
-  src,
-  size,
-  alt,
-  className,
-}) => {
+const UserAvatar: React.FC<PropTypes> = ({ src, size, alt, className }) => {
   return (
     <div className={`c-user-avatar ${className}`}>
       <img

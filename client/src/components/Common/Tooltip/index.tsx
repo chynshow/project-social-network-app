@@ -1,11 +1,11 @@
 import React from 'react';
 
-interface TooltipPropTypes {
+interface PropTypes {
   label: string;
   children: React.ReactNode;
 }
 
-const Tooltip: React.FC<TooltipPropTypes> = ({ label, children }) => (
+const Tooltip: React.FC<PropTypes> = ({ label, children }) => (
   <span className="c-tooltip">
     <span className="c-tooltip__label">{label}</span>
     {children}

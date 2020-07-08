@@ -9,6 +9,8 @@ const rootReducer = combineReducers({
   alert: alertReducer,
 });
 
+export type AppStateType = ReturnType<typeof rootReducer>;
+
 export default createStore(
   rootReducer,
   composeWithDevTools(applyMiddleware(thunkMiddleware))

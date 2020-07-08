@@ -1,13 +1,13 @@
 import React, { ReactEventHandler } from 'react';
 
-interface OverlayPropTypes {
+interface PropTypes {
   opacity: number;
   background: string;
   zIndex: number;
   onClick: ReactEventHandler;
 }
 
-const Overlay: React.FC<OverlayPropTypes> = ({
+const Overlay: React.FC<PropTypes> = ({
   opacity,
   background,
   zIndex,

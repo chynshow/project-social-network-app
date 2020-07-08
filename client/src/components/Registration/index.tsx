@@ -14,13 +14,13 @@ const Registration: React.FC<{}> = () => {
 };
 
 const RegistrationForm: React.FC<{}> = () => {
-  interface initialValues {
+  interface initialValueTypes {
     name: string;
     email: string;
     password: string;
     confirmPassword: string;
   }
-  const initialValues: initialValues = {
+  const initialValues: initialValueTypes = {
     name: '',
     email: '',
     password: '',
@@ -46,7 +46,7 @@ const RegistrationForm: React.FC<{}> = () => {
       }),
   });
 
-  const onSubmit = (value: initialValues): void => {
+  const onSubmit = (value: initialValueTypes): void => {
     console.log(value);
   };
   return (

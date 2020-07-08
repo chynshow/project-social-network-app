@@ -6,14 +6,14 @@ import * as Yup from 'yup';
 import FormControl from '../../../../Common/Form/FormControl';
 
 const AddCommentForm: React.FC<{}> = () => {
-  interface InitialValuesTypes {
+  interface InitialValueTypes {
     comment: string;
   }
-  const initialValues: InitialValuesTypes = {
+  const initialValues: InitialValueTypes = {
     comment: '',
   };
 
-  const onSubmit = (value: InitialValuesTypes): void => {
+  const onSubmit = (value: InitialValueTypes): void => {
     console.log('AddCommetModal', value);
   };
 

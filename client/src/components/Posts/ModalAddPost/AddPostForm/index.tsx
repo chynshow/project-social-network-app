@@ -8,15 +8,15 @@ import FormControl from '../../../Common/Form/FormControl';
 const AddPostForm: React.FC<{}> = () => {
   const [expandModal, setExpandModal] = React.useState(false);
 
-  interface InitialValuesTypes {
+  interface InitialValueTypes {
     post: string;
   }
 
-  const initialValues: InitialValuesTypes = {
+  const initialValues: InitialValueTypes = {
     post: '',
   };
 
-  const onSubmit = (value: InitialValuesTypes): void => {
+  const onSubmit = (value: InitialValueTypes): void => {
     console.log(value);
   };
 

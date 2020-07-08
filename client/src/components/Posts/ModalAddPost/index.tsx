@@ -5,11 +5,11 @@ import Overlay from '../../Common/Overlay';
 import UserAvatar from '../../Common/UserAvatar';
 import AddPostForm from './AddPostForm';
 
-interface ModalAddPostPropTypes {
+interface PropTypes {
   setShowModal: (value: boolean) => void;
 }
 
-const ModalAddPost: React.FC<ModalAddPostPropTypes> = ({ setShowModal }) => {
+const ModalAddPost: React.FC<PropTypes> = ({ setShowModal }) => {
   return (
     <>
       <div className="c-modal-add-message c-posts-modal-add-post">
