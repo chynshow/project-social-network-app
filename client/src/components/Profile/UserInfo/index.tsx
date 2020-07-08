@@ -13,7 +13,15 @@ import {
 import Tooltip from '../../Common/Tooltip';
 import ModalAddUserInfo from '../ModalAddUserInfo';
 
-export const UserInfoHeader = ({ setShowContent, showContent }) => {
+interface UserInfoHeaderPropTypes {
+  setShowContent: (value: boolean) => void;
+  showContent: boolean;
+}
+
+export const UserInfoHeader: React.FC<UserInfoHeaderPropTypes> = ({
+  setShowContent,
+  showContent,
+}) => {
   return (
     <header className="c-user-info__header">
       <h3 className="c-title-secondary c-user-info__user-name">
@@ -33,7 +41,11 @@ export const UserInfoHeader = ({ setShowContent, showContent }) => {
   );
 };
 
-const UserInfo = ({ showContent }) => {
+interface UserInfoPropTypes {
+  showContent: boolean;
+}
+
+const UserInfo: React.FC<UserInfoPropTypes> = ({ showContent }) => {
   const [showModal, setShowModal] = React.useState(false);
   const handlerDownloadCV = () => {
     console.log('DownloadCV');

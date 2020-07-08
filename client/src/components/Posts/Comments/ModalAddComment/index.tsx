@@ -5,7 +5,13 @@ import UserAvatar from '../../../Common/UserAvatar';
 import Overlay from '../../../Common/Overlay';
 import AddCommentForm from './AddCommentForm';
 
-const ModalAddComment = ({ setShowModal }) => {
+interface ModalAddCommentPropTypes {
+  setShowModal: (value: boolean) => void;
+}
+
+const ModalAddComment: React.FC<ModalAddCommentPropTypes> = ({
+  setShowModal,
+}) => {
   return (
     <>
       <div className="c-modal-add-message c-comments-modal-add-comment">
@@ -31,9 +37,9 @@ const ModalAddComment = ({ setShowModal }) => {
         </div>
       </div>
       <Overlay
-        opacity=".2"
+        opacity={0.2}
         background="#fff"
-        zIndex="1"
+        zIndex={1}
         onClick={() => setShowModal(false)}
       />
     </>

@@ -6,8 +6,9 @@ interface FormControlPropTypes {
   control: string;
   name: string;
   type: string;
-  label: string;
-  placeholder: string;
+  label?: string;
+  placeholder?: string;
+  className?: string;
 }
 
 const FormControl: React.FC<FormControlPropTypes> = ({
@@ -16,6 +17,7 @@ const FormControl: React.FC<FormControlPropTypes> = ({
   type,
   label,
   placeholder,
+  className,
   ...rest
 }) => {
   switch (control) {
@@ -26,6 +28,7 @@ const FormControl: React.FC<FormControlPropTypes> = ({
           label={label}
           name={name}
           placeholder={placeholder}
+          className={className}
           {...rest}
         />
       );
@@ -36,6 +39,7 @@ const FormControl: React.FC<FormControlPropTypes> = ({
           label={label}
           name={name}
           placeholder={placeholder}
+          className={className}
           {...rest}
         />
       );

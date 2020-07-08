@@ -4,7 +4,7 @@ import UserInfo, { UserInfoHeader } from './UserInfo';
 import UserContacts from './UserContacts';
 import Posts from '../Posts';
 
-const Profile = () => {
+const Profile: React.FC<{}> = () => {
   const [showContent, setShowContent] = React.useState(false);
   return (
     <div className="c-profile">

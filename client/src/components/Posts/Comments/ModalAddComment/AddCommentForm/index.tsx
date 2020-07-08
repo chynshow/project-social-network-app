@@ -5,12 +5,15 @@ import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import * as Yup from 'yup';
 import FormControl from '../../../../Common/Form/FormControl';
 
-const AddCommentForm = () => {
-  const initialValues = {
+const AddCommentForm: React.FC<{}> = () => {
+  interface InitialValuesTypes {
+    comment: string;
+  }
+  const initialValues: InitialValuesTypes = {
     comment: '',
   };
 
-  const onSubmit = (value) => {
+  const onSubmit = (value: InitialValuesTypes): void => {
     console.log('AddCommetModal', value);
   };
 

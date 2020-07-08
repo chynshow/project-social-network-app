@@ -9,7 +9,7 @@ import Comment from './Comment';
 import ModalAddComment from './ModalAddComment';
 import Tooltip from '../../Common/Tooltip';
 
-const Comments = () => {
+const Comments: React.FC<{}> = () => {
   const [showComments, setShowComments] = React.useState(false);
   const [showModal, setShowModal] = React.useState(false);
   return (
@@ -40,9 +40,9 @@ const Comments = () => {
             : 'c-comments__items-container'
         }
       >
-        <Comment />
+        {/* <Comment /> */}
         <Comment className="c-comment--active" />
-        <Comment />
+        {/* <Comment /> */}
         <Comment className="c-comment--active" />
       </div>
     </div>

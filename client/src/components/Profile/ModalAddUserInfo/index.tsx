@@ -4,35 +4,41 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserEdit } from '@fortawesome/free-solid-svg-icons';
 import FormControl from '../../Common/Form/FormControl';
 import Overlay from '../../Common/Overlay';
+import * as Yup from 'yup';
 
-const ModalAddUserInfo = ({ setShowModal }) => {
-  const initialValues = {
+interface ModalAddUserInfoPropTypes {
+  setShowModal: (value: boolean) => void;
+}
+
+const ModalAddUserInfo: React.FC<ModalAddUserInfoPropTypes> = ({
+  setShowModal,
+}) => {
+  interface InitialValuesPropTypes {
+    name: string;
+    about: string;
+    location: string;
+    skills: string;
+    languages: string;
+  }
+
+  const initialValues: InitialValuesPropTypes = {
     name: '',
     about: '',
     location: '',
     skills: '',
     languages: '',
   };
-  const validate = (value) => {
-    const error = {};
-    if (!value.name) {
-      error.name = 'Required!';
-    }
-    if (!value.about) {
-      error.about = 'Required!';
-    }
-    if (!value.location) {
-      error.location = 'Required!';
-    }
-    if (!value.skills) {
-      error.skills = 'Required!';
-    }
-    if (!value.languages) {
-      error.languages = 'Required!';
-    }
-    return error;
-  };
-  const onSubmit = (values) => console.log('Formik', values);
+
+  const validationSchema = Yup.object({
+    name: Yup.string().required('Field is required!'),
+    about: Yup.string().required('Field is required!'),
+    location: Yup.string().required('Field is required!'),
+    skills: Yup.string().required('Field is required!'),
+    languages: Yup.string().required('Field is required!'),
+  });
+
+  const onSubmit = (values: InitialValuesPropTypes) =>
+    console.log('Formik', values);
   return (
     <>
       <div className="c-modal-add-user-info">
@@ -45,8 +51,8 @@ const ModalAddUserInfo = ({ setShowModal }) => {
         </h3>
         <Formik
           initialValues={initialValues}
-          validate={validate}
           onSubmit={onSubmit}
+          validationSchema={validationSchema}
         >
           {() => (
             <Form className="c-modal-add-user-info__form">
@@ -101,7 +107,12 @@ const ModalAddUserInfo = ({ setShowModal }) => {
           )}
         </Formik>
       </div>
-      <Overlay opacity=".1" onClick={() => setShowModal(false)} />
+      <Overlay
+        zIndex={2}
+        background="#fff"
+        opacity={0.1}
+        onClick={() => setShowModal(false)}
+      />
     </>
   );
 };

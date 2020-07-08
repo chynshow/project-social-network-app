@@ -10,7 +10,7 @@ import Overlay from '../../Common/Overlay';
 import Comments from '../Comments';
 import Like from '../Like';
 
-const Post = () => {
+const Post: React.FC<{}> = () => {
   const [showContextMenu, setShowContextMenu] = React.useState(false);
 
   return (
@@ -39,7 +39,12 @@ const Post = () => {
           {showContextMenu && <ContextMenu />}
         </button>
         {showContextMenu && (
-          <Overlay zIndex="2" onClick={() => setShowContextMenu(false)} />
+          <Overlay
+            opacity={0.2}
+            background="#fff"
+            zIndex={2}
+            onClick={() => setShowContextMenu(false)}
+          />
         )}
       </header>
       <div className="c-post__text-container">
@@ -64,8 +69,8 @@ const Post = () => {
   );
 };
 
-const ContextMenu = () => {
-  const handleOnClick = (value) => {
+const ContextMenu: React.FC<{}> = () => {
+  const handleOnClick = (value: string) => {
     console.log('ContextMenu', value);
   };
 

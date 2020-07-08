@@ -2,9 +2,9 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
-const Like = () => {
-  const handleOnClick = (value) => {
-    console.log('Like', value);
+const Like: React.FC<{}> = () => {
+  const handleOnClick = (): void => {
+    console.log('Like');
   };
   return (
     <div className="c-like">

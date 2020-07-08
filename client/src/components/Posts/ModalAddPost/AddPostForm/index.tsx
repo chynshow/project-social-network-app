@@ -5,13 +5,18 @@ import { faExpandAlt, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import * as Yup from 'yup';
 import FormControl from '../../../Common/Form/FormControl';
 
-const AddPostForm = () => {
+const AddPostForm: React.FC<{}> = () => {
   const [expandModal, setExpandModal] = React.useState(false);
-  const initialValues = {
+
+  interface InitialValuesTypes {
+    post: string;
+  }
+
+  const initialValues: InitialValuesTypes = {
     post: '',
   };
 
-  const onSubmit = (value) => {
+  const onSubmit = (value: InitialValuesTypes): void => {
     console.log(value);
   };
 

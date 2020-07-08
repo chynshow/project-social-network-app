@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faGithubSquare, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
-const UserContacts = () => {
+const UserContacts: React.FC<{}> = () => {
   return (
     <div className="c-user-contacts">
       <div className="c-user-contacts__items">
