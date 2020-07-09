@@ -3,6 +3,8 @@ import { Formik, Form } from 'formik';
 import { Link } from 'react-router-dom';
 import * as Yup from 'yup';
 import FormControl from '../Common/Form/FormControl';
+import { registrationRequest } from './../../redux/auth/authActions';
+import { useDispatch } from 'react-redux';
 
 const Registration: React.FC<{}> = () => {
   return (
@@ -14,6 +16,7 @@ const Registration: React.FC<{}> = () => {
 };
 
 const RegistrationForm: React.FC<{}> = () => {
+  const dispatch = useDispatch();
   interface initialValueTypes {
     name: string;
     email: string;
@@ -46,8 +49,8 @@ const RegistrationForm: React.FC<{}> = () => {
       }),
   });
 
-  const onSubmit = (value: initialValueTypes): void => {
-    console.log(value);
+  const onSubmit = ({ name, password, email }: initialValueTypes): void => {
+    dispatch(registrationRequest(name, email, password));
   };
   return (
     <Formik

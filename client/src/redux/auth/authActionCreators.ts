@@ -8,7 +8,7 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   REMOVE_ACCOUNT_SUCCESS,
-  REMOVE_ACCOUNT_FAIL,
+  LOG_OUT,
   InitAppSuccessType,
   InitAppFailType,
   FetchAuthSuccessType,
@@ -18,7 +18,8 @@ import {
   LoginSuccessType,
   LoginFailType,
   RemoveAccountSuccessType,
-  RemoveAccountFailType,
+  UserType,
+  LogOutType,
 } from './authTypes';
 
 export const initAppSuccessAC = (): InitAppSuccessType => ({
@@ -35,11 +36,8 @@ export const registrationSuccessAC = (
   payload: { token },
 });
 
-export const registrationFailAC = (msg: string): RegistrationFailType => ({
+export const registrationFailAC = (): RegistrationFailType => ({
   type: REGISTRATION_FAIL,
-  payload: {
-    msg,
-  },
 });
 
 export const loginSuccessAC = (token: string): LoginSuccessType => ({
@@ -47,33 +45,21 @@ export const loginSuccessAC = (token: string): LoginSuccessType => ({
   payload: { token },
 });
 
-export const loginFailAC = (msg: string): LoginFailType => ({
+export const loginFailAC = (): LoginFailType => ({
   type: LOGIN_FAIL,
-  payload: { msg },
 });
 
-export const getAuthSuccesstAC = (token: string): FetchAuthSuccessType => ({
+export const getAuthSuccesstAC = (user: UserType): FetchAuthSuccessType => ({
   type: FETCH_AUTH_SUCCESS,
-  payload: {
-    token,
-  },
+  payload: user,
 });
 
-export const getAuthtFailAC = (msg: string): FetchAuthFailType => ({
+export const getAuthtFailAC = (): FetchAuthFailType => ({
   type: FETCH_AUTH_FAIL,
-  payload: {
-    msg,
-  },
 });
 
-export const removeAccountSuccessAC = (
-  msg: string
-): RemoveAccountSuccessType => ({
+export const logOutAC = (): LogOutType => ({ type: LOG_OUT });
+
+export const removeAccountSuccessAC = (): RemoveAccountSuccessType => ({
   type: REMOVE_ACCOUNT_SUCCESS,
-  payload: { msg },
-});
-
-export const removeAccountFailAC = (msg: string): RemoveAccountFailType => ({
-  type: REMOVE_ACCOUNT_FAIL,
-  payload: { msg },
 });

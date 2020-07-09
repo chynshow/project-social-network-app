@@ -3,6 +3,8 @@ import { Formik, Form } from 'formik';
 import { Link } from 'react-router-dom';
 import * as Yup from 'yup';
 import FormControl from '../Common/Form/FormControl';
+import { loginRequest } from './../../redux/auth/authActions';
+import { useDispatch } from 'react-redux';
 
 const Login: React.FC<{}> = () => {
   return (
@@ -33,8 +35,10 @@ const LoginForm: React.FC<{}> = () => {
       .min(6, 'Password should be more than 6 characters!'),
   });
 
-  const onSubmit = (value: InitialValueTypes): void => {
-    console.log(value);
+  const dispatch = useDispatch();
+
+  const onSubmit = ({ email, password }: InitialValueTypes): void => {
+    dispatch(loginRequest(email, password));
   };
   return (
     <Formik

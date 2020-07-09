@@ -8,8 +8,14 @@ import {
   faSignOutAlt,
   faComments,
 } from '@fortawesome/free-solid-svg-icons';
+import { AppStateType } from './../../redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { logOutAC } from './../../redux/auth/authActionCreators';
 
 const Navigation: React.FC<{}> = () => {
+  const { isAuth } = useSelector((state: AppStateType) => state.auth);
+  const dispatch = useDispatch();
+
   return (
     <div className="c-main-navigation">
       <ul className="c-main-navigation__links-container">
@@ -45,14 +51,24 @@ const Navigation: React.FC<{}> = () => {
           Settings
           <FontAwesomeIcon icon={faCogs} />
         </NavLink>
-        <NavLink
-          activeClassName="c-main-navigation__link--active"
-          className="c-link c-main-navigation__link"
-          to="/login"
-        >
-          Login
-          <FontAwesomeIcon icon={faSignOutAlt} />
-        </NavLink>
+        {!isAuth ? (
+          <NavLink
+            activeClassName="c-main-navigation__link--active"
+            className="c-link c-main-navigation__link"
+            to="/login"
+          >
+            Login
+            <FontAwesomeIcon icon={faSignOutAlt} />
+          </NavLink>
+        ) : (
+          <button
+            className="c-btn c-link c-main-navigation__link"
+            onClick={() => dispatch(logOutAC())}
+          >
+            Logout
+            <FontAwesomeIcon icon={faSignOutAlt} />
+          </button>
+        )}
       </ul>
     </div>
   );

@@ -1,8 +1,14 @@
+export interface UserType {
+  id: string;
+  email: string;
+  createdAt: string;
+}
+
 export interface InitialStateType {
   isInit: boolean;
   isAuth: boolean;
   token: string | null;
-  user: null;
+  user: null | UserType;
   loading: boolean;
 }
 
@@ -14,8 +20,8 @@ export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAIL = 'LOGIN_FAIL';
 export const FETCH_AUTH_SUCCESS = 'FETCH_AUTH_SUCCESS';
 export const FETCH_AUTH_FAIL = 'FETCH_AUTH_FAIL';
+export const LOG_OUT = 'LOG_OUT';
 export const REMOVE_ACCOUNT_SUCCESS = 'REMOVE_ACCOUNT_SUCCESS';
-export const REMOVE_ACCOUNT_FAIL = 'REMOVE_ACCOUNT_FAIL';
 
 export interface InitAppSuccessType {
   type: typeof INIT_SUCCESS;
@@ -34,9 +40,6 @@ export interface RegistrationSuccessType {
 
 export interface RegistrationFailType {
   type: typeof REGISTRATION_FAIL;
-  payload: {
-    msg: string;
-  };
 }
 
 export interface LoginSuccessType {
@@ -48,37 +51,23 @@ export interface LoginSuccessType {
 
 export interface LoginFailType {
   type: typeof LOGIN_FAIL;
-  payload: {
-    msg: string;
-  };
 }
 
 export interface FetchAuthSuccessType {
   type: typeof FETCH_AUTH_SUCCESS;
-  payload: {
-    token: string;
-  };
+  payload: UserType;
 }
 
 export interface FetchAuthFailType {
   type: typeof FETCH_AUTH_FAIL;
-  payload: {
-    msg: string;
-  };
+}
+
+export interface LogOutType {
+  type: typeof LOG_OUT;
 }
 
 export interface RemoveAccountSuccessType {
   type: typeof REMOVE_ACCOUNT_SUCCESS;
-  payload: {
-    msg: string;
-  };
-}
-
-export interface RemoveAccountFailType {
-  type: typeof REMOVE_ACCOUNT_FAIL;
-  payload: {
-    msg: string;
-  };
 }
 
 export type AuthActionTypes =
@@ -91,4 +80,4 @@ export type AuthActionTypes =
   | FetchAuthSuccessType
   | FetchAuthFailType
   | RemoveAccountSuccessType
-  | RemoveAccountFailType;
+  | LogOutType;
