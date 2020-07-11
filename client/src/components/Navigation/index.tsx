@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faUsers,
@@ -12,9 +12,38 @@ import { AppStateType } from './../../redux';
 import { useSelector, useDispatch } from 'react-redux';
 import { logOutAC } from './../../redux/auth/authActionCreators';
 
+const switchComponent = (key: string): React.ReactElement => {
+  switch (key) {
+    case '/registration':
+      return (
+        <NavLink
+          activeClassName="c-main-navigation__link--active"
+          className="c-link c-main-navigation__link"
+          to="/registration"
+        >
+          Registration
+          <FontAwesomeIcon icon={faSignOutAlt} />
+        </NavLink>
+      );
+
+    default:
+      return (
+        <NavLink
+          activeClassName="c-main-navigation__link--active"
+          className="c-link c-main-navigation__link"
+          to="/login"
+        >
+          Login
+          <FontAwesomeIcon icon={faSignOutAlt} />
+        </NavLink>
+      );
+  }
+};
+
 const Navigation: React.FC<{}> = () => {
   const { isAuth } = useSelector((state: AppStateType) => state.auth);
   const dispatch = useDispatch();
+  const { pathname } = useLocation();
 
   return (
     <div className="c-main-navigation">
@@ -52,14 +81,7 @@ const Navigation: React.FC<{}> = () => {
           <FontAwesomeIcon icon={faCogs} />
         </NavLink>
         {!isAuth ? (
-          <NavLink
-            activeClassName="c-main-navigation__link--active"
-            className="c-link c-main-navigation__link"
-            to="/login"
-          >
-            Login
-            <FontAwesomeIcon icon={faSignOutAlt} />
-          </NavLink>
+          switchComponent(pathname)
         ) : (
           <button
             className="c-btn c-link c-main-navigation__link"

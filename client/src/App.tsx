@@ -1,5 +1,7 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { initApp } from './redux/auth/authActions';
 import Header from './components/Header';
 import Navigation from './components/Navigation';
 import Alert from './components/Alert';
@@ -9,11 +11,11 @@ import Users from './components/Users';
 import Registration from './components/Registration';
 import Login from './components/Login';
 import Loader from './components/Common/Loader';
-import { useSelector, useDispatch } from 'react-redux';
-import { initApp } from './redux/auth/authActions';
+import PrivateRoute from './hoc/withAuthRedirect';
+import { AppStateType } from './redux';
 
 const App = () => {
-  const { isinit, loading } = useSelector((state) => state.auth);
+  const { isInit, loading } = useSelector((state: AppStateType) => state.auth);
   const dispatch = useDispatch();
   React.useEffect(() => {
     dispatch(initApp());
@@ -22,7 +24,7 @@ const App = () => {
 
   return (
     <>
-      {!isinit && loading ? (
+      {loading && !isInit ? (
         <Loader />
       ) : (
         <div className="l-grid">
@@ -33,7 +35,7 @@ const App = () => {
             <Route exact path="/registration" component={Registration} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/profile" component={Profile} />
-            <Route exact path="/settings" component={Settings} />
+            <PrivateRoute exact path="/settings" component={Settings} />
             <Route exact path="/users" component={Users} />
           </main>
         </div>
