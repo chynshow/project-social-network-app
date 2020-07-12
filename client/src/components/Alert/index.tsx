@@ -6,10 +6,10 @@ import {
   faExclamationTriangle,
   faTimesCircle,
 } from '@fortawesome/free-solid-svg-icons';
-import { AppStateType } from './../../redux';
+import { AppState } from './../../redux';
 
 const Alert: React.FC<{}> = () => {
-  const { msg, styles } = useSelector((state: AppStateType) => state.alert);
+  const { msg, styles } = useSelector((state: AppState) => state.alert);
 
   const renderSwitch = (key: string): React.ReactNode => {
     switch (key) {

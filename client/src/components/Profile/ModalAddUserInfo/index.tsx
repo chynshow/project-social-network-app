@@ -5,14 +5,19 @@ import { faUserEdit } from '@fortawesome/free-solid-svg-icons';
 import FormControl from '../../Common/Form/FormControl';
 import Overlay from '../../Common/Overlay';
 import * as Yup from 'yup';
+import { updateProfileRequest } from './../../../redux/profile/profileActions';
+import { useDispatch } from 'react-redux';
 
 interface PropTypes {
   setShowModal: (value: boolean) => void;
 }
 
 const ModalAddUserInfo: React.FC<PropTypes> = ({ setShowModal }) => {
+  const dispatch = useDispatch();
   interface InitialValueTypes {
     name: string;
+    profession: string;
+    position: string;
     about: string;
     location: string;
     skills: string;
@@ -21,6 +26,8 @@ const ModalAddUserInfo: React.FC<PropTypes> = ({ setShowModal }) => {
 
   const initialValues: InitialValueTypes = {
     name: '',
+    profession: '',
+    position: '',
     about: '',
     location: '',
     skills: '',
@@ -29,13 +36,18 @@ const ModalAddUserInfo: React.FC<PropTypes> = ({ setShowModal }) => {
 
   const validationSchema = Yup.object({
     name: Yup.string().required('Field is required!'),
+    profession: Yup.string().required('Field is required!'),
+    position: Yup.string().required('Field is required!'),
     about: Yup.string().required('Field is required!'),
     location: Yup.string().required('Field is required!'),
     skills: Yup.string().required('Field is required!'),
     languages: Yup.string().required('Field is required!'),
   });
 
-  const onSubmit = (values: InitialValueTypes) => console.log('Formik', values);
+  const onSubmit = (values: InitialValueTypes) => {
+    dispatch(updateProfileRequest(values));
+    setShowModal(false);
+  };
   return (
     <>
       <div className="c-modal-add-user-info">
@@ -59,6 +71,20 @@ const ModalAddUserInfo: React.FC<PropTypes> = ({ setShowModal }) => {
                 label="Name"
                 name="name"
                 placeholder="Name"
+              />
+              <FormControl
+                control="input"
+                type="text"
+                label="Profession"
+                name="profession"
+                placeholder="Profession"
+              />
+              <FormControl
+                control="input"
+                type="text"
+                label="Position"
+                name="position"
+                placeholder="Position"
               />
               <FormControl
                 control="textarea"

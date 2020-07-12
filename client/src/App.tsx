@@ -5,17 +5,17 @@ import { initApp } from './redux/auth/authActions';
 import Header from './components/Header';
 import Navigation from './components/Navigation';
 import Alert from './components/Alert';
-import Profile from './components/Profile/Profile';
+import Profile from './components/Profile';
 import Settings from './components/Settings';
 import Users from './components/Users';
 import Registration from './components/Registration';
 import Login from './components/Login';
 import Loader from './components/Common/Loader';
 import PrivateRoute from './hoc/withAuthRedirect';
-import { AppStateType } from './redux';
+import { AppState } from './redux';
 
 const App = () => {
-  const { isInit, loading } = useSelector((state: AppStateType) => state.auth);
+  const { isInit, loading } = useSelector((state: AppState) => state.auth);
   const dispatch = useDispatch();
   React.useEffect(() => {
     dispatch(initApp());

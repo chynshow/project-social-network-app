@@ -2,17 +2,15 @@ import React from 'react';
 
 const Loader: React.FC<{}> = () => {
   return (
-    <div
-      style={{
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-        background: 'red',
-      }}
-    >
-      LOADING!!!!
+    <div className="c-loader__container">
+      <div className="c-loader">
+        <div className="c-loader__dot" />
+        <div className="c-loader__dot" />
+        <div className="c-loader__dot" />
+        <div className="c-loader__dot" />
+        <div className="c-loader__dot" />
+        <div className="c-loader__dot" />
+      </div>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { AppStateType } from './../redux';
+import { AppState } from './../redux';
 import { Route, Redirect } from 'react-router-dom';
 
 const PrivateRoute: React.SFC<{
@@ -8,7 +8,7 @@ const PrivateRoute: React.SFC<{
   path: string;
   exact: boolean;
 }> = ({ component: Component, ...rest }) => {
-  const { isAuth, loading } = useSelector((state: AppStateType) => state.auth);
+  const { isAuth, loading } = useSelector((state: AppState) => state.auth);
   return (
     <Route
       {...rest}

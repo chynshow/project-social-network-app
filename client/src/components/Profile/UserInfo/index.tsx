@@ -9,23 +9,30 @@ import {
   faUserCog,
   faCommentDots,
   faChevronUp,
+  faFileUpload,
 } from '@fortawesome/free-solid-svg-icons';
 import Tooltip from '../../Common/Tooltip';
 import ModalAddUserInfo from '../ModalAddUserInfo';
+import { useSelector } from 'react-redux';
+import { AppState } from '../../../redux';
 
-interface UserInfoHeaderPropTypes {
+interface UserInfoHeader {
   setShowContent: (value: boolean) => void;
   showContent: boolean;
 }
 
-export const UserInfoHeader: React.FC<UserInfoHeaderPropTypes> = ({
+export const UserInfoHeader: React.FC<UserInfoHeader> = ({
   setShowContent,
   showContent,
 }) => {
+  const userName = useSelector(
+    (state: AppState) => state.profile.profile?.name
+  );
+
   return (
     <header className="c-user-info__header">
       <h3 className="c-title-secondary c-user-info__user-name">
-        Jane Moren
+        {userName}
         <span className="c-user-info__user-position">Designer</span>
       </h3>
       <Tooltip label="User information">
@@ -41,12 +48,15 @@ export const UserInfoHeader: React.FC<UserInfoHeaderPropTypes> = ({
   );
 };
 
-interface UserInfoPropTypes {
+interface UserInfo {
   showContent: boolean;
 }
 
-const UserInfo: React.FC<UserInfoPropTypes> = ({ showContent }) => {
+const UserInfo: React.FC<UserInfo> = ({ showContent }) => {
   const [showModal, setShowModal] = React.useState(false);
+  const mainInfo = useSelector(
+    (state: AppState) => state.profile.profile?.mainInfo
+  );
   const handlerDownloadCV = () => {
     console.log('DownloadCV');
   };
@@ -70,72 +80,67 @@ const UserInfo: React.FC<UserInfoPropTypes> = ({ showContent }) => {
                   <FontAwesomeIcon icon={faPen} />
                 </button>
               </Tooltip>
-              <Tooltip label="Download CV">
+              <Tooltip label="Upload CV">
                 <button
                   className="c-btn c-main-info__btn"
                   type="button"
                   onClick={() => handlerDownloadCV()}
                 >
-                  <FontAwesomeIcon icon={faDownload} />
+                  <FontAwesomeIcon icon={faFileUpload} />
                 </button>
               </Tooltip>
             </div>
             {showModal && <ModalAddUserInfo setShowModal={setShowModal} />}
           </div>
           <div className="c-main-info__content">
-            <p className="c-main-info__text c-main-info__text--about-me">
-              <span className="c-main-info__sub-text">
-                About Me
-                <FontAwesomeIcon
-                  className="c-main-info__sub-text-icon"
-                  icon={faUser}
-                />
-              </span>
-              Hi my name is Serhii, I'm beginner web developer and I'm looking
-              for a job to develop my professional skills. I learn programming
-              by using online courses. I like to code things from scratch, and
-              enjoy bringing ideas to life in the browser. I value simple
-              content structure, clean design patterns, and thoughtful
-              interactions. Hi my name is Serhii, I'm beginner web developer and
-              I'm looking for a job to develop my professional skills. I learn
-              programming by using online courses. I like to code things from
-              scratch, and enjoy bringing ideas to life in the browser. I value
-              simple content structure, clean design patterns, and thoughtful
-              interactions.
-            </p>
-            <p className="c-main-info__text">
-              <span className="c-main-info__sub-text">
-                Location
-                <FontAwesomeIcon
-                  className="c-main-info__sub-text-icon"
-                  icon={faMapMarkerAlt}
-                />
-              </span>
-              Poland, Poznan.
-            </p>
-            <p className="c-main-info__text">
-              <span className="c-main-info__sub-text">
-                Skills
-                <FontAwesomeIcon
-                  className="c-main-info__sub-text-icon"
-                  icon={faUserCog}
-                />
-              </span>
-              HTML, CSS, SASS, BEM, Bootstrap, RWD, Styled components,
-              JavaScript, React, Redux, Git, NPM, Nodejs, MongoDB, Express,
-              Mongoose, Postman, Linux.
-            </p>
-            <p className="c-main-info__text">
-              <span className="c-main-info__sub-text">
-                Lenguages
-                <FontAwesomeIcon
-                  className="c-main-info__sub-text-icon"
-                  icon={faCommentDots}
-                />
-              </span>
-              English (pre-intermediate), Polish (advanced), Russian & Ukrainian
-              (native speaker).
-            </p>
+            {mainInfo?.aboutMe && (
+              <p className="c-main-info__text c-main-info__text--about-me">
+                <span className="c-main-info__sub-text">
+                  About Me
+                  <FontAwesomeIcon
+                    className="c-main-info__sub-text-icon"
+                    icon={faUser}
+                  />
+                </span>
+                {mainInfo?.aboutMe}
+              </p>
+            )}
+            {mainInfo?.location && (
+              <p className="c-main-info__text">
+                <span className="c-main-info__sub-text">
+                  Location
+                  <FontAwesomeIcon
+                    className="c-main-info__sub-text-icon"
+                    icon={faMapMarkerAlt}
+                  />
+                </span>
+                {mainInfo?.location}
+              </p>
+            )}
+            {mainInfo?.skills && (
+              <p className="c-main-info__text">
+                <span className="c-main-info__sub-text">
+                  Skills
+                  <FontAwesomeIcon
+                    className="c-main-info__sub-text-icon"
+                    icon={faUserCog}
+                  />
+                </span>
+                {mainInfo?.skills}
+              </p>
+            )}
+            {mainInfo?.languages && (
+              <p className="c-main-info__text">
+                <span className="c-main-info__sub-text">
+                  Lenguages
+                  <FontAwesomeIcon
+                    className="c-main-info__sub-text-icon"
+                    icon={faCommentDots}
+                  />
+                </span>
+                {mainInfo?.languages}
+              </p>
+            )}
           </div>
         </div>
       </div>

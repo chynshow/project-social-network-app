@@ -8,7 +8,7 @@ import {
   faSignOutAlt,
   faComments,
 } from '@fortawesome/free-solid-svg-icons';
-import { AppStateType } from './../../redux';
+import { AppState } from './../../redux';
 import { useSelector, useDispatch } from 'react-redux';
 import { logOutAC } from './../../redux/auth/authActionCreators';
 
@@ -41,7 +41,7 @@ const switchComponent = (key: string): React.ReactElement => {
 };
 
 const Navigation: React.FC<{}> = () => {
-  const { isAuth } = useSelector((state: AppStateType) => state.auth);
+  const { isAuth } = useSelector((state: AppState) => state.auth);
   const dispatch = useDispatch();
   const { pathname } = useLocation();
 

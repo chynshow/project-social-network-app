@@ -10,17 +10,25 @@ import {
   registrationFailAC,
 } from './authActionCreators';
 import { showAlert } from './../alert/alertActions';
-import axios from 'axios';
 import { AuthActionTypes } from './authTypes';
-import { AppStateType } from './../index';
+import { AppState } from './../index';
 import { ThunkAction } from 'redux-thunk';
 import { Dispatch } from 'react';
+import {
+  getProfileRequest,
+  getProfilesRequest,
+} from './../profile/profileActions';
+import { instance } from './../../utils/axiosUtils';
 
 export const initApp = () => (
   dispatch: Dispatch<AuthActionTypes | ThunkType>
 ) => {
   try {
-    Promise.all([dispatch(getAuthRequest())]).then(() => {
+    Promise.all([
+      dispatch(getAuthRequest()),
+      dispatch(getProfileRequest()),
+      dispatch(getProfilesRequest()),
+    ]).then(() => {
       dispatch(initAppSuccessAC());
     });
   } catch (error) {
@@ -29,19 +37,7 @@ export const initApp = () => (
   }
 };
 
-type ThunkType = ThunkAction<
-  Promise<void>,
-  AppStateType,
-  unknown,
-  AuthActionTypes
->;
-
-const instance = axios.create({
-  baseURL: 'http://localhost:5001/',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-});
+type ThunkType = ThunkAction<Promise<void>, AppState, unknown, AuthActionTypes>;
 
 export const registrationRequest = (
   name: string,
@@ -51,7 +47,6 @@ export const registrationRequest = (
   const body = JSON.stringify({ name, email, password });
   try {
     const res = await instance.post('/api/v1/auth/register', body);
-    console.log(res.data);
     dispatch(registrationSuccessAC(res.data.token));
     dispatch(getAuthRequest());
   } catch (error) {
@@ -89,14 +84,10 @@ export const getAuthRequest = (): ThunkType => async (dispatch) => {
 };
 
 export const removeAccountRequest = (): ThunkType => async (dispatch) => {
-  if (localStorage.token) {
-    instance.defaults.headers.authorization = 'Bearer ' + localStorage.token;
-  }
-
   try {
     await instance.delete('/api/v1/auth');
     dispatch(removeAccountSuccessAC());
-    dispatch(showAlert('Account was deleted!', 'danger'));
+    dispatch(showAlert('Account was deleted!', 'success'));
   } catch (error) {
     dispatch(showAlert(error.response.data.error, 'danger'));
   }

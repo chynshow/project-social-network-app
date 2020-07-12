@@ -13,7 +13,7 @@ const UserAvatar: React.FC<PropTypes> = ({ src, size, alt, className }) => {
       <img
         style={{ width: size }}
         className="c-user-avatar__img"
-        src={src}
+        src={`data:image/jpeg;base64,${src}`}
         alt={alt}
       />
     </div>
