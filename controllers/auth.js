@@ -49,26 +49,6 @@ exports.deleteAccount = asyncHandler(async (req, res, next) => {
   res.status(200).json({ msg: "Account deleted" });
 });
 
-exports.updateEmail = asyncHandler(async (req, res, next) => {
-  const user = await User.findByIdAndUpdate(
-    req.user.id,
-    {
-      email: req.body.email,
-    },
-    { new: true }
-  );
-  res.status(200).json({ email: user.email });
-});
-
-exports.updatePassword = asyncHandler(async (req, res, next) => {
-  const user = await User.findById(req.user.id).select("+password");
-
-  user.password = req.body.password;
-  await user.save();
-
-  sendTokenResponse(user, 200, res);
-});
-
 const sendTokenResponse = (user, statusCode, res) => {
   const token = user.getSignedJwtToken();
   res.status(statusCode).json({ token });

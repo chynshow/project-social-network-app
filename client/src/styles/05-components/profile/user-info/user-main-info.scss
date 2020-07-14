@@ -1,15 +1,19 @@
 .c-main-info {
+  background: rgba(250, 250, 250, $alpha: 0.8);
+  // background: $color-white-light;
+  // @include bg-img('/assets/svg/bg-2.svg', 85%, 0% 100%);
+
   &__header {
     position: relative;
     border-top: 1px solid $color-border;
-    padding: 2.5rem 1rem 0.5rem 1.5rem;
+    padding: 2rem 1rem 0rem 1.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
 
   &__content {
-    padding: 1rem;
+    padding: 0.8rem;
   }
 
   &__text {
@@ -29,8 +33,12 @@
   }
 
   &__btn {
-    padding: 0 1rem;
     font-size: $font-sm;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-right: 0.5rem;
+    border-radius: 50%;
+    transition: 0.4s ease-in-out;
   }
 
   &__sub-text {
@@ -42,5 +50,11 @@
 
   &__sub-text-icon {
     margin: 0 0.5rem;
+  }
+
+  &__header:hover &__btn {
+    background: $color-violet-dark;
+    color: $color-white;
+    animation: pulse 2s linear 1;
   }
 }

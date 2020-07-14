@@ -4,23 +4,18 @@ import {
   getProfilesSuccess,
   getProfilesFail,
   updateProfileSuccess,
-  updateProfileFail,
   updatePhotoSuccess,
-  updatePhotoFail,
   clearProfile,
   clearPhoto,
   GET_PROFILE_SUCCESS,
   GET_PROFILE_FAIL,
   GET_PROFILES_SUCCESS,
   GET_PROFILES_FAIL,
-  UPDATE_PROFILE_SUCESS,
-  UPDATE_PROFILE_FAIL,
-  UPDATE_PHOTO_SUCCESS,
-  UPDATE_PHOTO_FAIL,
+  UPDATE_PROFILE,
+  UPDATE_PHOTO,
   CLEAR_PROFILE,
   CLEAR_PHOTO,
   UserProfile,
-  UsersProfiles,
 } from './profileTypes';
 
 export const getProfileSuccessAC = (
@@ -32,7 +27,7 @@ export const getProfileFailAC = (): getProfileFail => ({
 });
 
 export const getProfilesSuccessAC = (
-  profiles: UsersProfiles
+  profiles: Array<UserProfile>
 ): getProfilesSuccess => ({ type: GET_PROFILES_SUCCESS, payload: profiles });
 
 export const getProfilesFailAC = (): getProfilesFail => ({
@@ -42,21 +37,13 @@ export const getProfilesFailAC = (): getProfilesFail => ({
 export const updateProfileSuccessAC = (
   profile: UserProfile
 ): updateProfileSuccess => ({
-  type: UPDATE_PROFILE_SUCESS,
+  type: UPDATE_PROFILE,
   payload: profile,
 });
 
-export const updateProfileFailAC = (): updateProfileFail => ({
-  type: UPDATE_PROFILE_FAIL,
-});
-
 export const updatePhotoSuccessAC = (photo: string): updatePhotoSuccess => ({
-  type: UPDATE_PHOTO_SUCCESS,
+  type: UPDATE_PHOTO,
   payload: photo,
-});
-
-export const updatePhotoFailAC = (): updatePhotoFail => ({
-  type: UPDATE_PHOTO_FAIL,
 });
 
 export const clearProfileAC = (): clearProfile => ({ type: CLEAR_PROFILE });

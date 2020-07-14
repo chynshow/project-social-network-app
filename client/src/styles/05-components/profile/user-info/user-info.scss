@@ -3,7 +3,8 @@
   border-radius: 0 0 10px 10px;
   max-height: 0;
   transition: 0.2s ease-out;
-  // @include bg-img('/assets/svg/undraw_online_cv_qy9w.svg', 15%, 98% 98%);
+  width: 100%;
+  overflow: hidden;
 
   &__header {
     padding: 1.5rem;
@@ -36,6 +37,7 @@
   }
 
   &--active {
+    overflow: visible;
     transition: 0.3s ease-in;
     max-height: 100vh;
   }

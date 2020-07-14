@@ -3,79 +3,47 @@ import { AppState } from './../index';
 
 export interface UserProfile {
   name: string;
-  user: {
-    email: string;
-    createdAt: string;
-  };
-  mainInfo: {
-    aboutMe: string;
-    location: string | null;
-    status: string | null;
-    skills: string | null;
-    languages: string | null;
-  };
+  user: { email: string; createdAt: string };
+  about: string;
+  profession: string;
+  position: string;
+  location: string;
+  skills: string;
+  languages: string;
   contacts: {
     github: string | null;
     phone: string | null;
     linkedin: string | null;
   };
-  photo: string;
-  createdAt: string;
+  photo: string | null;
 }
 
-export interface GetProfileResponse {
-  profile: {
-    name: string;
-    _id: string;
-    user: {
-      email: string;
-      createdAt: string;
-    };
-    mainInfo: {
-      aboutMe: string;
-      location: string | null;
-      status: string | null;
-      skills: string | null;
-      languages: string | null;
-    };
-    contacts: {
-      github: string | null;
-      phone: string | null;
-      linkedin: string | null;
-    };
-    photo: string;
-    createdAt: string;
-  };
-}
-
-export interface UpdateProfile {
-  name: string;
-  profession: string;
-  position: string;
-  about: string;
-  location: string;
-  skills: string;
-  languages: string;
+export interface GetProfileResponse extends UserProfile {
+  _id: string;
 }
 
 export interface UpdateProfileResponse {
-  profile: {
-    contacts: any;
-    createdAt: string;
-    mainInfo: any;
-    name: string;
-    photo: string;
-    user: any;
-    _id: string;
-  };
-  posts: Array<UserProfile> | null;
+  profile: UserProfile;
+  posts: [];
 }
 
-export type UsersProfiles = Array<UserProfile>;
+export interface GetProfilesResponse {
+  profiles: Array<UserProfile>;
+}
+
+export interface UpdateProfile {
+  name?: string;
+  profession?: string;
+  position?: string;
+  about?: string;
+  location?: string;
+  skills?: string;
+  languages?: string;
+}
 
 export interface InitialState {
-  profile: null | UserProfile;
-  profiles: UsersProfiles | [];
+  profile: any | null | UserProfile;
+  profiles: Array<UserProfile> | [];
   loading: boolean;
 }
 
@@ -83,10 +51,8 @@ export const GET_PROFILE_SUCCESS = 'GET_PROFILE_SUCCESS';
 export const GET_PROFILE_FAIL = 'GET_PROFILE_FAIL';
 export const GET_PROFILES_SUCCESS = 'GET_PROFILES_SUCCESS';
 export const GET_PROFILES_FAIL = 'GET_PROFILES_FAIL';
-export const UPDATE_PROFILE_SUCESS = 'UPDATE_PROFILE_SUCESS';
-export const UPDATE_PROFILE_FAIL = 'UPDATE_PROFILE_FAIL';
-export const UPDATE_PHOTO_SUCCESS = 'UPDATE_PHOTO_SUCCESS';
-export const UPDATE_PHOTO_FAIL = 'UPDATE_PHOTO_FAIL';
+export const UPDATE_PROFILE = 'UPDATE_PROFILE';
+export const UPDATE_PHOTO = 'UPDATE_PHOTO';
 export const CLEAR_PROFILE = 'CLEAR_PROFILE';
 export const CLEAR_PHOTO = 'CLEAR_PHOTO';
 
@@ -101,7 +67,7 @@ export interface getProfileFail {
 
 export interface getProfilesSuccess {
   type: typeof GET_PROFILES_SUCCESS;
-  payload: UsersProfiles;
+  payload: Array<UserProfile>;
 }
 
 export interface getProfilesFail {
@@ -109,21 +75,13 @@ export interface getProfilesFail {
 }
 
 export interface updateProfileSuccess {
-  type: typeof UPDATE_PROFILE_SUCESS;
+  type: typeof UPDATE_PROFILE;
   payload: UserProfile;
 }
 
-export interface updateProfileFail {
-  type: typeof UPDATE_PROFILE_FAIL;
-}
-
 export interface updatePhotoSuccess {
-  type: typeof UPDATE_PHOTO_SUCCESS;
+  type: typeof UPDATE_PHOTO;
   payload: string;
-}
-
-export interface updatePhotoFail {
-  type: typeof UPDATE_PHOTO_FAIL;
 }
 
 export interface clearProfile {
@@ -140,9 +98,7 @@ export type ProfileActions =
   | getProfilesSuccess
   | getProfilesFail
   | updateProfileSuccess
-  | updateProfileFail
   | updatePhotoSuccess
-  | updatePhotoFail
   | clearProfile
   | clearPhoto;
 

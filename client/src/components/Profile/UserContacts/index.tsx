@@ -24,28 +24,26 @@ const UserContacts: React.FC<{}> = () => {
             <span className="c-user-contacts__item-text">{userEmail}</span>
           </div>
         )}
-        {contacts?.github && (
-          <div className="c-user-contacts__item">
-            <FontAwesomeIcon
-              className="c-user-contacts__item-icon"
-              icon={faGithubSquare}
-            />
-            <span className="c-user-contacts__item-text">
-              {contacts?.github}
-            </span>
-          </div>
-        )}
-        {contacts?.linkedin && (
-          <div className="c-user-contacts__item">
-            <FontAwesomeIcon
-              className="c-user-contacts__item-icon"
-              icon={faLinkedin}
-            />
-            <span className="c-user-contacts__item-text">
-              {contacts?.linkedin}
-            </span>
-          </div>
-        )}
+
+        <div className="c-user-contacts__item">
+          <FontAwesomeIcon
+            className="c-user-contacts__item-icon"
+            icon={faGithubSquare}
+          />
+          <span className="c-user-contacts__item-text">
+            {contacts?.github ? contacts?.github : 'empty'}
+          </span>
+        </div>
+
+        <div className="c-user-contacts__item">
+          <FontAwesomeIcon
+            className="c-user-contacts__item-icon"
+            icon={faLinkedin}
+          />
+          <span className="c-user-contacts__item-text">
+            {contacts?.linkedin ? contacts?.linkedin : 'empty'}
+          </span>
+        </div>
       </div>
     </div>
   );

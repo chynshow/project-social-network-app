@@ -28,9 +28,9 @@ const Posts: React.FC<{}> = () => {
         </Tooltip>
       </div>
       <div className="c-posts__items-container">
-        {/* <p className="c-posts__info">You don't have any posts yet!</p> */}
-        <Post />
-        <Post />
+        <p className="c-posts__info">You don't have any posts yet!</p>
+        {/* <Post /> */}
+        {/* <Post /> */}
 
         {showModal && <ModalAddPost setShowModal={setShowModal} />}
       </div>

@@ -6,50 +6,29 @@ const ProfileSchema = new mongoose.Schema({
     required: [true, "Please add name"],
     maxlength: 20,
   },
-  mainInfo: {
-    aboutMe: {
-      type: String,
-      default: null,
-      maxlength: 1000,
-    },
-    location: {
-      type: String,
-      default: null,
-    },
-    status: {
-      type: String,
-      default: null,
-    },
-    lookingForAJob: {
-      type: Boolean,
-      default: null,
-    },
-    skills: {
-      type: String,
-      default: null,
-      maxlength: 500,
-    },
-    languages: { type: String, default: null },
+  about: {
+    type: String,
+    default: null,
+    maxlength: 1000,
   },
-  education: [
-    {
-      school: { type: String, default: null },
-      degree: { type: String, default: null },
-      from: { type: String, default: null },
-      to: { type: String, default: null },
-      fieldOfStudy: { type: String, default: null },
-    },
-  ],
-  experience: [
-    {
-      title: { type: String, default: null },
-      location: { type: String, default: null },
-      company: { type: String, default: null },
-      from: { type: String, default: null },
-      to: { type: String, default: null },
-      description: { type: String, default: null },
-    },
-  ],
+  profession: {
+    type: String,
+    default: null,
+  },
+  position: {
+    type: String,
+    default: null,
+  },
+  location: {
+    type: String,
+    default: null,
+  },
+  skills: {
+    type: String,
+    default: null,
+    maxlength: 500,
+  },
+  languages: { type: String, default: null },
   contacts: {
     github: {
       type: String,

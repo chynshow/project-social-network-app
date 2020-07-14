@@ -9,14 +9,14 @@ exports.getCurrentProfile = asyncHandler(async (req, res, next) => {
 
   if (!profile) return next(new ErrorResponse("Profile not found", 404));
 
-  res.status(200).json({ profile });
+  res.status(200).json(profile);
 });
 
 exports.getProfiles = asyncHandler(async (req, res, next) => {
   const profiles = await Profile.find();
   if (!profiles) return next(new ErrorResponse("Profiles not found!", 404));
 
-  res.status(200).json({ count: profiles.length, profiles });
+  res.status(200).json(profiles);
 });
 
 exports.updateProfile = asyncHandler(async (req, res, next) => {
@@ -58,50 +58,6 @@ exports.getProfileByUserId = asyncHandler(async (req, res, next) => {
   res.status(200).json({ profile });
 });
 
-exports.addMainInfo = asyncHandler(async (req, res, next) => {
-  let profile = await Profile.findOne({ user: req.user.id });
-
-  profile.mainInfo = req.body.mainInfo;
-  await profile.save();
-
-  res.status(200).json({ profile });
-});
-
-exports.addEducation = asyncHandler(async (req, res, next) => {
-  let profile = await Profile.findOne({ user: req.user.id });
-
-  profile.education = [...profile.education, { ...req.body.education }];
-  await profile.save();
-
-  res.status(200).json({ profile });
-});
-
-exports.delEducation = asyncHandler(async (req, res, next) => {
-  let profile = await Profile.findOne({ user: req.user.id });
-
-  profile.education = profile.education.filter((e) => e.id !== req.params.id);
-  await profile.save();
-
-  res.status(200).json({ profile });
-});
-
-exports.addExperience = asyncHandler(async (req, res, next) => {
-  let profile = await Profile.findOne({ user: req.user.id });
-
-  profile.experience = [...profile.experience, { ...req.body.experience }];
-  await profile.save();
-
-  res.status(200).json({ profile });
-});
-
-exports.delExperience = asyncHandler(async (req, res, next) => {
-  let profile = await Profile.findOne({ user: req.user.id });
-
-  profile.experience = profile.experience.filter((e) => e.id !== req.params.id);
-  await profile.save();
-
-  res.status(200).json({ profile });
-});
 exports.updateContacts = asyncHandler(async (req, res, next) => {
   let profile = await Profile.findOne({ user: req.user.id });
 

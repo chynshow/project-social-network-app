@@ -43,9 +43,9 @@
     padding: 0 1rem;
   }
 
-  &__header:hover .c-posts__add-post-btn {
+  &__header:hover &__add-post-btn {
     background: $color-violet-dark;
     color: $color-white;
-    animation: pulse 2s linear 2;
+    animation: pulse 2s linear 1;
   }
 }

@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faChevronDown,
   faPen,
-  faDownload,
   faUser,
   faMapMarkerAlt,
   faUserCog,
@@ -25,15 +24,17 @@ export const UserInfoHeader: React.FC<UserInfoHeader> = ({
   setShowContent,
   showContent,
 }) => {
-  const userName = useSelector(
-    (state: AppState) => state.profile.profile?.name
-  );
+  const profile = useSelector((state: AppState) => state.profile.profile);
 
   return (
     <header className="c-user-info__header">
       <h3 className="c-title-secondary c-user-info__user-name">
-        {userName}
-        <span className="c-user-info__user-position">Designer</span>
+        {profile?.name}
+        {profile?.profession && (
+          <span className="c-user-info__user-position">
+            {profile?.position} {profile?.profession}
+          </span>
+        )}
       </h3>
       <Tooltip label="User information">
         <button
@@ -54,12 +55,8 @@ interface UserInfo {
 
 const UserInfo: React.FC<UserInfo> = ({ showContent }) => {
   const [showModal, setShowModal] = React.useState(false);
-  const mainInfo = useSelector(
-    (state: AppState) => state.profile.profile?.mainInfo
-  );
-  const handlerDownloadCV = () => {
-    console.log('DownloadCV');
-  };
+  const profile = useSelector((state: AppState) => state.profile.profile);
+
   return (
     <section
       className={
@@ -69,76 +66,67 @@ const UserInfo: React.FC<UserInfo> = ({ showContent }) => {
       <div className="l-user-info-content">
         <div className="c-main-info">
           <div className="c-main-info__header">
-            <h3 className="c-title-tertiary">Personal information</h3>
-            <div className="l-main-info__header-container">
-              <Tooltip label="Edit">
-                <button
-                  className="c-btn c-main-info__btn"
-                  type="button"
-                  onClick={() => setShowModal(!showModal)}
-                >
-                  <FontAwesomeIcon icon={faPen} />
-                </button>
-              </Tooltip>
-              <Tooltip label="Upload CV">
-                <button
-                  className="c-btn c-main-info__btn"
-                  type="button"
-                  onClick={() => handlerDownloadCV()}
-                >
-                  <FontAwesomeIcon icon={faFileUpload} />
-                </button>
-              </Tooltip>
-            </div>
+            <h3 className="c-title-tertiary c-user-info__title">
+              Personal information
+            </h3>
+            <Tooltip label="Edit">
+              <button
+                className="c-btn c-main-info__btn"
+                type="button"
+                onClick={() => setShowModal(!showModal)}
+              >
+                <FontAwesomeIcon icon={faPen} />
+              </button>
+            </Tooltip>
             {showModal && <ModalAddUserInfo setShowModal={setShowModal} />}
           </div>
           <div className="c-main-info__content">
-            {mainInfo?.aboutMe && (
+            {profile?.about && (
               <p className="c-main-info__text c-main-info__text--about-me">
                 <span className="c-main-info__sub-text">
                   About Me
-                  <FontAwesomeIcon
+                  {/* <FontAwesomeIcon
                     className="c-main-info__sub-text-icon"
                     icon={faUser}
-                  />
+                  /> */}
                 </span>
-                {mainInfo?.aboutMe}
+                {profile?.about}
               </p>
             )}
-            {mainInfo?.location && (
+            {profile?.location && (
               <p className="c-main-info__text">
                 <span className="c-main-info__sub-text">
                   Location
-                  <FontAwesomeIcon
+                  {/* <FontAwesomeIcon
                     className="c-main-info__sub-text-icon"
                     icon={faMapMarkerAlt}
-                  />
+                  /> */}
                 </span>
-                {mainInfo?.location}
+                {profile?.location}
               </p>
             )}
-            {mainInfo?.skills && (
+            {profile?.skills && (
               <p className="c-main-info__text">
                 <span className="c-main-info__sub-text">
                   Skills
-                  <FontAwesomeIcon
+                  {/* <FontAwesomeIcon
                     className="c-main-info__sub-text-icon"
                     icon={faUserCog}
-                  />
+                  /> */}
                 </span>
-                {mainInfo?.skills}
+                {profile?.skills}
               </p>
             )}
-            {mainInfo?.languages && (
+            {profile?.languages && (
               <p className="c-main-info__text">
                 <span className="c-main-info__sub-text">
                   Lenguages
-                  <FontAwesomeIcon
+                  {/* <FontAwesomeIcon
                     className="c-main-info__sub-text-icon"
                     icon={faCommentDots}
-                  />
+                  /> */}
                 </span>
-                {mainInfo?.languages}
+                {profile?.languages}
               </p>
             )}
           </div>

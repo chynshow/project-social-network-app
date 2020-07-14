@@ -1,5 +1,5 @@
 import React from 'react';
-import UserAvatar from '../Common/UserAvatar';
+// import UserAvatar from '../Common/UserAvatar';
 import UserInfo, { UserInfoHeader } from './UserInfo';
 import UserContacts from './UserContacts';
 import Posts from '../Posts';
@@ -8,6 +8,7 @@ import { getProfileRequest } from './../../redux/profile/profileActions';
 import { clearProfileAC } from '../../redux/profile/profileActionCreators';
 import { AppState } from '../../redux';
 import Loader from '../Common/Loader';
+import UserAvatar from './UserAvatar';
 
 const Profile: React.FC<{}> = () => {
   const [showContent, setShowContent] = React.useState(false);
@@ -28,20 +29,23 @@ const Profile: React.FC<{}> = () => {
       {profile === null ? (
         <Loader />
       ) : (
-        <div className="c-profile__user-info-container">
-          <div className="l-profile">
-            <UserAvatar size="15rem" src={profile?.photo} alt="User Avatar" />
-            <UserContacts />
+        <>
+          <div className="c-profile__user-info-container">
+            <div className="l-profile">
+              {/* <UserAvatar size="15rem" src={profile.photo} alt="User Avatar" /> */}
+              <UserAvatar />
+              <UserContacts />
+            </div>
+            <UserInfoHeader
+              setShowContent={setShowContent}
+              showContent={showContent}
+            />
+            <UserInfo showContent={showContent} />
           </div>
 
-          <UserInfoHeader
-            setShowContent={setShowContent}
-            showContent={showContent}
-          />
-          <UserInfo showContent={showContent} />
-        </div>
+          <Posts />
+        </>
       )}
-      <Posts />
     </section>
   );
 };

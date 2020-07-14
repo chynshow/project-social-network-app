@@ -7,8 +7,35 @@
   @include bg-img('/assets/svg/bg-2.svg', 100%, center);
 
   &__img {
+    cursor: pointer;
     border-radius: 50%;
     box-shadow: 0 4px 8px 0 rgba(63, 61, 86, 0.2);
+
     // 0 6px 20px 0 rgba(63, 61, 86, 0.19);
+  }
+
+  &__label {
+    border-radius: 50%;
+    position: relative;
+    &::after {
+      transition: $transition;
+      content: 'Upload Photo';
+      position: absolute;
+      color: $color-white;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0;
+    }
+  }
+
+  &:hover &__label::after {
+    transition: $transition;
+    bottom: 10%;
+    opacity: 1;
+  }
+
+  &__input {
+    display: none;
   }
 }

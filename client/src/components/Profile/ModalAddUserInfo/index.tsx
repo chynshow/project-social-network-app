@@ -6,7 +6,9 @@ import FormControl from '../../Common/Form/FormControl';
 import Overlay from '../../Common/Overlay';
 import * as Yup from 'yup';
 import { updateProfileRequest } from './../../../redux/profile/profileActions';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppState } from '../../../redux';
+import { UpdateProfile } from './../../../redux/profile/profileTypes';
 
 interface PropTypes {
   setShowModal: (value: boolean) => void;
@@ -14,37 +16,29 @@ interface PropTypes {
 
 const ModalAddUserInfo: React.FC<PropTypes> = ({ setShowModal }) => {
   const dispatch = useDispatch();
-  interface InitialValueTypes {
-    name: string;
-    profession: string;
-    position: string;
-    about: string;
-    location: string;
-    skills: string;
-    languages: string;
-  }
+  const profile = useSelector((state: AppState) => state.profile.profile);
 
-  const initialValues: InitialValueTypes = {
-    name: '',
-    profession: '',
-    position: '',
-    about: '',
-    location: '',
-    skills: '',
-    languages: '',
+  const initialValues: UpdateProfile = {
+    name: profile?.name,
+    profession: profile?.profession,
+    position: profile?.position,
+    about: profile?.about,
+    location: profile?.location,
+    skills: profile?.skills,
+    languages: profile?.languages,
   };
 
   const validationSchema = Yup.object({
     name: Yup.string().required('Field is required!'),
-    profession: Yup.string().required('Field is required!'),
-    position: Yup.string().required('Field is required!'),
-    about: Yup.string().required('Field is required!'),
-    location: Yup.string().required('Field is required!'),
-    skills: Yup.string().required('Field is required!'),
-    languages: Yup.string().required('Field is required!'),
+    profession: Yup.string(),
+    position: Yup.string(),
+    about: Yup.string(),
+    location: Yup.string(),
+    skills: Yup.string(),
+    languages: Yup.string(),
   });
 
-  const onSubmit = (values: InitialValueTypes) => {
+  const onSubmit = (values: UpdateProfile) => {
     dispatch(updateProfileRequest(values));
     setShowModal(false);
   };

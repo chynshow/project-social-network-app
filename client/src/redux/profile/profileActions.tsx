@@ -1,8 +1,9 @@
 import {
   Thunk,
-  GetProfileResponse,
   UpdateProfile,
+  GetProfileResponse,
   UpdateProfileResponse,
+  GetProfilesResponse,
 } from './profileTypes';
 import {
   getProfileSuccessAC,
@@ -10,7 +11,8 @@ import {
   getProfilesFailAC,
   getProfilesSuccessAC,
   updateProfileSuccessAC,
-  updatePhotoFailAC,
+  updatePhotoSuccessAC,
+  clearPhotoAC,
 } from './profileActionCreators';
 import { showAlert } from '../alert/alertActions';
 import { instance } from './../../utils/axiosUtils';
@@ -18,7 +20,7 @@ import { instance } from './../../utils/axiosUtils';
 export const getProfileRequest = (): Thunk => async (dispatch) => {
   try {
     const res = await instance.get<GetProfileResponse>('/api/v1/profile');
-    dispatch(getProfileSuccessAC(res.data.profile));
+    dispatch(getProfileSuccessAC(res.data));
   } catch (error) {
     dispatch(getProfileFailAC());
     dispatch(showAlert(error.response.data.error, 'danger'));
@@ -27,9 +29,8 @@ export const getProfileRequest = (): Thunk => async (dispatch) => {
 
 export const getProfilesRequest = (): Thunk => async (dispatch) => {
   try {
-    const res = await instance.get('/api/v1/profile/all');
+    const res = await instance.get<GetProfilesResponse>('/api/v1/profile/all');
     dispatch(getProfilesSuccessAC(res.data.profiles));
-    console.log(res.data.profiles);
   } catch (error) {
     dispatch(getProfilesFailAC());
     dispatch(showAlert(error.response.data.error, 'danger'));
@@ -45,13 +46,24 @@ export const updateProfileRequest = (profile: UpdateProfile): Thunk => async (
       '/api/v1/profile/update',
       body
     );
-    console.log(res.data);
-
     dispatch(updateProfileSuccessAC(res.data.profile));
     dispatch(showAlert('Update personal info!', 'success'));
   } catch (error) {
-    dispatch(updatePhotoFailAC());
     dispatch(showAlert(error.response.data.error, 'danger'));
   }
 };
-export const updatePhotoRequest = (): Thunk => async (dispatch) => {};
+
+export const updatePhotoRequest = (photo: string): Thunk => async (
+  dispatch
+) => {
+  const formData = new FormData();
+  formData.append('file', photo);
+  try {
+    const res = await instance.put('/api/v1/profile/photo', formData);
+    dispatch(clearPhotoAC());
+    dispatch(updatePhotoSuccessAC(res.data.photo));
+    dispatch(showAlert('Photo chnaged!', 'success'));
+  } catch (error) {
+    dispatch(showAlert(error.response.data.error, 'danger'));
+  }
+};

@@ -5,10 +5,8 @@ import {
   GET_PROFILE_FAIL,
   GET_PROFILES_SUCCESS,
   GET_PROFILES_FAIL,
-  UPDATE_PROFILE_SUCESS,
-  UPDATE_PROFILE_FAIL,
-  UPDATE_PHOTO_SUCCESS,
-  UPDATE_PHOTO_FAIL,
+  UPDATE_PROFILE,
+  UPDATE_PHOTO,
   CLEAR_PROFILE,
   CLEAR_PHOTO,
 } from './profileTypes';
@@ -22,7 +20,7 @@ const initialState: InitialState = {
 export default (state = initialState, action: ProfileActions): InitialState => {
   switch (action.type) {
     case GET_PROFILE_SUCCESS:
-    case UPDATE_PROFILE_SUCESS:
+    case UPDATE_PROFILE:
       return { ...state, loading: false, profile: action.payload };
     case GET_PROFILE_FAIL:
     case CLEAR_PROFILE:
@@ -31,8 +29,18 @@ export default (state = initialState, action: ProfileActions): InitialState => {
       return { ...state, loading: false, profiles: action.payload };
     case GET_PROFILES_FAIL:
       return { ...state, loading: false, profiles: [] };
-    // case UPDATE_PHOTO_SUCCESS: return {...state, loading: false,  profile: {...state.profile, photo: action.payload}};
-    // case CLEAR_PHOTO: return {...state, loading: false, profile: {...state.profile, photo: null}}
+    case UPDATE_PHOTO:
+      return {
+        ...state,
+        loading: false,
+        profile: { ...state.profile, photo: action.payload },
+      };
+    case CLEAR_PHOTO:
+      return {
+        ...state,
+        loading: false,
+        profile: { ...state.profile, photo: null },
+      };
     default:
       return state;
   }
