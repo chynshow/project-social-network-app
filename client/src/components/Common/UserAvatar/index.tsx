@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface PropTypes {
-  src: string;
+  src: any;
   size: string;
   alt: string;
   className?: string;

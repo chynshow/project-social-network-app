@@ -4,23 +4,23 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import Overlay from '../../Common/Overlay';
 import UserAvatar from '../../Common/UserAvatar';
 import AddPostForm from './AddPostForm';
+import { useSelector } from 'react-redux';
+import { AppState } from '../../../redux';
 
 interface PropTypes {
   setShowModal: (value: boolean) => void;
 }
 
 const ModalAddPost: React.FC<PropTypes> = ({ setShowModal }) => {
+  const photo = useSelector((state: AppState) => state.profile.profile?.photo);
+  const name = useSelector((state: AppState) => state.profile.profile?.name);
   return (
     <>
       <div className="c-modal-add-message c-posts-modal-add-post">
         <div className="c-modal-add-message__header c-posts-modal-add-post__header">
-          <UserAvatar
-            size="4rem"
-            src="/assets/images/guilherme-stecanella-_dH-oQF9w-Y-unsplash.jpg"
-            alt="User Avatar"
-          />
+          <UserAvatar size="4rem" src={photo} alt="User Avatar" />
           <h3 className="c-title-tertiary c-modal-add-comment__title">
-            Jane Moren
+            {name}
           </h3>
           <button
             className="c-btn c-modal-add-message__close-btn c-posts-modal-add-post__close-btn"

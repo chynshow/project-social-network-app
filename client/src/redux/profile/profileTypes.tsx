@@ -42,7 +42,7 @@ export interface UpdateProfile {
 }
 
 export interface InitialState {
-  profile: any | null | UserProfile;
+  profile: null | UserProfile;
   profiles: Array<UserProfile> | [];
   loading: boolean;
 }

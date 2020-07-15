@@ -40,10 +40,9 @@ const Comments: React.FC<{}> = () => {
             : 'c-comments__items-container'
         }
       >
-        {/* <Comment /> */}
-        <Comment className="c-comment--active" />
-        {/* <Comment /> */}
-        <Comment className="c-comment--active" />
+        {/* <Comment className="c-comment--active" /> */}
+
+        {/* <Comment className="c-comment--active" /> */}
       </div>
     </div>
   );

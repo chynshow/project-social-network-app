@@ -9,6 +9,7 @@ import {
   UPDATE_PHOTO,
   CLEAR_PROFILE,
   CLEAR_PHOTO,
+  UserProfile,
 } from './profileTypes';
 
 const initialState: InitialState = {
@@ -33,13 +34,13 @@ export default (state = initialState, action: ProfileActions): InitialState => {
       return {
         ...state,
         loading: false,
-        profile: { ...state.profile, photo: action.payload },
+        profile: { ...state.profile, photo: action.payload } as UserProfile,
       };
     case CLEAR_PHOTO:
       return {
         ...state,
         loading: false,
-        profile: { ...state.profile, photo: null },
+        profile: { ...state.profile, photo: null } as UserProfile,
       };
     default:
       return state;

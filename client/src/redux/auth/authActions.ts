@@ -26,8 +26,8 @@ export const initApp = () => (
   try {
     Promise.all([
       dispatch(getAuthRequest()),
-      dispatch(getProfileRequest()),
-      dispatch(getProfilesRequest()),
+      // dispatch(getProfileRequest()),
+      // dispatch(getProfilesRequest()),
     ]).then(() => {
       dispatch(initAppSuccessAC());
     });

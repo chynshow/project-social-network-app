@@ -4,20 +4,20 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExpandAlt, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import * as Yup from 'yup';
 import FormControl from '../../../Common/Form/FormControl';
+import { addPostRequest } from './../../../../redux/posts/postsActions';
+import { useDispatch } from 'react-redux';
 
 const AddPostForm: React.FC<{}> = () => {
   const [expandModal, setExpandModal] = React.useState(false);
-
-  interface InitialValueTypes {
-    post: string;
-  }
-
-  const initialValues: InitialValueTypes = {
+  const dispatch = useDispatch();
+  const initialValues = {
     post: '',
   };
 
+  type InitialValueTypes = typeof initialValues;
+
   const onSubmit = (value: InitialValueTypes): void => {
-    console.log(value);
+    dispatch(addPostRequest(value.post));
   };
 
   const validationSchema = Yup.object({
