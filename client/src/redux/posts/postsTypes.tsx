@@ -42,6 +42,10 @@ export type deletePost = {
   payload: PostTypes;
 };
 
+export type clearPosts = {
+  type: typeof CLEAR_POSTS;
+};
+
 export type updateComments = {
   type: typeof UPDATE_COMMENTS;
   payload: {

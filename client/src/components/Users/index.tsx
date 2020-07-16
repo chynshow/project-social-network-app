@@ -28,6 +28,7 @@ const Users: React.FC<{}> = () => {
               photo={user.photo}
               profession={user.profession}
               position={user.position}
+              userId={user.user}
             />
           ))}
         </div>

@@ -4,7 +4,7 @@ import { AppState } from './../index';
 export interface UserProfile {
   _id?: string;
   name: string;
-  user: { email: string; createdAt: string };
+  user: { email: string; createdAt: string; _id: string } | any;
   about: string;
   profession: string;
   position: string;
@@ -50,6 +50,8 @@ export interface InitialState {
 
 export const GET_PROFILE_SUCCESS = 'GET_PROFILE_SUCCESS';
 export const GET_PROFILE_FAIL = 'GET_PROFILE_FAIL';
+export const GET_PROFILE_BY_ID_SUCCESS = 'GET_PROFILE_BY_ID_SUCCESS';
+export const GET_PROFILE_BY_ID_FAIL = 'GET_PROFILE_BY_ID_FAIL';
 export const GET_PROFILES_SUCCESS = 'GET_PROFILES_SUCCESS';
 export const GET_PROFILES_FAIL = 'GET_PROFILES_FAIL';
 export const UPDATE_PROFILE = 'UPDATE_PROFILE';
@@ -64,6 +66,15 @@ export interface getProfileSuccess {
 
 export interface getProfileFail {
   type: typeof GET_PROFILE_FAIL;
+}
+
+export interface getProfileByIdSuccess {
+  type: typeof GET_PROFILE_BY_ID_SUCCESS;
+  payload: UserProfile;
+}
+
+export interface getProfileByIdFail {
+  type: typeof GET_PROFILE_BY_ID_FAIL;
 }
 
 export interface getProfilesSuccess {
@@ -96,6 +107,8 @@ export interface clearPhoto {
 export type ProfileActions =
   | getProfileSuccess
   | getProfileFail
+  | getProfileByIdSuccess
+  | getProfileByIdFail
   | getProfilesSuccess
   | getProfilesFail
   | updateProfileSuccess

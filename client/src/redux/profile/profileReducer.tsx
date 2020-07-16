@@ -10,6 +10,8 @@ import {
   CLEAR_PROFILE,
   CLEAR_PHOTO,
   UserProfile,
+  GET_PROFILE_BY_ID_SUCCESS,
+  GET_PROFILE_BY_ID_FAIL,
 } from './profileTypes';
 
 const initialState: InitialState = {
@@ -22,8 +24,10 @@ export default (state = initialState, action: ProfileActions): InitialState => {
   switch (action.type) {
     case GET_PROFILE_SUCCESS:
     case UPDATE_PROFILE:
+    case GET_PROFILE_BY_ID_SUCCESS:
       return { ...state, loading: false, profile: action.payload };
     case GET_PROFILE_FAIL:
+    case GET_PROFILE_BY_ID_FAIL:
     case CLEAR_PROFILE:
       return { ...state, loading: false, profile: null };
     case GET_PROFILES_SUCCESS:

@@ -16,6 +16,10 @@ import {
   CLEAR_PROFILE,
   CLEAR_PHOTO,
   UserProfile,
+  getProfileByIdSuccess,
+  GET_PROFILE_BY_ID_SUCCESS,
+  getProfileByIdFail,
+  GET_PROFILE_BY_ID_FAIL,
 } from './profileTypes';
 
 export const getProfileSuccessAC = (
@@ -24,6 +28,17 @@ export const getProfileSuccessAC = (
 
 export const getProfileFailAC = (): getProfileFail => ({
   type: GET_PROFILE_FAIL,
+});
+
+export const getProfileByIdSuccessAC = (
+  profile: UserProfile
+): getProfileByIdSuccess => ({
+  type: GET_PROFILE_BY_ID_SUCCESS,
+  payload: profile,
+});
+
+export const getProfileByIdFailAC = (): getProfileByIdFail => ({
+  type: GET_PROFILE_BY_ID_FAIL,
 });
 
 export const getProfilesSuccessAC = (

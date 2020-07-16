@@ -4,23 +4,33 @@ import UserInfo, { UserInfoHeader } from './UserInfo';
 import UserContacts from './UserContacts';
 import Posts from '../Posts';
 import { useDispatch, useSelector } from 'react-redux';
-import { getProfileRequest } from './../../redux/profile/profileActions';
+import {
+  getProfileRequest,
+  getProfileByIdRequest,
+} from './../../redux/profile/profileActions';
 import { clearProfileAC } from '../../redux/profile/profileActionCreators';
 import { AppState } from '../../redux';
 import Loader from '../Common/Loader';
 import UserAvatar from './UserAvatar';
+import { useParams } from 'react-router-dom';
 
 const Profile: React.FC<{}> = () => {
   const [showContent, setShowContent] = React.useState(false);
   const dispatch = useDispatch();
 
+  const { userId } = useParams();
+
   React.useEffect(() => {
-    dispatch(getProfileRequest());
+    if (userId) {
+      dispatch(getProfileByIdRequest(userId));
+    } else if (!userId) {
+      dispatch(getProfileRequest());
+    }
 
     return () => {
       dispatch(clearProfileAC());
     };
-  }, []);
+  }, [userId]);
 
   const { profile } = useSelector((state: AppState) => state.profile);
 

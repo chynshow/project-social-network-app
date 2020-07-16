@@ -55,7 +55,7 @@ exports.getProfileByUserId = asyncHandler(async (req, res, next) => {
   }).populate("user");
   if (!profile) return next(new ErrorResponse("Profile not found", 404));
 
-  res.status(200).json({ profile });
+  res.status(200).json(profile);
 });
 
 exports.updateContacts = asyncHandler(async (req, res, next) => {

@@ -13,6 +13,8 @@ import {
   updateProfileSuccessAC,
   updatePhotoSuccessAC,
   clearPhotoAC,
+  getProfileByIdSuccessAC,
+  getProfileByIdFailAC,
 } from './profileActionCreators';
 import { showAlert } from '../alert/alertActions';
 import { instance } from './../../utils/axiosUtils';
@@ -23,6 +25,20 @@ export const getProfileRequest = (): Thunk => async (dispatch) => {
     dispatch(getProfileSuccessAC(res.data));
   } catch (error) {
     dispatch(getProfileFailAC());
+    dispatch(showAlert(error.response.data.error, 'danger'));
+  }
+};
+
+export const getProfileByIdRequest = (userId: string): Thunk => async (
+  dispatch
+) => {
+  try {
+    const res = await instance.get<GetProfileResponse>(
+      `/api/v1/profile/${userId}`
+    );
+    dispatch(getProfileByIdSuccessAC(res.data));
+  } catch (error) {
+    dispatch(getProfileByIdFailAC());
     dispatch(showAlert(error.response.data.error, 'danger'));
   }
 };

@@ -11,6 +11,8 @@ import {
   updateComments,
   UPDATE_COMMENTS,
   CommentType,
+  clearPosts,
+  CLEAR_POSTS,
 } from './postsTypes';
 
 export const getPostsAC = (posts: Array<PostTypes>): getPosts => ({
@@ -26,6 +28,10 @@ export const addPostAC = (post: PostTypes): addPost => ({
 export const deletePostAC = (post: PostTypes): deletePost => ({
   type: DELETE_POST,
   payload: post,
+});
+
+export const clearPostsAC = (): clearPosts => ({
+  type: CLEAR_POSTS,
 });
 
 export const updateLikesAC = (

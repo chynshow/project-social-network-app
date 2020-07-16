@@ -7,16 +7,27 @@ import Tooltip from '../Common/Tooltip';
 import { useSelector, useDispatch } from 'react-redux';
 import { AppState } from '../../redux';
 import { getPostsRequest } from './../../redux/posts/postsActions';
+import { useParams } from 'react-router-dom';
+import { getPostsByUserIdRequest } from './../../redux/posts/postsActions';
+import { clearPostsAC } from './../../redux/posts/postsActionCreators';
 
 const Posts: React.FC<{}> = () => {
   const [showModal, setShowModal] = React.useState(false);
   const posts = useSelector((state: AppState) => state.posts.posts);
   const dispatch = useDispatch();
+  const { userId } = useParams();
 
   React.useEffect(() => {
-    dispatch(getPostsRequest());
+    if (userId) {
+      dispatch(getPostsByUserIdRequest(userId));
+    } else if (!userId) {
+      dispatch(getPostsRequest());
+    }
+    return () => {
+      dispatch(clearPostsAC());
+    };
   }, []);
-
+  // added loader!!
   return (
     <div className="c-posts">
       <div className="c-posts__header">
