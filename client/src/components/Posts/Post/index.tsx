@@ -20,6 +20,7 @@ const Post: React.FC<PostTypes> = ({
   text,
   avatar,
   likes,
+  comments,
 }) => {
   const [showContextMenu, setShowContextMenu] = React.useState(false);
   return (
@@ -55,7 +56,7 @@ const Post: React.FC<PostTypes> = ({
         <p className="c-post__text">{text}</p>
       </div>
       <div className="c-post__action-panel">
-        <Comments />
+        <Comments _id={_id} comments={comments} />
         <Likes _id={_id} likes={likes} />
       </div>
     </div>

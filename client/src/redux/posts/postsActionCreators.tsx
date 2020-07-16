@@ -8,6 +8,9 @@ import {
   DELETE_POST,
   updateLikes,
   UPDATE_LIKES,
+  updateComments,
+  UPDATE_COMMENTS,
+  CommentType,
 } from './postsTypes';
 
 export const getPostsAC = (posts: Array<PostTypes>): getPosts => ({
@@ -31,4 +34,15 @@ export const updateLikesAC = (
 ): updateLikes => ({
   type: UPDATE_LIKES,
   payload: { likes, postId },
+});
+
+export const updateCommentsAC = (
+  postId: string,
+  comments: Array<CommentType>
+): updateComments => ({
+  type: UPDATE_COMMENTS,
+  payload: {
+    postId,
+    comments,
+  },
 });

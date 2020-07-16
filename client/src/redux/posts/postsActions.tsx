@@ -6,6 +6,7 @@ import {
   addPostAC,
   deletePostAC,
   updateLikesAC,
+  updateCommentsAC,
 } from './postsActionCreators';
 import { showAlert } from '../alert/alertActions';
 
@@ -54,7 +55,7 @@ export const deletePostRequest = (postId: string): BaseThunk<Posts> => async (
   }
 };
 
-export const updateLikesRequest = (postId: any): BaseThunk<Posts> => async (
+export const updateLikesRequest = (postId: string): BaseThunk<Posts> => async (
   dispatch
 ) => {
   try {
@@ -62,6 +63,33 @@ export const updateLikesRequest = (postId: any): BaseThunk<Posts> => async (
 
     const res = await instance.put(`/api/v1/posts/like/${postId}`);
     dispatch(updateLikesAC(postId, res.data));
+  } catch (error) {
+    dispatch(showAlert(error.response.data.error, 'danger'));
+  }
+};
+
+export const updateCommentsRequest = (
+  postId: string,
+  comment: string
+): BaseThunk<Posts> => async (dispatch) => {
+  const body = JSON.stringify({ comment });
+  try {
+    const res = await instance.put(`/api/v1/posts/comment/${postId}`, body);
+    dispatch(updateCommentsAC(postId, res.data));
+  } catch (error) {
+    dispatch(showAlert(error.response.data.error, 'danger'));
+  }
+};
+
+export const delCommentRequest = (
+  postId: string,
+  commentId: string
+): BaseThunk<Posts> => async (dispatch) => {
+  try {
+    const res = await instance.delete(
+      `/api/v1/posts/comment/${postId}/${commentId}`
+    );
+    dispatch(updateCommentsAC(postId, res.data));
   } catch (error) {
     dispatch(showAlert(error.response.data.error, 'danger'));
   }

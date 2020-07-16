@@ -5,6 +5,7 @@
   max-width: 95%;
   display: flex;
   align-self: flex-end;
+  position: relative;
 
   &:not(:last-child) {
     margin-bottom: 0.2rem;
@@ -47,6 +48,13 @@
     }
   }
 
+  &__close-btn {
+    position: absolute;
+    top: 0;
+    transition: $transition;
+    @include hide;
+  }
+
   &--active {
     @extend .c-comment;
     align-self: flex-start;
@@ -68,5 +76,9 @@
       border-top: 0.7rem solid transparent;
       border-bottom: 0.7rem solid transparent;
     }
+  }
+
+  &:hover &__close-btn {
+    @include show;
   }
 }

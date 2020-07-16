@@ -3,16 +3,23 @@ export interface PostTypes {
   text: string;
   name: string;
   avatar: string;
-  likes: [{ user: string }];
+  likes: [Like];
   createdAt: Date;
-  comments: [
-    {
-      text: string;
-      avatar: string;
-      name: string;
-    }
-  ];
+  comments: [CommentType];
 }
+
+export type CommentType = {
+  _id: string;
+  text: string;
+  avatar: string;
+  name: string;
+};
+
+export type Like = {
+  user: string;
+  _id: string;
+};
+
 export const GET_POSTS = 'GET_POSTS';
 export const ADD_POST = 'ADD_POST';
 export const DELETE_POST = 'DELETE_POST';
@@ -37,6 +44,10 @@ export type deletePost = {
 
 export type updateComments = {
   type: typeof UPDATE_COMMENTS;
+  payload: {
+    postId: string;
+    comments: Array<CommentType>;
+  };
 };
 
 export type updateLikes = {

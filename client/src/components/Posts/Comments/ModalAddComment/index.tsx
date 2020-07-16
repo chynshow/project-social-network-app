@@ -4,21 +4,21 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import UserAvatar from '../../../Common/UserAvatar';
 import Overlay from '../../../Common/Overlay';
 import AddCommentForm from './AddCommentForm';
+import { useSelector } from 'react-redux';
+import { AppState } from '../../../../redux';
 
 interface PropTypes {
+  _id: string;
   setShowModal: (value: boolean) => void;
 }
 
-const ModalAddComment: React.FC<PropTypes> = ({ setShowModal }) => {
+const ModalAddComment: React.FC<PropTypes> = ({ setShowModal, _id }) => {
+  const photo = useSelector((state: AppState) => state.profile.profile?.photo);
   return (
     <>
       <div className="c-modal-add-message c-comments-modal-add-comment">
         <div className="c-modal-add-message__header c-comments-modal-add-comment__header">
-          <UserAvatar
-            size="4rem"
-            src="/assets/images/guilherme-stecanella-_dH-oQF9w-Y-unsplash.jpg"
-            alt="User Avatar"
-          />
+          <UserAvatar size="4rem" src={photo} alt="User Avatar" />
           <h3 className="c-title-tertiary c-modal-add-message__title">
             Jane Moren
           </h3>
@@ -31,7 +31,7 @@ const ModalAddComment: React.FC<PropTypes> = ({ setShowModal }) => {
           </button>
         </div>
         <div className="c-modal-add-message__content c-comments-modal-add-comment__content">
-          <AddCommentForm />
+          <AddCommentForm _id={_id} />
         </div>
       </div>
       <Overlay

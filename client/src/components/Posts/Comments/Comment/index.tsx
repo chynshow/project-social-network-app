@@ -1,29 +1,43 @@
 import React from 'react';
 import UserAvatar from '../../../Common/UserAvatar';
+import { delCommentRequest } from './../../../../redux/posts/postsActions';
+import { useDispatch } from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
-interface PropTypes {
+type PropTypes = {
   className: string;
-}
+  commentText: string;
+  userAvatar: string;
+  userName: string;
+  postId: string;
+  commentId: string;
+};
 
-const Comment: React.FC<PropTypes> = ({ className }) => {
+const Comment: React.FC<PropTypes> = ({
+  className,
+  commentText,
+  userAvatar,
+  userName,
+  postId,
+  commentId,
+}) => {
+  const dispatch = useDispatch();
   return (
     <div className={className ? `c-comment ${className}` : 'c-comment'}>
       <div className="c-comment__header">
-        <UserAvatar
-          size="4rem"
-          src="/assets/images/guilherme-stecanella-_dH-oQF9w-Y-unsplash.jpg"
-          alt="User Avatar"
-        />
-        <h3 className="c-title-tertiary c-comment__title">Jone Doe</h3>
+        <UserAvatar size="4rem" src={userAvatar} alt="User Avatar" />
+        <h3 className="c-title-tertiary c-comment__title">{userName}</h3>
         {/* <span className="c-comment__comment-date">1.07.2020</span> */}
       </div>
-      <div className="c-comment__text">
-        This is com Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        Explicabo facere dolorum unde consequuntur soluta, laboriosam quibusdam
-        ullam? Explicabo maiores, illum fugit voluptatibus ea minima sequi at
-        vitae possimus aut omnis animi iure fugiat dicta in provident laudantium
-        iusto consequuntur quaerat.
-      </div>
+      <p className="c-comment__text">{commentText}</p>
+      <button
+        className="c-btn c-comment__close-btn"
+        type="button"
+        onClick={() => dispatch(delCommentRequest(postId, commentId))}
+      >
+        <FontAwesomeIcon icon={faTimes} />
+      </button>
     </div>
   );
 };

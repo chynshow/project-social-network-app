@@ -4,17 +4,24 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import * as Yup from 'yup';
 import FormControl from '../../../../Common/Form/FormControl';
+import { useDispatch } from 'react-redux';
+import { updateCommentsRequest } from './../../../../../redux/posts/postsActions';
 
-const AddCommentForm: React.FC<{}> = () => {
-  interface InitialValueTypes {
-    comment: string;
-  }
-  const initialValues: InitialValueTypes = {
+type PropTypes = {
+  _id: string;
+};
+
+const AddCommentForm: React.FC<PropTypes> = ({ _id }) => {
+  const dispatch = useDispatch();
+
+  const initialValues = {
     comment: '',
   };
 
+  type InitialValueTypes = typeof initialValues;
+
   const onSubmit = (value: InitialValueTypes): void => {
-    console.log('AddCommetModal', value);
+    dispatch(updateCommentsRequest(_id, value.comment));
   };
 
   const validationSchema = Yup.object({

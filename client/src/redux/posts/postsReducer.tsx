@@ -52,7 +52,7 @@ export default (state = initialState, action: any): InitialState => {
       return {
         ...state,
         posts: state.posts.map((post: PostTypes) =>
-          post._id === action.payload.id
+          post._id === action.payload.postId
             ? {
                 ...post,
                 comments: action.payload.comments,

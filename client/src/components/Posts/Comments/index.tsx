@@ -8,8 +8,14 @@ import {
 import Comment from './Comment';
 import ModalAddComment from './ModalAddComment';
 import Tooltip from '../../Common/Tooltip';
+import { CommentType } from './../../../redux/posts/postsTypes';
 
-const Comments: React.FC<{}> = () => {
+type PropTypes = {
+  _id: string;
+  comments: Array<CommentType>;
+};
+
+const Comments: React.FC<PropTypes> = ({ _id, comments }) => {
   const [showComments, setShowComments] = React.useState(false);
   const [showModal, setShowModal] = React.useState(false);
   return (
@@ -31,7 +37,7 @@ const Comments: React.FC<{}> = () => {
         >
           <FontAwesomeIcon icon={showComments ? faChevronUp : faChevronDown} />
         </button>
-        {showModal && <ModalAddComment setShowModal={setShowModal} />}
+        {showModal && <ModalAddComment _id={_id} setShowModal={setShowModal} />}
       </div>
       <div
         className={
@@ -40,9 +46,17 @@ const Comments: React.FC<{}> = () => {
             : 'c-comments__items-container'
         }
       >
-        {/* <Comment className="c-comment--active" /> */}
-
-        {/* <Comment className="c-comment--active" /> */}
+        {comments.map((comment) => (
+          <Comment
+            className={'c-comment--active'}
+            key={comment._id}
+            commentId={comment._id}
+            postId={_id}
+            commentText={comment.text}
+            userAvatar={comment.avatar}
+            userName={comment.name}
+          />
+        ))}
       </div>
     </div>
   );
