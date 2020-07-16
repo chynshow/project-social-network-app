@@ -3,16 +3,22 @@ import UserAvatar from '../../Common/UserAvatar';
 
 export interface User {
   name: string;
-  avatar: string;
+  photo: string | null;
+  position: string;
+  profession: string;
 }
 
-const User: React.FC<User> = ({ name, avatar }) => {
+const User: React.FC<User> = ({ name, photo, position, profession }) => {
   return (
     <div className="c-user">
-      <UserAvatar src={avatar} size="5rem" alt="Avatar" />
+      <UserAvatar src={photo} size="5rem" alt="Avatar" />
       <div className="l-user">
         <h3 className="c-user__user-name">{name}</h3>
-        <span className="c-user__user-profession">Designer</span>
+        {profession && (
+          <span className="c-user__user-profession">
+            {position}&nbsp;{profession}
+          </span>
+        )}
       </div>
     </div>
   );

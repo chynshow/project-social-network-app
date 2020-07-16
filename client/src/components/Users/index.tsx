@@ -4,14 +4,9 @@ import { getProfilesRequest } from './../../redux/profile/profileActions';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppState } from '../../redux';
 import Loader from '../Common/Loader';
+import { UserProfile } from './../../redux/profile/profileTypes';
 
-export interface UserT {
-  _id: string;
-  name: string;
-  avatar: string;
-}
-
-const Users: React.FC<{}> = (): JSX.Element => {
+const Users: React.FC<{}> = () => {
   const dispatch = useDispatch();
 
   React.useEffect(() => {
@@ -22,13 +17,19 @@ const Users: React.FC<{}> = (): JSX.Element => {
 
   return (
     <section className="c-users">
-      {loading && !profiles ? (
+      {loading || !profiles.length ? (
         <Loader />
       ) : (
         <div className="c-users__items-container">
-          {/* {profiles.map((user: UserT) => (
-            <User key={user._id} name={user.name} avatar={user.avatar} />
-          ))} */}
+          {profiles.map((user: UserProfile) => (
+            <User
+              key={user._id}
+              name={user.name}
+              photo={user.photo}
+              profession={user.profession}
+              position={user.position}
+            />
+          ))}
         </div>
       )}
     </section>

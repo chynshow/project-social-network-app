@@ -2,6 +2,7 @@ import { ThunkAction } from 'redux-thunk';
 import { AppState } from './../index';
 
 export interface UserProfile {
+  _id?: string;
   name: string;
   user: { email: string; createdAt: string };
   about: string;
@@ -43,7 +44,7 @@ export interface UpdateProfile {
 
 export interface InitialState {
   profile: null | UserProfile;
-  profiles: Array<UserProfile> | [];
+  profiles: Array<UserProfile>;
   loading: boolean;
 }
 

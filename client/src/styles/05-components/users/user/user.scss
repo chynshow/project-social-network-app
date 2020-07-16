@@ -9,6 +9,7 @@
   flex-basis: calc(25% - 0.4rem);
   transform: scale(1);
   transition: $transition;
+  padding: 1rem;
 
   &__user-name {
     padding-top: 1rem;
@@ -18,7 +19,9 @@
   }
 
   &__user-profession {
+    text-align: center;
     padding: 1rem;
+    min-width: fit-content;
   }
 
   &:hover {

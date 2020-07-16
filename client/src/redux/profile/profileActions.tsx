@@ -29,8 +29,8 @@ export const getProfileRequest = (): Thunk => async (dispatch) => {
 
 export const getProfilesRequest = (): Thunk => async (dispatch) => {
   try {
-    const res = await instance.get<GetProfilesResponse>('/api/v1/profile/all');
-    dispatch(getProfilesSuccessAC(res.data.profiles));
+    const res = await instance.get('/api/v1/profile/all');
+    dispatch(getProfilesSuccessAC(res.data));
   } catch (error) {
     dispatch(getProfilesFailAC());
     dispatch(showAlert(error.response.data.error, 'danger'));
