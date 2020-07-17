@@ -25,6 +25,10 @@
     justify-content: space-between;
   }
 
+  &__photo {
+    width: 4rem;
+  }
+
   &__date {
     font-size: $font-xs;
     color: $color-grey-light;

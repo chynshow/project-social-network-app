@@ -29,24 +29,6 @@ const ProfileSchema = new mongoose.Schema({
     maxlength: 500,
   },
   languages: { type: String, default: null },
-  contacts: {
-    github: {
-      type: String,
-      default: null,
-    },
-    website: {
-      type: String,
-      default: null,
-    },
-    phone: {
-      type: String,
-      default: null,
-    },
-    linkedin: {
-      type: String,
-      default: null,
-    },
-  },
   photo: {
     type: String,
     default:

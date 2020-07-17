@@ -1,17 +1,27 @@
 import React from 'react';
 import { Formik, Form } from 'formik';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import * as Yup from 'yup';
 import FormControl from '../Common/Form/FormControl';
 import { registrationRequest } from './../../redux/auth/authActions';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppState } from '../../redux';
 
 const Registration: React.FC<{}> = () => {
+  const { isAuth } = useSelector((state: AppState) => state.auth);
   return (
-    <div className="c-registration">
-      <h3 className="c-title-secondary c-registration__title">Registration</h3>
-      <RegistrationForm />
-    </div>
+    <>
+      {isAuth ? (
+        <Redirect to="/profile" />
+      ) : (
+        <div className="c-registration">
+          <h3 className="c-title-secondary c-registration__title">
+            Registration
+          </h3>
+          <RegistrationForm />
+        </div>
+      )}
+    </>
   );
 };
 

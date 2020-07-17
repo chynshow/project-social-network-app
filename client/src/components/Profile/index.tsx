@@ -1,7 +1,6 @@
 import React from 'react';
 // import UserAvatar from '../Common/UserAvatar';
 import UserInfo, { UserInfoHeader } from './UserInfo';
-import UserContacts from './UserContacts';
 import Posts from '../Posts';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -42,9 +41,7 @@ const Profile: React.FC<{}> = () => {
         <>
           <div className="c-profile__user-info-container">
             <div className="l-profile">
-              {/* <UserAvatar size="15rem" src={profile.photo} alt="User Avatar" /> */}
               <UserAvatar />
-              <UserContacts />
             </div>
             <UserInfoHeader
               setShowContent={setShowContent}
@@ -52,7 +49,6 @@ const Profile: React.FC<{}> = () => {
             />
             <UserInfo showContent={showContent} />
           </div>
-
           <Posts />
         </>
       )}

@@ -64,14 +64,14 @@ const Navigation: React.FC<{}> = () => {
           Users
           <FontAwesomeIcon icon={faUsers} />
         </NavLink>
-        <NavLink
+        {/* <NavLink
           activeClassName="c-main-navigation__link--active"
           className="c-link c-main-navigation__link"
           to="/messages"
         >
           Messages
           <FontAwesomeIcon icon={faComments} />
-        </NavLink>
+        </NavLink> */}
         <NavLink
           activeClassName="c-main-navigation__link--active"
           className="c-link c-main-navigation__link"

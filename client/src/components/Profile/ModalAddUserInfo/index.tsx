@@ -108,6 +108,7 @@ const ModalAddUserInfo: React.FC<PropTypes> = ({ setShowModal }) => {
                 name="languages"
                 placeholder="languages"
               />
+
               <div className="l-modal-add-user-info">
                 <button
                   className="c-btn c-btn--secondary"

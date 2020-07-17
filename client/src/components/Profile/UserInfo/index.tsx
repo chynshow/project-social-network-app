@@ -3,12 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faChevronDown,
   faPen,
-  faUser,
-  faMapMarkerAlt,
-  faUserCog,
-  faCommentDots,
   faChevronUp,
-  faFileUpload,
 } from '@fortawesome/free-solid-svg-icons';
 import Tooltip from '../../Common/Tooltip';
 import ModalAddUserInfo from '../ModalAddUserInfo';
@@ -49,9 +44,9 @@ export const UserInfoHeader: React.FC<UserInfoHeader> = ({
   );
 };
 
-interface UserInfo {
+type UserInfo = {
   showContent: boolean;
-}
+};
 
 const UserInfo: React.FC<UserInfo> = ({ showContent }) => {
   const [showModal, setShowModal] = React.useState(false);
@@ -83,50 +78,32 @@ const UserInfo: React.FC<UserInfo> = ({ showContent }) => {
           <div className="c-main-info__content">
             {profile?.about && (
               <p className="c-main-info__text c-main-info__text--about-me">
-                <span className="c-main-info__sub-text">
-                  About Me
-                  {/* <FontAwesomeIcon
-                    className="c-main-info__sub-text-icon"
-                    icon={faUser}
-                  /> */}
-                </span>
+                <span className="c-main-info__sub-text">About Me</span>
                 {profile?.about}
               </p>
             )}
             {profile?.location && (
               <p className="c-main-info__text">
-                <span className="c-main-info__sub-text">
-                  Location
-                  {/* <FontAwesomeIcon
-                    className="c-main-info__sub-text-icon"
-                    icon={faMapMarkerAlt}
-                  /> */}
-                </span>
+                <span className="c-main-info__sub-text">Location</span>
                 {profile?.location}
               </p>
             )}
             {profile?.skills && (
               <p className="c-main-info__text">
-                <span className="c-main-info__sub-text">
-                  Skills
-                  {/* <FontAwesomeIcon
-                    className="c-main-info__sub-text-icon"
-                    icon={faUserCog}
-                  /> */}
-                </span>
+                <span className="c-main-info__sub-text">Skills</span>
                 {profile?.skills}
               </p>
             )}
             {profile?.languages && (
               <p className="c-main-info__text">
-                <span className="c-main-info__sub-text">
-                  Lenguages
-                  {/* <FontAwesomeIcon
-                    className="c-main-info__sub-text-icon"
-                    icon={faCommentDots}
-                  /> */}
-                </span>
+                <span className="c-main-info__sub-text">Lenguages</span>
                 {profile?.languages}
+              </p>
+            )}
+            {profile?.user.email && (
+              <p className="c-main-info__text">
+                <span className="c-main-info__sub-text">Contact</span>
+                {profile?.user.email}
               </p>
             )}
           </div>

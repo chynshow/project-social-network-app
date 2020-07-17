@@ -1,7 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
-import UserAvatar from '../../../Common/UserAvatar';
 import Overlay from '../../../Common/Overlay';
 import AddCommentForm from './AddCommentForm';
 import { useSelector } from 'react-redux';
@@ -14,13 +13,18 @@ interface PropTypes {
 
 const ModalAddComment: React.FC<PropTypes> = ({ setShowModal, _id }) => {
   const photo = useSelector((state: AppState) => state.profile.profile?.photo);
+  const name = useSelector((state: AppState) => state.profile.profile?.name);
   return (
     <>
       <div className="c-modal-add-message c-comments-modal-add-comment">
         <div className="c-modal-add-message__header c-comments-modal-add-comment__header">
-          <UserAvatar size="4rem" src={photo} alt="User Avatar" />
+          <img
+            src={`data:image/jpeg;base64,${photo}`}
+            alt="User"
+            className="c-user-avatar__img c-modal-add-message__photo"
+          />
           <h3 className="c-title-tertiary c-modal-add-message__title">
-            Jane Moren
+            {name}
           </h3>
           <button
             className="c-btn c-modal-add-message__close-btn c-comments-modal-add-comment__close-btn"
@@ -31,7 +35,7 @@ const ModalAddComment: React.FC<PropTypes> = ({ setShowModal, _id }) => {
           </button>
         </div>
         <div className="c-modal-add-message__content c-comments-modal-add-comment__content">
-          <AddCommentForm _id={_id} />
+          <AddCommentForm _id={_id} setShowModal={setShowModal} />
         </div>
       </div>
       <Overlay

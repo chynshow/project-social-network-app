@@ -2,14 +2,13 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import Overlay from '../../Common/Overlay';
-import UserAvatar from '../../Common/UserAvatar';
 import AddPostForm from './AddPostForm';
 import { useSelector } from 'react-redux';
 import { AppState } from '../../../redux';
 
-interface PropTypes {
+type PropTypes = {
   setShowModal: (value: boolean) => void;
-}
+};
 
 const ModalAddPost: React.FC<PropTypes> = ({ setShowModal }) => {
   const photo = useSelector((state: AppState) => state.profile.profile?.photo);
@@ -18,8 +17,12 @@ const ModalAddPost: React.FC<PropTypes> = ({ setShowModal }) => {
     <>
       <div className="c-modal-add-message c-posts-modal-add-post">
         <div className="c-modal-add-message__header c-posts-modal-add-post__header">
-          <UserAvatar size="4rem" src={photo} alt="User Avatar" />
-          <h3 className="c-title-tertiary c-modal-add-comment__title">
+          <img
+            src={`data:image/jpeg;base64,${photo}`}
+            alt="User"
+            className="c-user-avatar__img c-modal-add-message__photo"
+          />
+          <h3 className="c-title-tertiary c-modal-add-message__title">
             {name}
           </h3>
           <button

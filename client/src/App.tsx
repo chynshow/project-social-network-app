@@ -34,9 +34,9 @@ const App = () => {
           <main className="l-main-content">
             <Route exact path="/registration" component={Registration} />
             <Route exact path="/login" component={Login} />
-            <Route exact path="/profile/:userId?" component={Profile} />
+            <PrivateRoute exact path="/profile/:userId?" component={Profile} />
             <PrivateRoute exact path="/settings" component={Settings} />
-            <Route exact path="/users" component={Users} />
+            <PrivateRoute exact path="/users" component={Users} />
           </main>
         </div>
       )}

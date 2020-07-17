@@ -30,13 +30,17 @@ const Comments: React.FC<PropTypes> = ({ _id, comments }) => {
             <FontAwesomeIcon className="c-btn__icon" icon={faComment} />
           </button>
         </Tooltip>
-        <button
-          className="c-btn c-comments__show-comments-btn"
-          type="button"
-          onClick={() => setShowComments(!showComments)}
-        >
-          <FontAwesomeIcon icon={showComments ? faChevronUp : faChevronDown} />
-        </button>
+        {comments.length > 0 && (
+          <button
+            className="c-btn c-comments__show-comments-btn"
+            type="button"
+            onClick={() => setShowComments(!showComments)}
+          >
+            <FontAwesomeIcon
+              icon={showComments ? faChevronUp : faChevronDown}
+            />
+          </button>
+        )}
         {showModal && <ModalAddComment _id={_id} setShowModal={setShowModal} />}
       </div>
       <div

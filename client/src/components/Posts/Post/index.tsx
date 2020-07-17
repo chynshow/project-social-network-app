@@ -5,7 +5,6 @@ import {
   faShare,
   faTrash,
 } from '@fortawesome/free-solid-svg-icons';
-import UserAvatar from '../../Common/UserAvatar';
 import Overlay from '../../Common/Overlay';
 import Comments from '../Comments';
 import Likes from '../Likes';
@@ -23,14 +22,23 @@ const Post: React.FC<PostTypes> = ({
   comments,
 }) => {
   const [showContextMenu, setShowContextMenu] = React.useState(false);
+
   return (
     <div className="c-post">
       <header className="c-post__header">
         <div className="l-post">
-          <UserAvatar size="4rem" src={avatar} alt="User Avatar" />
+          <div className="c-user-avatar">
+            <img
+              src={`data:image/jpeg;base64,${avatar}`}
+              alt="User"
+              className="c-user-avatar__img c-post__photo"
+            />
+          </div>
           <div className="l-post-title-box">
             <h3 className="c-title-tertiary">{name}</h3>
-            <span className="c-post__date">{createdAt}</span>
+            <span className="c-post__date">
+              {createdAt.toString().substring(0, 10)}
+            </span>
           </div>
         </div>
         <div

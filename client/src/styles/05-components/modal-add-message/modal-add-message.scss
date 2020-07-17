@@ -15,8 +15,17 @@
     position: relative;
   }
 
+  &__title {
+    padding: 0.5rem;
+  }
+
   &__close-btn {
     position: absolute;
+  }
+
+  &__photo {
+    width: 5rem;
+    height: 5rem;
   }
 
   &__content {

@@ -9,9 +9,10 @@ import { updateCommentsRequest } from './../../../../../redux/posts/postsActions
 
 type PropTypes = {
   _id: string;
+  setShowModal: (value: boolean) => void;
 };
 
-const AddCommentForm: React.FC<PropTypes> = ({ _id }) => {
+const AddCommentForm: React.FC<PropTypes> = ({ _id, setShowModal }) => {
   const dispatch = useDispatch();
 
   const initialValues = {
@@ -22,6 +23,7 @@ const AddCommentForm: React.FC<PropTypes> = ({ _id }) => {
 
   const onSubmit = (value: InitialValueTypes): void => {
     dispatch(updateCommentsRequest(_id, value.comment));
+    setShowModal(false);
   };
 
   const validationSchema = Yup.object({

@@ -11,11 +11,6 @@ export interface UserProfile {
   location: string;
   skills: string;
   languages: string;
-  contacts: {
-    github: string | null;
-    phone: string | null;
-    linkedin: string | null;
-  };
   photo: string | null;
 }
 
