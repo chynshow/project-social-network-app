@@ -18,6 +18,7 @@ import {
 } from './profileActionCreators';
 import { showAlert } from '../alert/alertActions';
 import { instance } from './../../utils/axiosUtils';
+import { getPostsAC } from '../posts/postsActionCreators';
 
 export const getProfileRequest = (): Thunk => async (dispatch) => {
   try {
@@ -78,6 +79,7 @@ export const updatePhotoRequest = (photo: string): Thunk => async (
     const res = await instance.put('/api/v1/profile/photo', formData);
     dispatch(clearPhotoAC());
     dispatch(updatePhotoSuccessAC(res.data.photo));
+    dispatch(getPostsAC(res.data.posts));
     dispatch(showAlert('Photo chnaged!', 'success'));
   } catch (error) {
     dispatch(showAlert(error.response.data.error, 'danger'));

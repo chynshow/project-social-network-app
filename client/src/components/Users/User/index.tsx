@@ -1,5 +1,4 @@
 import React from 'react';
-import UserAvatar from '../../Common/UserAvatar';
 import { Link } from 'react-router-dom';
 
 export interface User {
@@ -18,8 +17,14 @@ const User: React.FC<User> = ({
   userId,
 }) => {
   return (
-    <Link to={`/profile/${userId}`} className="c-user">
-      <UserAvatar src={photo} size="5rem" alt="Avatar" />
+    <Link to={`/profile/${userId}`} className="c-link c-user">
+      <div className="c-user-avatar">
+        <img
+          src={`data:image/jpeg;base64,${photo}`}
+          alt="User"
+          className="c-user-avatar__img c-user__photo"
+        />
+      </div>
       <div className="l-user">
         <h3 className="c-user__user-name">{name}</h3>
         {profession && (

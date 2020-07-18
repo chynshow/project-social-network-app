@@ -16,7 +16,7 @@ const Likes: React.FC<PropTypes> = ({ _id, likes }) => {
   return (
     <div className="c-like">
       <button
-        className="c-btn"
+        className="c-btn c-btn--circle c-like__btn"
         onClick={() => dispatch(updateLikesRequest(_id))}
         type="button"
       >

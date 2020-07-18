@@ -4,6 +4,7 @@
   display: flex;
   align-items: center;
   z-index: 3;
+  transition: $transition;
 
   &__header {
     padding: 2rem;
@@ -59,3 +60,4 @@
     padding: 0.5rem;
   }
 }
+@include scale('c-modal-add-message');

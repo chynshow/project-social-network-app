@@ -9,6 +9,7 @@ import Comment from './Comment';
 import ModalAddComment from './ModalAddComment';
 import Tooltip from '../../Common/Tooltip';
 import { CommentType } from './../../../redux/posts/postsTypes';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 type PropTypes = {
   _id: string;
@@ -41,7 +42,17 @@ const Comments: React.FC<PropTypes> = ({ _id, comments }) => {
             />
           </button>
         )}
-        {showModal && <ModalAddComment _id={_id} setShowModal={setShowModal} />}
+        <TransitionGroup>
+          {showModal && (
+            <CSSTransition
+              in={showModal}
+              timeout={200}
+              classNames="c-modal-add-message"
+            >
+              <ModalAddComment _id={_id} setShowModal={setShowModal} />
+            </CSSTransition>
+          )}
+        </TransitionGroup>
       </div>
       <div
         className={

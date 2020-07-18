@@ -1,15 +1,32 @@
 .c-like {
   position: relative;
-  padding: 0.7rem 0;
   &__count {
     position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
     right: 100%;
     @include hide;
     transition: $transition;
   }
 
   &:hover .c-like__count {
-    transform: translateX(-150%);
+    transform: translate(-100%, -50%);
     @include show;
+  }
+
+  &__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    transition: 0.4s ease-in-out;
+  }
+
+  &:hover &__btn {
+    background: $color-violet-dark;
+    color: $color-white;
+    animation: pulse 2s linear 1;
   }
 }

@@ -4,7 +4,7 @@ import { AppState } from '../../../redux';
 import { updatePhotoRequest } from './../../../redux/profile/profileActions';
 
 const UserAvatar = () => {
-  const photo = useSelector((state: AppState) => state.profile.profile?.photo);
+  const { profile } = useSelector((state: AppState) => state.profile);
   const dispatch = useDispatch();
   const changeAvatar = (e: any) => {
     if (e.target.files.length) {
@@ -16,7 +16,7 @@ const UserAvatar = () => {
     <div className="c-user-avatar">
       <label className="c-user-avatar__label">
         <img
-          src={`data:image/jpeg;base64,${photo}`}
+          src={`data:image/jpeg;base64,${profile?.photo}`}
           alt=""
           className="c-user-avatar__img"
           style={{ width: '15rem' }}

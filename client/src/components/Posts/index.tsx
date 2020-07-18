@@ -11,6 +11,7 @@ import { useParams } from 'react-router-dom';
 import { getPostsByUserIdRequest } from './../../redux/posts/postsActions';
 import { clearPostsAC } from './../../redux/posts/postsActionCreators';
 import Loader from '../Common/Loader';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 const Posts: React.FC<{}> = () => {
   const [showModal, setShowModal] = React.useState(false);
@@ -69,7 +70,17 @@ const Posts: React.FC<{}> = () => {
                 comments={p.comments}
               />
             ))}
-            {showModal && <ModalAddPost setShowModal={setShowModal} />}
+            <TransitionGroup>
+              {showModal && (
+                <CSSTransition
+                  in={showModal}
+                  timeout={200}
+                  classNames="c-modal-add-message"
+                >
+                  <ModalAddPost setShowModal={setShowModal} />
+                </CSSTransition>
+              )}
+            </TransitionGroup>
           </div>
         </>
       )}

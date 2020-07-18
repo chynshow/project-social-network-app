@@ -6,8 +6,7 @@
 .c-modal-add-user-info {
   position: absolute;
   top: 10%;
-  left: 45%;
-  transform: translateX(-50%);
+  left: 25%;
   display: flex;
   flex-direction: column;
   box-shadow: $shadow-component;
@@ -17,6 +16,7 @@
   min-width: 30vw;
   z-index: 3;
   margin-bottom: 5rem;
+  transition: $transition;
 
   &__title {
     padding: 2rem 1rem;
@@ -47,3 +47,5 @@
   //   border-right: 0.9rem solid transparent;
   // }
 }
+
+@include scale('c-modal-add-user-info');

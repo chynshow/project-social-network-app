@@ -34,11 +34,11 @@ const ModalAddPost: React.FC<PropTypes> = ({ setShowModal }) => {
           </button>
         </div>
         <div className="c-modal-add-message__content c-posts-modal-add-post__content">
-          <AddPostForm />
+          <AddPostForm setShowModal={setShowModal} />
         </div>
       </div>
       <Overlay
-        opacity={0.2}
+        opacity={0.05}
         background="#fff"
         zIndex={2}
         onClick={() => setShowModal(false)}

@@ -1,5 +1,6 @@
 import { ThunkAction } from 'redux-thunk';
 import { AppState } from './../index';
+import { getPosts } from './../posts/postsTypes';
 
 export interface UserProfile {
   _id?: string;
@@ -109,7 +110,8 @@ export type ProfileActions =
   | updateProfileSuccess
   | updatePhotoSuccess
   | clearProfile
-  | clearPhoto;
+  | clearPhoto
+  | getPosts;
 
 export type Thunk = ThunkAction<
   Promise<void>,

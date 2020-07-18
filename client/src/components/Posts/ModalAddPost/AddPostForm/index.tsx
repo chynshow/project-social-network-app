@@ -7,7 +7,9 @@ import FormControl from '../../../Common/Form/FormControl';
 import { addPostRequest } from './../../../../redux/posts/postsActions';
 import { useDispatch } from 'react-redux';
 
-const AddPostForm: React.FC<{}> = () => {
+const AddPostForm: React.FC<{ setShowModal: (value: boolean) => void }> = ({
+  setShowModal,
+}) => {
   const [expandModal, setExpandModal] = React.useState(false);
   const dispatch = useDispatch();
   const initialValues = {
@@ -18,6 +20,7 @@ const AddPostForm: React.FC<{}> = () => {
 
   const onSubmit = (value: InitialValueTypes): void => {
     dispatch(addPostRequest(value.post));
+    setShowModal(false);
   };
 
   const validationSchema = Yup.object({

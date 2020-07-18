@@ -9,6 +9,7 @@ import Tooltip from '../../Common/Tooltip';
 import ModalAddUserInfo from '../ModalAddUserInfo';
 import { useSelector } from 'react-redux';
 import { AppState } from '../../../redux';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 interface UserInfoHeader {
   setShowContent: (value: boolean) => void;
@@ -73,8 +74,18 @@ const UserInfo: React.FC<UserInfo> = ({ showContent }) => {
                 <FontAwesomeIcon icon={faPen} />
               </button>
             </Tooltip>
-            {showModal && <ModalAddUserInfo setShowModal={setShowModal} />}
           </div>
+          <TransitionGroup>
+            {showModal && (
+              <CSSTransition
+                in={showModal}
+                timeout={200}
+                classNames="c-modal-add-user-info"
+              >
+                <ModalAddUserInfo setShowModal={setShowModal} />
+              </CSSTransition>
+            )}
+          </TransitionGroup>
           <div className="c-main-info__content">
             {profile?.about && (
               <p className="c-main-info__text c-main-info__text--about-me">

@@ -24,6 +24,10 @@
     min-width: fit-content;
   }
 
+  &__photo {
+    width: 5rem;
+  }
+
   &:hover {
     transform: scale(1.1);
     z-index: 1;
