@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { initApp } from './redux/auth/authActions';
 import Header from './components/Header';
@@ -32,11 +32,17 @@ const App = () => {
           <Alert />
           <Navigation />
           <main className="l-main-content">
-            <Route exact path="/registration" component={Registration} />
-            <Route exact path="/login" component={Login} />
-            <PrivateRoute exact path="/profile/:userId?" component={Profile} />
-            <PrivateRoute exact path="/settings" component={Settings} />
-            <PrivateRoute exact path="/users" component={Users} />
+            <Switch>
+              <Route exact path="/registration" component={Registration} />
+              <Route exact path="/login" component={Login} />
+              <PrivateRoute
+                exact
+                path="/profile/:userId?"
+                component={Profile}
+              />
+              <PrivateRoute exact path="/settings" component={Settings} />
+              <PrivateRoute exact path="/users" component={Users} />
+            </Switch>
           </main>
         </div>
       )}

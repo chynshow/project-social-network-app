@@ -14,7 +14,7 @@ import Loader from '../Common/Loader';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 const Posts: React.FC<{}> = () => {
-  const [showModal, setShowModal] = React.useState(false);
+  const [showModal, setShowModal] = React.useState<boolean>(false);
   const { loading, posts } = useSelector((state: AppState) => state.posts);
   const dispatch = useDispatch();
   const { userId } = useParams();
