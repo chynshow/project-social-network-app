@@ -13,6 +13,11 @@ const rootReducer = combineReducers({
   alert: alertReducer,
 });
 
+export default createStore(
+  rootReducer,
+  composeWithDevTools(applyMiddleware(thunkMiddleware))
+);
+
 export type AppState = ReturnType<typeof rootReducer>;
 export type BaseThunk<A extends Action, R = Promise<void>> = ThunkAction<
   R,
@@ -20,8 +25,3 @@ export type BaseThunk<A extends Action, R = Promise<void>> = ThunkAction<
   unknown,
   A
 >;
-
-export default createStore(
-  rootReducer,
-  composeWithDevTools(applyMiddleware(thunkMiddleware))
-);

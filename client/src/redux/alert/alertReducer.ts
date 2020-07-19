@@ -1,11 +1,11 @@
-import { SHOW_ALERT, HIDE_ALERT, AlertActions } from './alertTypes';
+import { SHOW_ALERT, HIDE_ALERT, TAlertActions } from './alertActionCreators';
 
 const initialState = {
   msg: '' as string,
   styles: '' as string,
 };
 
-export default (state = initialState, action: AlertActions): InitialState => {
+export default (state = initialState, action: TAlertActions): TInitialState => {
   switch (action.type) {
     case SHOW_ALERT:
       return {
@@ -20,4 +20,4 @@ export default (state = initialState, action: AlertActions): InitialState => {
   }
 };
 
-type InitialState = typeof initialState;
+type TInitialState = typeof initialState;

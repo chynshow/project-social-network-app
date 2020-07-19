@@ -10,25 +10,16 @@ import {
   registrationFailAC,
 } from './authActionCreators';
 import { showAlert } from './../alert/alertActions';
-import { AuthActionTypes } from './authTypes';
-import { AppState } from './../index';
-import { ThunkAction } from 'redux-thunk';
+import { TAuthActions } from './authActionCreators';
 import { Dispatch } from 'react';
-import {
-  getProfileRequest,
-  getProfilesRequest,
-} from './../profile/profileActions';
 import { instance } from './../../utils/axiosUtils';
+import { BaseThunk } from './../';
 
 export const initApp = () => (
-  dispatch: Dispatch<AuthActionTypes | ThunkType>
+  dispatch: Dispatch<TAuthActions | BaseThunk<TAuthActions>>
 ) => {
   try {
-    Promise.all([
-      dispatch(getAuthRequest()),
-      // dispatch(getProfileRequest()),
-      // dispatch(getProfilesRequest()),
-    ]).then(() => {
+    Promise.all([dispatch(getAuthRequest())]).then(() => {
       dispatch(initAppSuccessAC());
     });
   } catch (error) {
@@ -37,16 +28,17 @@ export const initApp = () => (
   }
 };
 
-type ThunkType = ThunkAction<Promise<void>, AppState, unknown, AuthActionTypes>;
-
 export const registrationRequest = (
   name: string,
   email: string,
   password: string
-): ThunkType => async (dispatch) => {
+): BaseThunk<TAuthActions> => async (dispatch) => {
   const body = JSON.stringify({ name, email, password });
   try {
-    const res = await instance.post('/api/v1/auth/register', body);
+    const res = await instance.post<TAuthResponse>(
+      '/api/v1/auth/register',
+      body
+    );
     dispatch(registrationSuccessAC(res.data.token));
     dispatch(getAuthRequest());
   } catch (error) {
@@ -58,10 +50,10 @@ export const registrationRequest = (
 export const loginRequest = (
   email: string,
   password: string
-): ThunkType => async (dispatch) => {
+): BaseThunk<TAuthActions> => async (dispatch) => {
   const body = JSON.stringify({ email, password });
   try {
-    const res = await instance.post('/api/v1/auth/login', body);
+    const res = await instance.post<TAuthResponse>('/api/v1/auth/login', body);
     dispatch(loginSuccessAC(res.data.token));
     dispatch(getAuthRequest());
   } catch (error) {
@@ -70,25 +62,39 @@ export const loginRequest = (
   }
 };
 
-export const getAuthRequest = (): ThunkType => async (dispatch) => {
+export const getAuthRequest = (): BaseThunk<TAuthActions> => async (
+  dispatch
+) => {
   if (localStorage.token) {
     instance.defaults.headers.authorization = 'Bearer ' + localStorage.token;
   }
   try {
-    const res = await instance.get('/api/v1/auth/me');
-    dispatch(getAuthSuccesstAC(res.data.user));
+    const res = await instance.get<TUserResponse>('/api/v1/auth/me');
+    dispatch(getAuthSuccesstAC(res.data));
   } catch (error) {
     dispatch(getAuthtFailAC());
-    console.error(error.response.data.error);
+    throw error.response.data.error;
   }
 };
 
-export const removeAccountRequest = (): ThunkType => async (dispatch) => {
+export const removeAccountRequest = (): BaseThunk<TAuthActions> => async (
+  dispatch
+) => {
   try {
-    await instance.delete('/api/v1/auth');
+    await instance.delete<Promise<void>>('/api/v1/auth');
     dispatch(removeAccountSuccessAC());
     dispatch(showAlert('Account was deleted!', 'success'));
   } catch (error) {
     dispatch(showAlert(error.response.data.error, 'danger'));
   }
+};
+
+type TAuthResponse = {
+  token: string;
+};
+
+export type TUserResponse = {
+  _id: string;
+  email: string;
+  createdAt: Date;
 };

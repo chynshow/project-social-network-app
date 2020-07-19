@@ -1,8 +1,7 @@
 import {
   INIT_SUCCESS,
   INIT_FAIL,
-  InitialStateType,
-  AuthActionTypes,
+  TAuthActions,
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   FETCH_AUTH_SUCCESS,
@@ -11,20 +10,19 @@ import {
   REGISTRATION_SUCCESS,
   REGISTRATION_FAIL,
   REMOVE_ACCOUNT_SUCCESS,
-} from './authTypes';
+} from './authActionCreators';
 
-const initialState: InitialStateType = {
+import { TUserResponse } from './authActions';
+
+const initialState = {
   isInit: false,
   isAuth: false,
-  token: null,
-  user: null,
+  token: null as string | null,
+  user: null as null | TUserResponse,
   loading: true,
 };
 
-export default (
-  state = initialState,
-  action: AuthActionTypes
-): InitialStateType => {
+export default (state = initialState, action: TAuthActions): TInitialState => {
   switch (action.type) {
     case INIT_SUCCESS:
       return { ...state, isInit: true, loading: false };
@@ -55,3 +53,5 @@ export default (
       return state;
   }
 };
+
+type TInitialState = typeof initialState;

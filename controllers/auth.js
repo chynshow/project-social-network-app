@@ -39,13 +39,12 @@ exports.login = asyncHandler(async (req, res, next) => {
 
 exports.getMe = asyncHandler(async (req, res, next) => {
   const user = await User.findById(req.user.id);
-  res.status(200).json({ user });
+  res.status(200).json(user);
 });
 
 exports.deleteAccount = asyncHandler(async (req, res, next) => {
   await Profile.findOneAndRemove({ user: req.user.id });
   await User.findOneAndRemove({ _id: req.user.id });
-
   res.status(200).json({ msg: "Account deleted" });
 });
 

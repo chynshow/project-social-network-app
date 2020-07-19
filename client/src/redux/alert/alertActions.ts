@@ -1,9 +1,9 @@
 import { showAlertAC, removeAlertAC } from './alertActionCreators';
-import { AlertActions } from './alertTypes';
+import { TAlertActions } from './alertActionCreators';
 import { Dispatch } from 'redux';
 
 export const showAlert = (msg: string, styles: string, time: number = 3000) => (
-  dispatch: Dispatch<AlertActions>
+  dispatch: Dispatch<TAlertActions>
 ): void => {
   dispatch(showAlertAC(msg, styles));
   setTimeout(() => {
