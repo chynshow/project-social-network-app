@@ -8,12 +8,12 @@ import {
 import Comment from './Comment';
 import ModalAddComment from './ModalAddComment';
 import Tooltip from '../../Common/Tooltip';
-import { CommentType } from './../../../redux/posts/postsTypes';
+import { TComment } from './../../../redux/posts/postsActionCreators';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 type PropTypes = {
   _id: string;
-  comments: Array<CommentType>;
+  comments: Array<TComment>;
 };
 
 const Comments: React.FC<PropTypes> = ({ _id, comments }) => {

@@ -3,11 +3,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { useDispatch } from 'react-redux';
 import { updateLikesRequest } from './../../../redux/posts/postsActions';
-import { Like } from './../../../redux/posts/postsTypes';
+import { TLike } from './../../../redux/posts/postsActionCreators';
 
 type PropTypes = {
   _id: string;
-  likes: Like[];
+  likes: Array<TLike>;
 };
 
 const Likes: React.FC<PropTypes> = ({ _id, likes }) => {

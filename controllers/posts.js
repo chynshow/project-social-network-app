@@ -13,7 +13,7 @@ exports.addPost = asyncHandler(async (req, res, next) => {
     text: req.body.postText,
     avatar: profile.photo,
   });
-  res.status(200).json({ post });
+  res.status(200).json(post);
 });
 
 exports.getPostsById = asyncHandler(async (req, res, next) => {

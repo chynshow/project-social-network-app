@@ -1,5 +1,5 @@
-import { getPosts } from './../posts/postsTypes';
 import { TProfileResponse } from './profileActions';
+import { TGetPosts } from '../posts/postsActionCreators';
 
 export const GET_PROFILE_SUCCESS = 'GET_PROFILE_SUCCESS';
 export const GET_PROFILE_FAIL = 'GET_PROFILE_FAIL';
@@ -114,4 +114,4 @@ export type TProfileActions =
   | TUpdatePhotoSuccess
   | TClearProfile
   | TClearPhoto
-  | getPosts;
+  | TGetPosts;

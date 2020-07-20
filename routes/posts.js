@@ -7,14 +7,11 @@ const {
   deletePost,
   addComment,
   updateLike,
-  deleteComment
+  deleteComment,
 } = require("../controllers/posts");
 const { protect } = require("../middleware/auth");
 
-router
-  .route("/")
-  .post(protect, addPost)
-  .get(protect, getPostsForCurrentUser);
+router.route("/").post(protect, addPost).get(protect, getPostsForCurrentUser);
 
 router.route("/:user_id").get(protect, getPostsById);
 router.delete("/:post_id", protect, deletePost);

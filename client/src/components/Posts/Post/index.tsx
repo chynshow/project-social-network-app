@@ -8,11 +8,11 @@ import {
 import Overlay from '../../Common/Overlay';
 import Comments from '../Comments';
 import Likes from '../Likes';
-import { PostTypes } from '../../../redux/posts/postsTypes';
+import { TPost } from '../../../redux/posts/postsActionCreators';
 import { deletePostRequest } from './../../../redux/posts/postsActions';
 import { useDispatch } from 'react-redux';
 
-const Post: React.FC<PostTypes> = ({
+const Post: React.FC<TPost> = ({
   _id,
   name,
   createdAt,
