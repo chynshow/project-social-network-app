@@ -27,18 +27,15 @@ const Registration: React.FC<{}> = () => {
 
 const RegistrationForm: React.FC<{}> = () => {
   const dispatch = useDispatch();
-  interface initialValueTypes {
-    name: string;
-    email: string;
-    password: string;
-    confirmPassword: string;
-  }
-  const initialValues: initialValueTypes = {
+
+  const initialValues = {
     name: '',
     email: '',
     password: '',
     confirmPassword: '',
   };
+
+  type TInitialValues = typeof initialValues;
 
   const validationSchema = Yup.object({
     name: Yup.string().required('Field is required!'),
@@ -59,7 +56,7 @@ const RegistrationForm: React.FC<{}> = () => {
       }),
   });
 
-  const onSubmit = ({ name, password, email }: initialValueTypes): void => {
+  const onSubmit = ({ name, password, email }: TInitialValues): void => {
     dispatch(registrationRequest(name, email, password));
   };
   return (

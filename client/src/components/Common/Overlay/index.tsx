@@ -1,13 +1,6 @@
 import React, { ReactEventHandler } from 'react';
 
-interface PropTypes {
-  opacity: number;
-  background: string;
-  zIndex: number;
-  onClick: ReactEventHandler;
-}
-
-const Overlay: React.FC<PropTypes> = ({
+const Overlay: React.FC<TOverlayProps> = ({
   opacity,
   background,
   zIndex,
@@ -21,3 +14,10 @@ const Overlay: React.FC<PropTypes> = ({
 );
 
 export default Overlay;
+
+type TOverlayProps = {
+  opacity: number;
+  background: string;
+  zIndex: number;
+  onClick: ReactEventHandler;
+};

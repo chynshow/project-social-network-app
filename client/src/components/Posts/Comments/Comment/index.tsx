@@ -2,18 +2,9 @@ import React from 'react';
 import { delCommentRequest } from './../../../../redux/posts/postsActions';
 import { useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
-type PropTypes = {
-  className: string;
-  commentText: string;
-  userAvatar: string;
-  userName: string;
-  postId: string;
-  commentId: string;
-};
-
-const Comment: React.FC<PropTypes> = ({
+const Comment: React.FC<TCommentProps> = ({
   className,
   commentText,
   userAvatar,
@@ -31,7 +22,6 @@ const Comment: React.FC<PropTypes> = ({
           className="c-user-avatar__img c-comment__photo"
         />
         <h3 className="c-title-tertiary c-comment__title">{userName}</h3>
-        {/* <span className="c-comment__comment-date">1.07.2020</span> */}
         <button
           className="c-btn c-comment__close-btn"
           type="button"
@@ -46,3 +36,12 @@ const Comment: React.FC<PropTypes> = ({
 };
 
 export default Comment;
+
+type TCommentProps = {
+  className: string;
+  commentText: string;
+  userAvatar: string;
+  userName: string;
+  postId: string;
+  commentId: string;
+};

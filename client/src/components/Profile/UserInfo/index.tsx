@@ -11,12 +11,7 @@ import { useSelector } from 'react-redux';
 import { AppState } from '../../../redux';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
-interface UserInfoHeader {
-  setShowContent: (value: boolean) => void;
-  showContent: boolean;
-}
-
-export const UserInfoHeader: React.FC<UserInfoHeader> = ({
+export const UserInfoHeader: React.FC<TUserInfoHeaderProps> = ({
   setShowContent,
   showContent,
 }) => {
@@ -45,12 +40,8 @@ export const UserInfoHeader: React.FC<UserInfoHeader> = ({
   );
 };
 
-type UserInfo = {
-  showContent: boolean;
-};
-
-const UserInfo: React.FC<UserInfo> = ({ showContent }) => {
-  const [showModal, setShowModal] = React.useState(false);
+const UserInfo: React.FC<TUserInfoProps> = ({ showContent }) => {
+  const [showModal, setShowModal] = React.useState<boolean>(false);
   const profile = useSelector((state: AppState) => state.profile.profile);
 
   return (
@@ -125,3 +116,12 @@ const UserInfo: React.FC<UserInfo> = ({ showContent }) => {
 };
 
 export default UserInfo;
+
+type TUserInfoProps = {
+  showContent: boolean;
+};
+
+type TUserInfoHeaderProps = {
+  setShowContent: (value: boolean) => void;
+  showContent: boolean;
+};

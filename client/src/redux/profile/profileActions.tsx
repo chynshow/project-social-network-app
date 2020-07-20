@@ -12,7 +12,7 @@ import {
 } from './profileActionCreators';
 import { showAlert } from '../alert/alertActions';
 import { instance } from './../../utils/axiosUtils';
-import { getPostsAC } from '../posts/postsActionCreators';
+import { getPostsAC, TPost } from '../posts/postsActionCreators';
 import { BaseThunk } from './../';
 import { getPostsRequest } from '../posts/postsActions';
 import { TUpdateProfileValues } from '../../components/Profile/ModalAddUserInfo';
@@ -47,7 +47,9 @@ export const getProfilesRequest = (): BaseThunk<TProfileActions> => async (
   dispatch
 ) => {
   try {
-    const res = await instance.get<TProfilesResponce>('/api/v1/profile/all');
+    const res = await instance.get<Array<TProfileResponse>>(
+      '/api/v1/profile/all'
+    );
     dispatch(getProfilesSuccessAC(res.data));
   } catch (error) {
     dispatch(getProfilesFailAC());
@@ -101,13 +103,19 @@ export type TProfileResponse = {
   languages: string | null;
   photo: string | null;
   _id: string;
-  user: { email: string; createdAt: Date; _id: string };
+  user: TProfileUser;
   createdAt: Date;
+};
+
+type TProfileUser = {
+  email: string;
+  createdAt: Date;
+  _id: string;
 };
 
 type TUpdatePhotoResponse = {
   photo: string;
-  posts: any;
+  posts: Array<TPost>;
 };
 
 export type TProfilesResponce = Array<TProfileResponse>;

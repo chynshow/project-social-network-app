@@ -11,14 +11,9 @@ import Tooltip from '../../Common/Tooltip';
 import { TComment } from './../../../redux/posts/postsActionCreators';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
-type PropTypes = {
-  _id: string;
-  comments: Array<TComment>;
-};
-
-const Comments: React.FC<PropTypes> = ({ _id, comments }) => {
-  const [showComments, setShowComments] = React.useState(false);
-  const [showModal, setShowModal] = React.useState(false);
+const Comments: React.FC<TCommentsProps> = ({ _id, comments }) => {
+  const [showComments, setShowComments] = React.useState<boolean>(false);
+  const [showModal, setShowModal] = React.useState<boolean>(false);
   return (
     <div className="c-comments">
       <div className="c-comments__header">
@@ -78,3 +73,8 @@ const Comments: React.FC<PropTypes> = ({ _id, comments }) => {
 };
 
 export default Comments;
+
+type TCommentsProps = {
+  _id: string;
+  comments: Array<TComment>;
+};

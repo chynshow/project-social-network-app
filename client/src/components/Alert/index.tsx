@@ -8,7 +8,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { AppState } from './../../redux';
 
-const Alert: React.FC<TAlertProps> = () => {
+const Alert: React.FC<{}> = () => {
   const { msg, styles } = useSelector((state: AppState) => state.alert);
 
   const renderSwitch = (key: string): React.ReactNode => {
@@ -50,5 +50,3 @@ const Alert: React.FC<TAlertProps> = () => {
 };
 
 export default Alert;
-
-type TAlertProps = {};

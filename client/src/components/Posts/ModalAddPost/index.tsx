@@ -6,11 +6,7 @@ import AddPostForm from './AddPostForm';
 import { useSelector } from 'react-redux';
 import { AppState } from '../../../redux';
 
-type PropTypes = {
-  setShowModal: (value: boolean) => void;
-};
-
-const ModalAddPost: React.FC<PropTypes> = ({ setShowModal }) => {
+const ModalAddPost: React.FC<TModalAddPostProps> = ({ setShowModal }) => {
   const photo = useSelector((state: AppState) => state.profile.profile?.photo);
   const name = useSelector((state: AppState) => state.profile.profile?.name);
   return (
@@ -48,3 +44,7 @@ const ModalAddPost: React.FC<PropTypes> = ({ setShowModal }) => {
 };
 
 export default ModalAddPost;
+
+type TModalAddPostProps = {
+  setShowModal: (value: boolean) => void;
+};

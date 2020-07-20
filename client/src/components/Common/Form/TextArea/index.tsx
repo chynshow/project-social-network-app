@@ -2,15 +2,7 @@ import React from 'react';
 import { Field, ErrorMessage } from 'formik';
 import TextError from '../TextError';
 
-interface PropTypes {
-  label?: string;
-  name: string;
-  placeholder?: string;
-  className?: string;
-  type: string;
-}
-
-const TextArea: React.FC<PropTypes> = ({
+const TextArea: React.FC<TTextAreaProps> = ({
   label,
   name,
   className,
@@ -38,3 +30,11 @@ const TextArea: React.FC<PropTypes> = ({
 };
 
 export default TextArea;
+
+type TTextAreaProps = {
+  label?: string;
+  name: string;
+  placeholder?: string;
+  className?: string;
+  type: string;
+};

@@ -23,6 +23,7 @@
   &__title {
     padding: 0.5rem;
     font-size: $font-sm;
+    text-align: center;
   }
 
   &__comment-date {
@@ -40,15 +41,13 @@
     border-radius: 5px;
     background: rgba($color-violet-dark, $alpha: 1);
     color: $color-white;
-    margin-right: 1rem;
 
     &:after {
       position: absolute;
       top: 25%;
       left: 100%;
-      // transform: translateY(-100%);
       content: '';
-      border-left: 0.7rem solid rgba($color-violet-dark, $alpha: 1); // rgba(242, 242, 242, $alpha: 1);
+      border-left: 0.7rem solid rgba($color-violet-dark, $alpha: 1);
       border-top: 0.7rem solid transparent;
       border-bottom: 0.7rem solid transparent;
     }
@@ -56,7 +55,7 @@
 
   &__close-btn {
     position: absolute;
-    top: 35%;
+    top: 30%;
     transform: translateY(-50%);
     transition: $transition;
     width: 4rem;
@@ -77,14 +76,12 @@
 
     .c-comment__text {
       margin: 0;
-      margin-left: 1rem;
     }
     .c-comment__text::after {
       left: unset;
       right: 100%;
       border-left: none;
-      // transform: translateY(-100%);
-      border-right: 0.7rem solid rgba($color-violet-dark, $alpha: 1); // rgba(242, 242, 242, $alpha: 1);
+      border-right: 0.7rem solid rgba($color-violet-dark, $alpha: 1);
       border-top: 0.7rem solid transparent;
       border-bottom: 0.7rem solid transparent;
     }

@@ -12,6 +12,10 @@
     justify-content: center;
     flex-direction: column;
   }
+
+  &__user-avatar {
+    width: 15rem;
+  }
 }
 
 .l-profile {

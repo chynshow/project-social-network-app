@@ -7,18 +7,16 @@ import FormControl from '../../../Common/Form/FormControl';
 import { addPostRequest } from './../../../../redux/posts/postsActions';
 import { useDispatch } from 'react-redux';
 
-const AddPostForm: React.FC<{ setShowModal: (value: boolean) => void }> = ({
-  setShowModal,
-}) => {
+const AddPostForm: React.FC<TAddPostFormProps> = ({ setShowModal }) => {
   const [expandModal, setExpandModal] = React.useState(false);
   const dispatch = useDispatch();
   const initialValues = {
-    post: '',
+    post: '' as string,
   };
 
-  type InitialValueTypes = typeof initialValues;
+  type TInitialValues = typeof initialValues;
 
-  const onSubmit = (value: InitialValueTypes): void => {
+  const onSubmit = (value: TInitialValues): void => {
     dispatch(addPostRequest(value.post));
     setShowModal(false);
   };
@@ -66,3 +64,7 @@ const AddPostForm: React.FC<{ setShowModal: (value: boolean) => void }> = ({
 };
 
 export default AddPostForm;
+
+type TAddPostFormProps = {
+  setShowModal: (value: boolean) => void;
+};

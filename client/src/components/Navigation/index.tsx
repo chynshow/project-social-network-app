@@ -6,7 +6,6 @@ import {
   faUser,
   faCogs,
   faSignOutAlt,
-  faComments,
 } from '@fortawesome/free-solid-svg-icons';
 import { AppState } from './../../redux';
 import { useSelector, useDispatch } from 'react-redux';
@@ -64,14 +63,6 @@ const Navigation: React.FC<{}> = () => {
           Users
           <FontAwesomeIcon icon={faUsers} />
         </NavLink>
-        {/* <NavLink
-          activeClassName="c-main-navigation__link--active"
-          className="c-link c-main-navigation__link"
-          to="/messages"
-        >
-          Messages
-          <FontAwesomeIcon icon={faComments} />
-        </NavLink> */}
         <NavLink
           activeClassName="c-main-navigation__link--active"
           className="c-link c-main-navigation__link"

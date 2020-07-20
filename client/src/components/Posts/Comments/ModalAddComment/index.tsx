@@ -6,14 +6,14 @@ import AddCommentForm from './AddCommentForm';
 import { useSelector } from 'react-redux';
 import { AppState } from '../../../../redux';
 
-interface PropTypes {
-  _id: string;
-  setShowModal: (value: boolean) => void;
-}
-
-const ModalAddComment: React.FC<PropTypes> = ({ setShowModal, _id }) => {
+const ModalAddComment: React.FC<TModalAddCommentProps> = ({
+  setShowModal,
+  _id,
+}) => {
   const photo = useSelector((state: AppState) => state.profile.profile?.photo);
+
   const name = useSelector((state: AppState) => state.profile.profile?.name);
+
   return (
     <>
       <div className="c-modal-add-message c-comments-modal-add-comment">
@@ -49,3 +49,8 @@ const ModalAddComment: React.FC<PropTypes> = ({ setShowModal, _id }) => {
 };
 
 export default ModalAddComment;
+
+type TModalAddCommentProps = {
+  _id: string;
+  setShowModal: (value: boolean) => void;
+};

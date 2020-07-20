@@ -5,12 +5,7 @@ import { useDispatch } from 'react-redux';
 import { updateLikesRequest } from './../../../redux/posts/postsActions';
 import { TLike } from './../../../redux/posts/postsActionCreators';
 
-type PropTypes = {
-  _id: string;
-  likes: Array<TLike>;
-};
-
-const Likes: React.FC<PropTypes> = ({ _id, likes }) => {
+const Likes: React.FC<TLikesProps> = ({ _id, likes }) => {
   const dispatch = useDispatch();
 
   return (
@@ -30,3 +25,8 @@ const Likes: React.FC<PropTypes> = ({ _id, likes }) => {
 };
 
 export default Likes;
+
+type TLikesProps = {
+  _id: string;
+  likes: Array<TLike>;
+};

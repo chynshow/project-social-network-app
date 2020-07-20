@@ -71,11 +71,11 @@ const Post: React.FC<TPost> = ({
   );
 };
 
-type ContextMenu = {
+type TContextMenuProps = {
   _id: string;
 };
 
-const ContextMenu: React.FC<ContextMenu> = ({ _id }) => {
+const ContextMenu: React.FC<TContextMenuProps> = ({ _id }) => {
   const dispatch = useDispatch();
 
   return (

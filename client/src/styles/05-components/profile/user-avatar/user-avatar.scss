@@ -4,14 +4,13 @@
   align-items: center;
   justify-content: center;
   border-radius: 10px 10px 0 0;
+
   @include bg-img('/assets/svg/bg-2.svg', 100%, center);
 
   &__img {
     cursor: pointer;
     border-radius: 50%;
     box-shadow: 0 4px 8px 0 rgba(63, 61, 86, 0.2);
-
-    // 0 6px 20px 0 rgba(63, 61, 86, 0.19);
   }
 
   &__label {

@@ -1,5 +1,4 @@
 import React from 'react';
-// import UserAvatar from '../Common/UserAvatar';
 import UserInfo, { UserInfoHeader } from './UserInfo';
 import Posts from '../Posts';
 import { useDispatch, useSelector } from 'react-redux';
@@ -14,7 +13,7 @@ import UserAvatar from './UserAvatar';
 import { useParams } from 'react-router-dom';
 
 const Profile: React.FC<{}> = () => {
-  const [showContent, setShowContent] = React.useState(false);
+  const [showContent, setShowContent] = React.useState<boolean>(false);
   const dispatch = useDispatch();
 
   const { userId } = useParams();

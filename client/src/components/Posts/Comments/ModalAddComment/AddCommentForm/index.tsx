@@ -7,21 +7,19 @@ import FormControl from '../../../../Common/Form/FormControl';
 import { useDispatch } from 'react-redux';
 import { updateCommentsRequest } from './../../../../../redux/posts/postsActions';
 
-type PropTypes = {
-  _id: string;
-  setShowModal: (value: boolean) => void;
-};
-
-const AddCommentForm: React.FC<PropTypes> = ({ _id, setShowModal }) => {
+const AddCommentForm: React.FC<TAddCommentFormProps> = ({
+  _id,
+  setShowModal,
+}) => {
   const dispatch = useDispatch();
 
   const initialValues = {
-    comment: '',
+    comment: '' as string,
   };
 
-  type InitialValueTypes = typeof initialValues;
+  type TInitialValues = typeof initialValues;
 
-  const onSubmit = (value: InitialValueTypes): void => {
+  const onSubmit = (value: TInitialValues): void => {
     dispatch(updateCommentsRequest(_id, value.comment));
     setShowModal(false);
   };
@@ -57,3 +55,8 @@ const AddCommentForm: React.FC<PropTypes> = ({ _id, setShowModal }) => {
 };
 
 export default AddCommentForm;
+
+type TAddCommentFormProps = {
+  _id: string;
+  setShowModal: (value: boolean) => void;
+};

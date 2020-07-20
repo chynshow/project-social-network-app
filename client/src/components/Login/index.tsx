@@ -24,15 +24,12 @@ const Login: React.FC<{}> = () => {
 };
 
 const LoginForm: React.FC<{}> = () => {
-  interface InitialValueTypes {
-    email: string;
-    password: string;
-  }
-
-  const initialValues: InitialValueTypes = {
-    email: '',
-    password: '',
+  const initialValues = {
+    email: '' as string,
+    password: '' as string,
   };
+
+  type TInitialValues = typeof initialValues;
 
   const validationSchema = Yup.object({
     email: Yup.string()
@@ -45,7 +42,7 @@ const LoginForm: React.FC<{}> = () => {
 
   const dispatch = useDispatch();
 
-  const onSubmit = ({ email, password }: InitialValueTypes): void => {
+  const onSubmit = ({ email, password }: TInitialValues): void => {
     dispatch(loginRequest(email, password));
   };
   return (
