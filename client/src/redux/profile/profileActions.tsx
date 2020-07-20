@@ -1,11 +1,4 @@
 import {
-  Thunk,
-  UpdateProfile,
-  GetProfileResponse,
-  UpdateProfileResponse,
-  GetProfilesResponse,
-} from './profileTypes';
-import {
   getProfileSuccessAC,
   getProfileFailAC,
   getProfilesFailAC,
@@ -15,14 +8,20 @@ import {
   clearPhotoAC,
   getProfileByIdSuccessAC,
   getProfileByIdFailAC,
+  TProfileActions,
 } from './profileActionCreators';
 import { showAlert } from '../alert/alertActions';
 import { instance } from './../../utils/axiosUtils';
 import { getPostsAC } from '../posts/postsActionCreators';
+import { BaseThunk } from './../';
+import { getPostsRequest } from '../posts/postsActions';
+import { TUpdateProfileValues } from '../../components/Profile/ModalAddUserInfo';
 
-export const getProfileRequest = (): Thunk => async (dispatch) => {
+export const getProfileRequest = (): BaseThunk<TProfileActions> => async (
+  dispatch
+) => {
   try {
-    const res = await instance.get<GetProfileResponse>('/api/v1/profile');
+    const res = await instance.get<TProfileResponse>('/api/v1/profile');
     dispatch(getProfileSuccessAC(res.data));
   } catch (error) {
     dispatch(getProfileFailAC());
@@ -30,11 +29,11 @@ export const getProfileRequest = (): Thunk => async (dispatch) => {
   }
 };
 
-export const getProfileByIdRequest = (userId: string): Thunk => async (
-  dispatch
-) => {
+export const getProfileByIdRequest = (
+  userId: string
+): BaseThunk<TProfileActions> => async (dispatch) => {
   try {
-    const res = await instance.get<GetProfileResponse>(
+    const res = await instance.get<TProfileResponse>(
       `/api/v1/profile/${userId}`
     );
     dispatch(getProfileByIdSuccessAC(res.data));
@@ -44,9 +43,11 @@ export const getProfileByIdRequest = (userId: string): Thunk => async (
   }
 };
 
-export const getProfilesRequest = (): Thunk => async (dispatch) => {
+export const getProfilesRequest = (): BaseThunk<TProfileActions> => async (
+  dispatch
+) => {
   try {
-    const res = await instance.get('/api/v1/profile/all');
+    const res = await instance.get<TProfilesResponce>('/api/v1/profile/all');
     dispatch(getProfilesSuccessAC(res.data));
   } catch (error) {
     dispatch(getProfilesFailAC());
@@ -54,29 +55,33 @@ export const getProfilesRequest = (): Thunk => async (dispatch) => {
   }
 };
 
-export const updateProfileRequest = (profile: UpdateProfile): Thunk => async (
-  dispatch
-) => {
+export const updateProfileRequest = (
+  profile: TUpdateProfileValues
+): BaseThunk<TProfileActions> => async (dispatch) => {
   const body = JSON.stringify({ profile });
   try {
-    const res = await instance.post<UpdateProfileResponse>(
+    const res = await instance.post<TProfileResponse>(
       '/api/v1/profile/update',
       body
     );
-    dispatch(updateProfileSuccessAC(res.data.profile));
+    dispatch(updateProfileSuccessAC(res.data));
+    dispatch(getPostsRequest());
     dispatch(showAlert('Update personal info!', 'success'));
   } catch (error) {
     dispatch(showAlert(error.response.data.error, 'danger'));
   }
 };
 
-export const updatePhotoRequest = (photo: string): Thunk => async (
-  dispatch
-) => {
+export const updatePhotoRequest = (
+  photo: string
+): BaseThunk<TProfileActions> => async (dispatch) => {
   const formData = new FormData();
   formData.append('file', photo);
   try {
-    const res = await instance.put('/api/v1/profile/photo', formData);
+    const res = await instance.put<TUpdatePhotoResponse>(
+      '/api/v1/profile/photo',
+      formData
+    );
     dispatch(clearPhotoAC());
     dispatch(updatePhotoSuccessAC(res.data.photo));
     dispatch(getPostsAC(res.data.posts));
@@ -85,3 +90,24 @@ export const updatePhotoRequest = (photo: string): Thunk => async (
     dispatch(showAlert(error.response.data.error, 'danger'));
   }
 };
+
+export type TProfileResponse = {
+  name: string;
+  about: string | null;
+  profession: string | null;
+  position: string | null;
+  location: string | null;
+  skills: string | null;
+  languages: string | null;
+  photo: string | null;
+  _id: string;
+  user: { email: string; createdAt: Date; _id: string };
+  createdAt: Date;
+};
+
+type TUpdatePhotoResponse = {
+  photo: string;
+  posts: any;
+};
+
+export type TProfilesResponce = Array<TProfileResponse>;

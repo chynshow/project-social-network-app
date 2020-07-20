@@ -1,66 +1,117 @@
-import {
-  getProfileSuccess,
-  getProfileFail,
-  getProfilesSuccess,
-  getProfilesFail,
-  updateProfileSuccess,
-  updatePhotoSuccess,
-  clearProfile,
-  clearPhoto,
-  GET_PROFILE_SUCCESS,
-  GET_PROFILE_FAIL,
-  GET_PROFILES_SUCCESS,
-  GET_PROFILES_FAIL,
-  UPDATE_PROFILE,
-  UPDATE_PHOTO,
-  CLEAR_PROFILE,
-  CLEAR_PHOTO,
-  UserProfile,
-  getProfileByIdSuccess,
-  GET_PROFILE_BY_ID_SUCCESS,
-  getProfileByIdFail,
-  GET_PROFILE_BY_ID_FAIL,
-} from './profileTypes';
+import { getPosts } from './../posts/postsTypes';
+import { TProfileResponse } from './profileActions';
+
+export const GET_PROFILE_SUCCESS = 'GET_PROFILE_SUCCESS';
+export const GET_PROFILE_FAIL = 'GET_PROFILE_FAIL';
+export const GET_PROFILE_BY_ID_SUCCESS = 'GET_PROFILE_BY_ID_SUCCESS';
+export const GET_PROFILE_BY_ID_FAIL = 'GET_PROFILE_BY_ID_FAIL';
+export const GET_PROFILES_SUCCESS = 'GET_PROFILES_SUCCESS';
+export const GET_PROFILES_FAIL = 'GET_PROFILES_FAIL';
+export const UPDATE_PROFILE = 'UPDATE_PROFILE';
+export const UPDATE_PHOTO = 'UPDATE_PHOTO';
+export const CLEAR_PROFILE = 'CLEAR_PROFILE';
+export const CLEAR_PHOTO = 'CLEAR_PHOTO';
 
 export const getProfileSuccessAC = (
-  profile: UserProfile
-): getProfileSuccess => ({ type: GET_PROFILE_SUCCESS, payload: profile });
+  profile: TProfileResponse
+): TGetProfileSuccess => ({
+  type: GET_PROFILE_SUCCESS,
+  payload: profile,
+});
 
-export const getProfileFailAC = (): getProfileFail => ({
+export const getProfileFailAC = (): TGetProfileFail => ({
   type: GET_PROFILE_FAIL,
 });
 
 export const getProfileByIdSuccessAC = (
-  profile: UserProfile
-): getProfileByIdSuccess => ({
+  profile: TProfileResponse
+): TGetProfileByIdSuccess => ({
   type: GET_PROFILE_BY_ID_SUCCESS,
   payload: profile,
 });
 
-export const getProfileByIdFailAC = (): getProfileByIdFail => ({
+export const getProfileByIdFailAC = (): TGetProfileByIdFail => ({
   type: GET_PROFILE_BY_ID_FAIL,
 });
 
 export const getProfilesSuccessAC = (
-  profiles: Array<UserProfile>
-): getProfilesSuccess => ({ type: GET_PROFILES_SUCCESS, payload: profiles });
+  profiles: Array<TProfileResponse>
+): TGetProfilesSuccess => ({ type: GET_PROFILES_SUCCESS, payload: profiles });
 
-export const getProfilesFailAC = (): getProfilesFail => ({
+export const getProfilesFailAC = (): TGetProfilesFail => ({
   type: GET_PROFILES_FAIL,
 });
 
 export const updateProfileSuccessAC = (
-  profile: UserProfile
-): updateProfileSuccess => ({
+  profile: TProfileResponse
+): TUpdateProfileSuccess => ({
   type: UPDATE_PROFILE,
   payload: profile,
 });
 
-export const updatePhotoSuccessAC = (photo: string): updatePhotoSuccess => ({
+export const updatePhotoSuccessAC = (photo: string): TUpdatePhotoSuccess => ({
   type: UPDATE_PHOTO,
   payload: photo,
 });
 
-export const clearProfileAC = (): clearProfile => ({ type: CLEAR_PROFILE });
+export const clearProfileAC = (): TClearProfile => ({ type: CLEAR_PROFILE });
 
-export const clearPhotoAC = (): clearPhoto => ({ type: CLEAR_PHOTO });
+export const clearPhotoAC = (): TClearPhoto => ({ type: CLEAR_PHOTO });
+
+export type TGetProfileSuccess = {
+  type: typeof GET_PROFILE_SUCCESS;
+  payload: TProfileResponse;
+};
+
+export type TGetProfileFail = {
+  type: typeof GET_PROFILE_FAIL;
+};
+
+export type TGetProfileByIdSuccess = {
+  type: typeof GET_PROFILE_BY_ID_SUCCESS;
+  payload: TProfileResponse;
+};
+
+export type TGetProfileByIdFail = {
+  type: typeof GET_PROFILE_BY_ID_FAIL;
+};
+
+export type TGetProfilesSuccess = {
+  type: typeof GET_PROFILES_SUCCESS;
+  payload: Array<TProfileResponse>;
+};
+
+export type TGetProfilesFail = {
+  type: typeof GET_PROFILES_FAIL;
+};
+
+export type TUpdateProfileSuccess = {
+  type: typeof UPDATE_PROFILE;
+  payload: TProfileResponse;
+};
+
+export type TUpdatePhotoSuccess = {
+  type: typeof UPDATE_PHOTO;
+  payload: string;
+};
+
+export type TClearProfile = {
+  type: typeof CLEAR_PROFILE;
+};
+
+export type TClearPhoto = {
+  type: typeof CLEAR_PHOTO;
+};
+
+export type TProfileActions =
+  | TGetProfileSuccess
+  | TGetProfileFail
+  | TGetProfileByIdSuccess
+  | TGetProfileByIdFail
+  | TGetProfilesSuccess
+  | TGetProfilesFail
+  | TUpdateProfileSuccess
+  | TUpdatePhotoSuccess
+  | TClearProfile
+  | TClearPhoto
+  | getPosts;

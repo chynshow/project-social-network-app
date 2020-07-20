@@ -1,6 +1,4 @@
 import {
-  InitialState,
-  ProfileActions,
   GET_PROFILE_SUCCESS,
   GET_PROFILE_FAIL,
   GET_PROFILES_SUCCESS,
@@ -9,18 +7,23 @@ import {
   UPDATE_PHOTO,
   CLEAR_PROFILE,
   CLEAR_PHOTO,
-  UserProfile,
   GET_PROFILE_BY_ID_SUCCESS,
   GET_PROFILE_BY_ID_FAIL,
-} from './profileTypes';
+} from './profileActionCreators';
 
-const initialState: InitialState = {
-  profile: null,
-  profiles: [],
+import { TProfileResponse } from './profileActions';
+import { TProfileActions } from './profileActionCreators';
+
+const initialState = {
+  profile: null as null | TProfileResponse,
+  profiles: [] as [] | Array<TProfileResponse>,
   loading: true,
 };
 
-export default (state = initialState, action: ProfileActions): InitialState => {
+export default (
+  state = initialState,
+  action: TProfileActions
+): TInitialState => {
   switch (action.type) {
     case GET_PROFILE_SUCCESS:
     case UPDATE_PROFILE:
@@ -38,15 +41,20 @@ export default (state = initialState, action: ProfileActions): InitialState => {
       return {
         ...state,
         loading: false,
-        profile: { ...state.profile, photo: action.payload } as UserProfile,
+        profile: {
+          ...state.profile,
+          photo: action.payload,
+        } as TProfileResponse,
       };
     case CLEAR_PHOTO:
       return {
         ...state,
         loading: false,
-        profile: { ...state.profile, photo: null } as UserProfile,
+        profile: { ...state.profile, photo: null } as TProfileResponse,
       };
     default:
       return state;
   }
 };
+
+type TInitialState = typeof initialState;

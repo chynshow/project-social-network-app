@@ -1,15 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export interface User {
+export type TUser = {
   name: string;
   photo: string | null;
-  position: string;
-  profession: string;
-  userId?: string;
-}
+  position: string | null;
+  profession: string | null;
+  userId: string;
+};
 
-const User: React.FC<User> = ({
+const User: React.FC<TUser> = ({
   name,
   photo,
   position,

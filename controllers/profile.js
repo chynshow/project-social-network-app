@@ -45,26 +45,17 @@ exports.updateProfile = asyncHandler(async (req, res, next) => {
     },
     { arrayFilters: [{ "comments.user": req.user.id }] }
   );
-  const posts = await Post.find({ user: req.user.id });
-  res.status(200).json({ profile, posts });
+  res.status(200).json(profile);
 });
 
 exports.getProfileByUserId = asyncHandler(async (req, res, next) => {
   const profile = await Profile.findOne({
     user: req.params.userId,
   }).populate("user");
+
   if (!profile) return next(new ErrorResponse("Profile not found", 404));
 
   res.status(200).json(profile);
-});
-
-exports.updateContacts = asyncHandler(async (req, res, next) => {
-  let profile = await Profile.findOne({ user: req.user.id });
-
-  profile.contacts = req.body.contacts;
-  await profile.save();
-
-  res.status(200).json({ profile });
 });
 
 exports.photoUpload = asyncHandler(async (req, res, next) => {

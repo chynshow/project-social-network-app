@@ -8,7 +8,6 @@ import * as Yup from 'yup';
 import { updateProfileRequest } from './../../../redux/profile/profileActions';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppState } from '../../../redux';
-import { UpdateProfile } from './../../../redux/profile/profileTypes';
 
 interface PropTypes {
   setShowModal: (value: boolean) => void;
@@ -18,14 +17,14 @@ const ModalAddUserInfo: React.FC<PropTypes> = ({ setShowModal }) => {
   const dispatch = useDispatch();
   const profile = useSelector((state: AppState) => state.profile.profile);
 
-  const initialValues: UpdateProfile = {
-    name: profile?.name,
-    profession: profile?.profession,
-    position: profile?.position,
-    about: profile?.about,
-    location: profile?.location,
-    skills: profile?.skills,
-    languages: profile?.languages,
+  const initialValues: TUpdateProfileValues = {
+    name: profile?.name as string,
+    profession: profile?.profession as string | null,
+    position: profile?.position as string | null,
+    about: profile?.about as string | null,
+    location: profile?.location as string | null,
+    skills: profile?.skills as string | null,
+    languages: profile?.languages as string | null,
   };
 
   const validationSchema = Yup.object({
@@ -38,7 +37,7 @@ const ModalAddUserInfo: React.FC<PropTypes> = ({ setShowModal }) => {
     languages: Yup.string(),
   });
 
-  const onSubmit = (values: UpdateProfile) => {
+  const onSubmit = (values: TUpdateProfileValues) => {
     dispatch(updateProfileRequest(values));
     setShowModal(false);
   };
@@ -136,3 +135,13 @@ const ModalAddUserInfo: React.FC<PropTypes> = ({ setShowModal }) => {
 };
 
 export default ModalAddUserInfo;
+
+export type TUpdateProfileValues = {
+  name: string | null;
+  profession: string | null;
+  position: string | null;
+  about: string | null;
+  location: string | null;
+  skills: string | null;
+  languages: string | null;
+};
