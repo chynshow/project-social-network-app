@@ -1,6 +1,5 @@
 .c-comment {
   margin: 1rem 0;
-  padding: 0.5rem;
   color: $color-grey-light;
   line-height: $body-line-height;
   max-width: 95%;
@@ -24,6 +23,7 @@
     padding: 0.5rem;
     font-size: $font-sm;
     text-align: center;
+    min-width: 7rem;
   }
 
   &__comment-date {
@@ -55,8 +55,7 @@
 
   &__close-btn {
     position: absolute;
-    top: 30%;
-    transform: translateY(-50%);
+    top: 0%;
     transition: $transition;
     width: 4rem;
     height: 4rem;

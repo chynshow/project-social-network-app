@@ -10,10 +10,17 @@ import ModalAddComment from './ModalAddComment';
 import Tooltip from '../../Common/Tooltip';
 import { TComment } from './../../../redux/posts/postsActionCreators';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { useSelector } from 'react-redux';
+import { AppState } from '../../../redux';
 
-const Comments: React.FC<TCommentsProps> = ({ _id, comments }) => {
-  const [showComments, setShowComments] = React.useState<boolean>(false);
+const Comments: React.FC<TComments> = ({
+  _id,
+  comments,
+  setShowComments,
+  showComments,
+}) => {
   const [showModal, setShowModal] = React.useState<boolean>(false);
+
   return (
     <div className="c-comments">
       <div className="c-comments__header">
@@ -49,32 +56,50 @@ const Comments: React.FC<TCommentsProps> = ({ _id, comments }) => {
           )}
         </TransitionGroup>
       </div>
-      <div
-        className={
-          showComments
-            ? 'c-comments__items-container c-comments__items-container--active'
-            : 'c-comments__items-container'
-        }
-      >
-        {comments.map((comment) => (
-          <Comment
-            className={'c-comment--active'}
-            key={comment._id}
-            commentId={comment._id}
-            postId={_id}
-            commentText={comment.text}
-            userAvatar={comment.avatar}
-            userName={comment.name}
-          />
-        ))}
-      </div>
+    </div>
+  );
+};
+
+export const CommentsContainer: React.FC<TCommentsContainerProps> = ({
+  _id,
+  comments,
+  showComments,
+}) => {
+  const ownerId = useSelector((state: AppState) => state.auth.user?._id);
+  return (
+    <div
+      className={
+        showComments
+          ? 'c-comments__items-container c-comments__items-container--active'
+          : 'c-comments__items-container'
+      }
+    >
+      {comments.map((comment) => (
+        <Comment
+          className={
+            ownerId === comment.user ? 'c-comment--active' : 'c-comment'
+          }
+          key={comment._id}
+          commentId={comment._id}
+          postId={_id}
+          commentText={comment.text}
+          userAvatar={comment.avatar}
+          userName={comment.name}
+          commentUserId={comment.user}
+        />
+      ))}
     </div>
   );
 };
 
 export default Comments;
 
-type TCommentsProps = {
+interface TCommentsContainerProps {
   _id: string;
   comments: Array<TComment>;
-};
+  showComments: boolean;
+}
+
+interface TComments extends TCommentsContainerProps {
+  setShowComments: (value: boolean) => void;
+}

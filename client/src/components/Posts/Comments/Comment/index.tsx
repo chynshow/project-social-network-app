@@ -1,8 +1,9 @@
 import React from 'react';
 import { delCommentRequest } from './../../../../redux/posts/postsActions';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { AppState } from '../../../../redux';
 
 const Comment: React.FC<TCommentProps> = ({
   className,
@@ -11,8 +12,12 @@ const Comment: React.FC<TCommentProps> = ({
   userName,
   postId,
   commentId,
+  commentUserId,
 }) => {
   const dispatch = useDispatch();
+
+  const ownerId = useSelector((state: AppState) => state.auth.user?._id);
+
   return (
     <div className={className ? `c-comment ${className}` : 'c-comment'}>
       <div className="c-comment__header">
@@ -22,13 +27,15 @@ const Comment: React.FC<TCommentProps> = ({
           className="c-user-avatar__img c-comment__photo"
         />
         <h3 className="c-title-tertiary c-comment__title">{userName}</h3>
-        <button
-          className="c-btn c-comment__close-btn"
-          type="button"
-          onClick={() => dispatch(delCommentRequest(postId, commentId))}
-        >
-          <FontAwesomeIcon icon={faTrash} />
-        </button>
+        {ownerId === commentUserId && (
+          <button
+            className="c-btn c-comment__close-btn"
+            type="button"
+            onClick={() => dispatch(delCommentRequest(postId, commentId))}
+          >
+            <FontAwesomeIcon icon={faTrash} />
+          </button>
+        )}
       </div>
       <p className="c-comment__text">{commentText}</p>
     </div>
@@ -44,4 +51,5 @@ type TCommentProps = {
   userName: string;
   postId: string;
   commentId: string;
+  commentUserId: string;
 };

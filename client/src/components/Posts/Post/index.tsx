@@ -11,6 +11,8 @@ import Likes from '../Likes';
 import { TPost } from '../../../redux/posts/postsActionCreators';
 import { deletePostRequest } from './../../../redux/posts/postsActions';
 import { useDispatch } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { CommentsContainer } from './../Comments';
 
 const Post: React.FC<TPost> = ({
   _id,
@@ -21,7 +23,11 @@ const Post: React.FC<TPost> = ({
   likes,
   comments,
 }) => {
-  const [showContextMenu, setShowContextMenu] = React.useState(false);
+  const [showContextMenu, setShowContextMenu] = React.useState<boolean>(false);
+
+  const [showComments, setShowComments] = React.useState<boolean>(false);
+
+  const { userId } = useParams<{ userId: string }>();
 
   return (
     <div className="c-post">
@@ -41,38 +47,46 @@ const Post: React.FC<TPost> = ({
             </span>
           </div>
         </div>
-        <div
-          className="c-btn c-post__btn-more"
-          onClick={() => setShowContextMenu(!showContextMenu)}
-        >
-          <FontAwesomeIcon
-            className="c-icon c-post__icon-more"
-            icon={faEllipsisH}
-          />
-          {showContextMenu && <ContextMenu _id={_id} />}
-        </div>
-        {/* {showContextMenu && (
+        {!userId && (
+          <div
+            className="c-btn c-post__btn-more"
+            onClick={() => setShowContextMenu(!showContextMenu)}
+          >
+            <FontAwesomeIcon
+              className="c-icon c-post__icon-more"
+              icon={faEllipsisH}
+            />
+            {showContextMenu && <ContextMenu _id={_id} />}
+          </div>
+        )}
+        {showContextMenu && (
           <Overlay
-            opacity={0.2}
+            opacity={0.1}
             background="#fff"
             zIndex={2}
             onClick={() => setShowContextMenu(false)}
           />
-        )} */}
+        )}
       </header>
       <div className="c-post__text-container">
         <p className="c-post__text">{text}</p>
       </div>
       <div className="c-post__action-panel">
-        <Comments _id={_id} comments={comments} />
+        <Comments
+          _id={_id}
+          comments={comments}
+          showComments={showComments}
+          setShowComments={setShowComments}
+        />
         <Likes _id={_id} likes={likes} />
       </div>
+      <CommentsContainer
+        _id={_id}
+        comments={comments}
+        showComments={showComments}
+      />
     </div>
   );
-};
-
-type TContextMenuProps = {
-  _id: string;
 };
 
 const ContextMenu: React.FC<TContextMenuProps> = ({ _id }) => {
@@ -111,3 +125,7 @@ const ContextMenu: React.FC<TContextMenuProps> = ({ _id }) => {
 };
 
 export default Post;
+
+type TContextMenuProps = {
+  _id: string;
+};

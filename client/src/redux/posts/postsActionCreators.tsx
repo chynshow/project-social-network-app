@@ -58,6 +58,7 @@ export type TComment = {
   text: string;
   avatar: string;
   name: string;
+  user: string;
 };
 
 export type TLike = {

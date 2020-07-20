@@ -8,7 +8,6 @@
   @include bg-img('/assets/svg/bg-2.svg', 100%, center);
 
   &__img {
-    cursor: pointer;
     border-radius: 50%;
     box-shadow: 0 4px 8px 0 rgba(63, 61, 86, 0.2);
   }
@@ -16,6 +15,11 @@
   &__label {
     border-radius: 50%;
     position: relative;
+  }
+
+  &__label--active {
+    @extend .c-user-avatar__label;
+    cursor: pointer;
     &::after {
       transition: $transition;
       content: 'Upload Photo';
@@ -28,7 +32,7 @@
     }
   }
 
-  &:hover &__label::after {
+  &:hover &__label--active::after {
     transition: $transition;
     bottom: 10%;
     opacity: 1;

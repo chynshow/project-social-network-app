@@ -42,7 +42,7 @@ const switchComponent = (key: string): React.ReactElement => {
 const Navigation: React.FC<{}> = () => {
   const { isAuth } = useSelector((state: AppState) => state.auth);
   const dispatch = useDispatch();
-  const { pathname } = useLocation();
+  const { pathname } = useLocation<{ pathName: string }>();
 
   return (
     <div className="c-main-navigation">

@@ -17,7 +17,7 @@ const Posts: React.FC<{}> = () => {
   const [showModal, setShowModal] = React.useState<boolean>(false);
   const { loading, posts } = useSelector((state: AppState) => state.posts);
   const dispatch = useDispatch();
-  const { userId } = useParams();
+  const { userId } = useParams<{ userId: string }>();
 
   React.useEffect(() => {
     if (userId) {
@@ -32,7 +32,7 @@ const Posts: React.FC<{}> = () => {
 
   return (
     <div className="c-posts">
-      {loading ? (
+      {loading || !posts.length ? (
         <Loader />
       ) : (
         <>
@@ -44,16 +44,29 @@ const Posts: React.FC<{}> = () => {
                 icon={faCommentAlt}
               />
             </h3>
-            <Tooltip label="Add post">
-              <button
-                type="button"
-                className="c-btn c-posts__add-post-btn"
-                onClick={() => setShowModal(!showModal)}
-              >
-                <FontAwesomeIcon className="c-icon" icon={faPlus} />
-              </button>
-            </Tooltip>
+            {!userId && (
+              <Tooltip label="Add post">
+                <button
+                  type="button"
+                  className="c-btn c-posts__add-post-btn"
+                  onClick={() => setShowModal(!showModal)}
+                >
+                  <FontAwesomeIcon className="c-icon" icon={faPlus} />
+                </button>
+              </Tooltip>
+            )}
           </div>
+          <TransitionGroup>
+            {showModal && (
+              <CSSTransition
+                in={showModal}
+                timeout={200}
+                classNames="c-modal-add-message"
+              >
+                <ModalAddPost setShowModal={setShowModal} />
+              </CSSTransition>
+            )}
+          </TransitionGroup>
           <div className="c-posts__items-container">
             {!posts.length && (
               <p className="c-posts__info">You don't have any posts yet!</p>
@@ -70,17 +83,6 @@ const Posts: React.FC<{}> = () => {
                 comments={p.comments}
               />
             ))}
-            <TransitionGroup>
-              {showModal && (
-                <CSSTransition
-                  in={showModal}
-                  timeout={200}
-                  classNames="c-modal-add-message"
-                >
-                  <ModalAddPost setShowModal={setShowModal} />
-                </CSSTransition>
-              )}
-            </TransitionGroup>
           </div>
         </>
       )}

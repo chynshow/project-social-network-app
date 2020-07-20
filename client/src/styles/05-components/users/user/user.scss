@@ -20,12 +20,14 @@
 
   &__user-profession {
     text-align: center;
-    padding: 1rem;
+    margin: 0.2rem;
+    padding: 0.5rem;
     min-width: fit-content;
   }
 
   &__photo {
-    width: 5rem;
+    width: 6rem;
+    margin: 1rem;
   }
 
   &:hover {

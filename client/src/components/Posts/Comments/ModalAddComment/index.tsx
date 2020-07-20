@@ -1,23 +1,23 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import Overlay from '../../../Common/Overlay';
 import AddCommentForm from './AddCommentForm';
-import { useSelector } from 'react-redux';
-import { AppState } from '../../../../redux';
+// import { useSelector } from 'react-redux';
+// import { AppState } from '../../../../redux';
 
 const ModalAddComment: React.FC<TModalAddCommentProps> = ({
   setShowModal,
   _id,
 }) => {
-  const photo = useSelector((state: AppState) => state.profile.profile?.photo);
+  // const photo = useSelector((state: AppState) => state.profile.profile?.photo);
 
-  const name = useSelector((state: AppState) => state.profile.profile?.name);
+  // const name = useSelector((state: AppState) => state.profile.profile?.name);
 
   return (
     <>
       <div className="c-modal-add-message c-comments-modal-add-comment">
-        <div className="c-modal-add-message__header c-comments-modal-add-comment__header">
+        {/* <div className="c-modal-add-message__header c-comments-modal-add-comment__header">
           <img
             src={`data:image/jpeg;base64,${photo}`}
             alt="User"
@@ -33,13 +33,13 @@ const ModalAddComment: React.FC<TModalAddCommentProps> = ({
           >
             <FontAwesomeIcon icon={faTimes} />
           </button>
-        </div>
+        </div> */}
         <div className="c-modal-add-message__content c-comments-modal-add-comment__content">
           <AddCommentForm _id={_id} setShowModal={setShowModal} />
         </div>
       </div>
       <Overlay
-        opacity={0.2}
+        opacity={0.01}
         background="#fff"
         zIndex={1}
         onClick={() => setShowModal(false)}

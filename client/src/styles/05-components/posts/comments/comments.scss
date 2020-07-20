@@ -6,8 +6,10 @@
     transition: $transition;
   }
   &__items-container {
+    padding: 0 1rem;
     display: flex;
     flex-direction: column;
+    align-items: center;
     max-height: 0;
     overflow: hidden;
     transition: 0.2s ease-out;

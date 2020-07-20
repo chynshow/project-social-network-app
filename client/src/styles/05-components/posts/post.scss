@@ -26,7 +26,8 @@
   }
 
   &__photo {
-    width: 4rem;
+    width: 5rem;
+    margin: 1rem;
   }
 
   &__date {
@@ -41,6 +42,7 @@
     align-items: center;
     justify-content: center;
     position: relative;
+    z-index: 3;
   }
 
   &__text-container {

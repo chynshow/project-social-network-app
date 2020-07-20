@@ -1,8 +1,7 @@
 // main component c-modal-add-message
 .c-comments-modal-add-comment {
-  top: 50%;
-  left: 5%;
-  // transform: translateY(-50%);
+  top: -3%;
+  left: 120%;
 
   &__header {
     order: -1;
@@ -12,8 +11,8 @@
     &::after {
       content: '';
       position: absolute;
-      top: 50%;
-      right: 100%;
+      top: 10%;
+      right: 99.8%;
       transform: translateY(-50%);
       border-right: 0.7rem solid rgba($color: $color-violet-dark, $alpha: 1);
       border-top: 0.7rem solid transparent;
