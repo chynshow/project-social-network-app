@@ -36,6 +36,11 @@
     @include hide;
     position: absolute;
     left: 0;
+    @include respond(tablet) {
+      position: relative;
+      margin: 0.5rem;
+      @include show;
+    }
   }
 
   &__header:hover .c-comments__add-comment-btn {
@@ -47,5 +52,9 @@
   &__header:hover .c-comments__show-comments-btn {
     @include show;
     transform: translateX(150%);
+    @include respond(tablet) {
+      transform: translateX(0);
+      @include show;
+    }
   }
 }

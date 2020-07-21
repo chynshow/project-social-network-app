@@ -34,7 +34,7 @@ const App = () => {
           <main className="l-main-content">
             <Switch>
               <Route exact path="/registration" component={Registration} />
-              <Route exact path="/login" component={Login} />
+              <Route exact path="/" component={Login} />
               <PrivateRoute
                 exact
                 path="/profile/:userId?"

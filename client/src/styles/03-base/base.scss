@@ -6,6 +6,18 @@
 
 html {
   font-size: $font-base-size;
+  @include respond(tablet) {
+    font-size: 61%;
+  }
+  @include respond(mobileL) {
+    font-size: 59%;
+  }
+  @include respond(mobileM) {
+    font-size: 57%;
+  }
+  @include respond(mobileS) {
+    font-size: 55%;
+  }
 }
 
 body {

@@ -16,9 +16,15 @@
   &__user-avatar {
     width: 15rem;
   }
+  @include respond(tablet) {
+    border-radius: 0;
+  }
 }
 
 .l-profile {
   padding-left: 2rem;
   display: flex;
+  // @include respond(tablet) {
+  //    justify-content: center;
+  // }
 }

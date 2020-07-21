@@ -1,9 +1,8 @@
 .c-modal-add-message {
   position: absolute;
-  border-radius: 10px;
   display: flex;
   align-items: center;
-  z-index: 3;
+  z-index: 5;
   transition: $transition;
 
   &__header {

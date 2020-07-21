@@ -33,4 +33,8 @@
       transform: scale(1.01);
     }
   }
+  @include respond(tablet) {
+    min-height: calc(100vh - #{$layout-main-header});
+    border-radius: 0;
+  }
 }

@@ -1,14 +1,22 @@
 .c-users {
   background: $color-white;
-  border-radius: 10px;
+  border-radius: $component-border-radius;
   min-height: 100%;
   @include bg-img('/assets/svg/undraw_friends_online_klj6.svg', 30%, 98% 98%);
   position: relative;
 
+  @include respond(tablet) {
+    min-height: calc(100vh - #{$layout-main-header});
+    border-radius: 0;
+  }
+
   &__items-container {
     display: flex;
     flex-wrap: wrap;
-    // align-items: flex-start;
     padding: calc(1rem - 0.3rem);
+
+    @include respond(mobileL) {
+      flex-direction: column;
+    }
   }
 }

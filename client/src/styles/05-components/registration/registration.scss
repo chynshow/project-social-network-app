@@ -6,6 +6,11 @@
   min-height: 100%;
   z-index: 2;
 
+  @include respond(tablet) {
+    grid-area: 2/1/-1/1;
+    height: 85vh;
+  }
+
   &__title {
     padding: 2.5rem 1rem;
     text-align: center;
@@ -20,6 +25,9 @@
     padding: 2rem;
     width: 60%;
     margin: 0 auto;
+    @include respond(tablet) {
+      width: 80%;
+    }
   }
 
   &__link {
@@ -37,8 +45,14 @@
 
 .c-registration {
   @include bg-img('/assets/svg/undraw_profile_data_mk6k.svg', 20%, 98% 98%);
+  @include respond(tablet) {
+    background-image: none;
+  }
 }
 
 .c-login {
   @include bg-img('/assets/svg/undraw_profile_data_mk6k.svg', 20%, 98% 98%);
+  @include respond(tablet) {
+    background-image: none;
+  }
 }

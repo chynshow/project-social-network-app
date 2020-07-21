@@ -20,7 +20,7 @@ const switchComponent = (key: string): React.ReactElement => {
           className="c-link c-main-navigation__link"
           to="/registration"
         >
-          Registration
+          <span className="c-main-navigation__link-text">Registration</span>
           <FontAwesomeIcon icon={faSignOutAlt} />
         </NavLink>
       );
@@ -30,9 +30,9 @@ const switchComponent = (key: string): React.ReactElement => {
         <NavLink
           activeClassName="c-main-navigation__link--active"
           className="c-link c-main-navigation__link"
-          to="/login"
+          to="/"
         >
-          Login
+          <span className="c-main-navigation__link-text">Login</span>
           <FontAwesomeIcon icon={faSignOutAlt} />
         </NavLink>
       );
@@ -52,7 +52,7 @@ const Navigation: React.FC<{}> = () => {
           className="c-link c-main-navigation__link"
           to="/profile"
         >
-          Profile
+          <span className="c-main-navigation__link-text">Profile</span>
           <FontAwesomeIcon icon={faUser} />
         </NavLink>
         <NavLink
@@ -60,7 +60,7 @@ const Navigation: React.FC<{}> = () => {
           className="c-link c-main-navigation__link"
           to="/users"
         >
-          Users
+          <span className="c-main-navigation__link-text">Users</span>
           <FontAwesomeIcon icon={faUsers} />
         </NavLink>
         <NavLink
@@ -68,7 +68,7 @@ const Navigation: React.FC<{}> = () => {
           className="c-link c-main-navigation__link"
           to="/settings"
         >
-          Settings
+          <span className="c-main-navigation__link-text">Settings</span>
           <FontAwesomeIcon icon={faCogs} />
         </NavLink>
         {!isAuth ? (
@@ -78,7 +78,7 @@ const Navigation: React.FC<{}> = () => {
             className="c-btn c-link c-main-navigation__link"
             onClick={() => dispatch(logOutAC())}
           >
-            Logout
+            <span className="c-main-navigation__link-text">Logout</span>
             <FontAwesomeIcon icon={faSignOutAlt} />
           </button>
         )}

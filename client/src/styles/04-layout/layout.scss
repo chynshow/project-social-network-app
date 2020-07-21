@@ -1,11 +1,18 @@
 .l-grid {
   display: grid;
   grid-template-columns: 10% 20% 30% 30% 10%;
-  grid-template-rows: minmax(15vh, max-content) min-content min-content;
+  grid-template-rows: minmax($layout-main-header, max-content) min-content min-content;
   grid-gap: $layout-gap;
+
+  @include respond(tablet) {
+    grid-template-rows: minmax(10vh, max-content) min-content;
+    grid-template-columns: 100%;
+  }
 }
 
 .l-main-content {
   grid-area: 3/3/-1/5;
-  // margin-bottom: 5rem;
+  @include respond(tablet) {
+    grid-area: 3/1/-1/1;
+  }
 }

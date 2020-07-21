@@ -10,6 +10,13 @@
     2% center
   );
 
+  @include respond(tablet) {
+    grid-area: 1/1/2/1;
+    justify-content: center;
+    background-image: none;
+    border-radius: 0;
+  }
+
   &__title {
     margin-left: 11.1rem;
     padding: 1.5rem;
@@ -27,21 +34,9 @@
         color: $color-violet-light;
       }
     }
+
+    @include respond(tablet) {
+      margin: 0;
+    }
   }
 }
-
-// .c-logout-container {
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   background: $color-violet-dark;
-//   border-radius: 0 10px 10px 0;
-
-//   &__btn {
-//     padding: 0.8rem;
-//   }
-
-//   &__icon {
-//     color: $color-white;
-//   }
-// }

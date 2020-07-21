@@ -1,22 +1,26 @@
 // main component c-modal-add-message
 .c-comments-modal-add-comment {
-  top: -3%;
-  left: 120%;
+  top: 150%;
+  left: -25%;
 
   &__header {
     order: -1;
+    display: none;
   }
 
   &__content {
     &::after {
       content: '';
       position: absolute;
-      top: 10%;
-      right: 99.8%;
-      transform: translateY(-50%);
-      border-right: 0.7rem solid rgba($color: $color-violet-dark, $alpha: 1);
-      border-top: 0.7rem solid transparent;
-      border-bottom: 0.7rem solid transparent;
+      bottom: 100%;
+      left: 4%;
+      border-bottom: 0.7rem solid rgba($color: $color-violet-dark, $alpha: 1);
+      border-left: 0.7rem solid transparent;
+      border-right: 0.7rem solid transparent;
+    }
+
+    @include respond(tablet) {
+      width: 80vw;
     }
   }
 

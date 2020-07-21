@@ -99,7 +99,7 @@ const RegistrationForm: React.FC<{}> = () => {
             <button className="c-btn c-btn--primary" type="submit">
               Registration
             </button>
-            <Link className="c-link c-registration__link" to="/login">
+            <Link className="c-link c-registration__link" to="/">
               <button className="c-btn" type="submit">
                 Already have an account? Sign in here!
               </button>

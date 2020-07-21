@@ -13,11 +13,7 @@ const PrivateRoute: React.SFC<{
     <Route
       {...rest}
       render={(props) =>
-        !isAuth && !loading ? (
-          <Redirect to="/login" />
-        ) : (
-          <Component {...props} />
-        )
+        !isAuth && !loading ? <Redirect to="/" /> : <Component {...props} />
       }
     />
   );

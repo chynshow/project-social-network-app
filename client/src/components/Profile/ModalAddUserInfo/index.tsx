@@ -9,11 +9,9 @@ import { updateProfileRequest } from './../../../redux/profile/profileActions';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppState } from '../../../redux';
 
-interface PropTypes {
-  setShowModal: (value: boolean) => void;
-}
-
-const ModalAddUserInfo: React.FC<PropTypes> = ({ setShowModal }) => {
+const ModalAddUserInfo: React.FC<TModalAddUserInfoProps> = ({
+  setShowModal,
+}) => {
   const dispatch = useDispatch();
   const profile = useSelector((state: AppState) => state.profile.profile);
 
@@ -29,12 +27,12 @@ const ModalAddUserInfo: React.FC<PropTypes> = ({ setShowModal }) => {
 
   const validationSchema = Yup.object({
     name: Yup.string().required('Field is required!'),
-    profession: Yup.string(),
-    position: Yup.string(),
-    about: Yup.string(),
-    location: Yup.string(),
-    skills: Yup.string(),
-    languages: Yup.string(),
+    profession: Yup.string().nullable(),
+    position: Yup.string().nullable(),
+    about: Yup.string().nullable(),
+    location: Yup.string().nullable(),
+    skills: Yup.string().nullable(),
+    languages: Yup.string().nullable(),
   });
 
   const onSubmit = (values: TUpdateProfileValues) => {
@@ -135,6 +133,10 @@ const ModalAddUserInfo: React.FC<PropTypes> = ({ setShowModal }) => {
 };
 
 export default ModalAddUserInfo;
+
+type TModalAddUserInfoProps = {
+  setShowModal: (value: boolean) => void;
+};
 
 export type TUpdateProfileValues = {
   name: string | null;

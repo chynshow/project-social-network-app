@@ -18,6 +18,13 @@
   margin-bottom: 5rem;
   transition: $transition;
 
+  @include respond(tablet) {
+    position: fixed;
+    left: 10%;
+    right: 10%;
+    min-width: 80vw;
+  }
+
   &__title {
     padding: 2rem 1rem;
     border-bottom: 1px solid $color-blue-light;

@@ -1,6 +1,9 @@
 .c-tooltip {
   position: relative;
   &__label {
+    @include respond(tablet) {
+      display: none;
+    }
     display: flex;
     padding: 1rem;
     margin: 1rem 0;

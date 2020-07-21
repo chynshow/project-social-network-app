@@ -4,12 +4,34 @@
   border-radius: $component-border-radius;
   background: $color-component-bg;
 
+  @include respond(tablet) {
+    border-radius: 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: auto;
+    z-index: 5;
+  }
+
   &__links-container {
     margin-top: 1rem;
     list-style: none;
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    @include respond(tablet) {
+      margin-top: 0;
+      flex-direction: row;
+      justify-content: space-evenly;
+    }
+  }
+
+  &__link-text {
+    @include respond(tablet) {
+      display: none;
+    }
   }
 
   &__link {
@@ -19,9 +41,18 @@
     align-items: center;
     width: 100%;
 
+    @include respond(tablet) {
+      width: auto;
+    }
+
     &--active {
       border-right: 2px solid $color-violet-light;
       background: #e9effb;
+
+      @include respond(tablet) {
+        border-right: none;
+        border-radius: 50%;
+      }
     }
   }
 }
