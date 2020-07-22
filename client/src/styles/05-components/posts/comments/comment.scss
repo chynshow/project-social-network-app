@@ -11,6 +11,10 @@
     margin-bottom: 0.2rem;
   }
 
+  &:first-child {
+    margin-top: 2rem;
+  }
+
   &__header {
     display: flex;
     align-items: center;
@@ -55,14 +59,18 @@
 
   &__close-btn {
     position: absolute;
-    top: 0%;
+    bottom: 95%;
+    left: 99%;
     transition: $transition;
-    width: 4rem;
-    height: 4rem;
+    width: 2rem;
+    height: 2rem;
     color: $color-white;
     background: $color-violet-dark;
     border-radius: 50%;
     @include hide;
+    @include respond(tablet) {
+      @include show;
+    }
   }
 
   &--active {

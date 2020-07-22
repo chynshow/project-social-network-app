@@ -26,7 +26,7 @@ exports.updateProfile = asyncHandler(async (req, res, next) => {
     },
     req.body.profile,
     { new: true, runValidators: true }
-  );
+  ).populate("user");
 
   await Post.updateMany(
     { user: req.user.id },

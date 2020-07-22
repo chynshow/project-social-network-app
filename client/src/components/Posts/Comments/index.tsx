@@ -69,7 +69,7 @@ export const CommentsContainer: React.FC<TCommentsContainerProps> = ({
   return (
     <div
       className={
-        showComments
+        showComments || comments.length < 1
           ? 'c-comments__items-container c-comments__items-container--active'
           : 'c-comments__items-container'
       }

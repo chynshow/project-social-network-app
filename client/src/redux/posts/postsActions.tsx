@@ -10,9 +10,12 @@ import {
 } from './postsActionCreators';
 import { showAlert } from '../alert/alertActions';
 
-export const getPostsRequest = (): BaseThunk<any> => async (dispatch) => {
+export const getPostsRequest = (): BaseThunk<TPostActions> => async (
+  dispatch
+) => {
   try {
     const res = await instance.get<TGetPostsResponce>('/api/v1/posts');
+
     dispatch(getPostsAC(res.data.posts));
   } catch (error) {
     dispatch(showAlert(error.response.data.error, 'danger'));
@@ -26,6 +29,7 @@ export const getPostsByUserIdRequest = (
     const res = await instance.get<TGetPostsResponce>(
       `/api/v1/posts/${userId}`
     );
+
     dispatch(getPostsAC(res.data.posts));
   } catch (error) {
     dispatch(showAlert(error.response.data.error, 'danger'));
