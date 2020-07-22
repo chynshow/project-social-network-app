@@ -36,7 +36,7 @@ app.use(cors());
 // Rate limiting
 const limiter = rateLimit({
   windowMs: 10 * 60 * 1000,
-  max: 100
+  max: 100,
 });
 app.use(limiter);
 
@@ -45,8 +45,12 @@ app.use("/api/v1/auth", require("./routes/auth"));
 app.use("/api/v1/posts", require("./routes/posts"));
 app.use("/api/v1/profile", require("./routes/profile"));
 
-// Set static folder
-app.use(express.static(path.join(__dirname, "public")));
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  });
+}
 
 // Error handler
 app.use(errorHandler);
