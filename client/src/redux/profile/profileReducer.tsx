@@ -49,7 +49,7 @@ export default (
     case CLEAR_PHOTO:
       return {
         ...state,
-        loading: false,
+        loading: true,
         profile: { ...state.profile, photo: null } as TProfileResponse,
       };
     default:

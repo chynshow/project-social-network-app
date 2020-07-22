@@ -12,7 +12,6 @@ import { getPostsByUserIdRequest } from './../../redux/posts/postsActions';
 import { clearPostsAC } from './../../redux/posts/postsActionCreators';
 import Loader from '../Common/Loader';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import { profile } from 'console';
 
 const Posts: React.FC<{}> = () => {
   const [showModal, setShowModal] = React.useState<boolean>(false);
@@ -31,11 +30,9 @@ const Posts: React.FC<{}> = () => {
     };
   }, []);
 
-  // console.log(!posts.length, loading);
-
   return (
     <div className="c-posts">
-      {loading && !posts.length ? (
+      {loading || (loading && !posts.length) ? (
         <Loader />
       ) : (
         <>

@@ -5,7 +5,7 @@ import { updatePhotoRequest } from './../../../redux/profile/profileActions';
 import { useParams } from 'react-router-dom';
 
 const UserAvatar: React.FC<{}> = () => {
-  const photo = useSelector((state: AppState) => state.profile.profile?.photo);
+  const { profile } = useSelector((state: AppState) => state.profile);
 
   const { userId } = useParams<{ userId: string }>();
 
@@ -25,8 +25,8 @@ const UserAvatar: React.FC<{}> = () => {
         }
       >
         <img
-          src={`data:image/jpeg;base64,${photo}`}
-          alt=""
+          src={`data:image/jpeg;base64,${profile?.photo}`}
+          alt="User"
           className="c-user-avatar__img c-profile__user-avatar"
         />
         {!userId && (

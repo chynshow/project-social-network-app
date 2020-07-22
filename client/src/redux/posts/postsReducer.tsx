@@ -65,7 +65,7 @@ export default (state = initialState, action: TPostActions): TInitialState => {
       return {
         ...state,
         posts: [],
-        loading: false,
+        loading: true,
       };
     default:
       return state;
