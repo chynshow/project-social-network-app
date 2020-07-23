@@ -1,7 +1,7 @@
 import Axios from 'axios';
 
 export const instance = Axios.create({
-  baseURL: 'http://localhost:5001/',
+  baseURL: 'https://social-network-demo-app.herokuapp.com',
   headers: {
     'Content-Type': 'application/json',
   },
