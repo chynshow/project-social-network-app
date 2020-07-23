@@ -5,13 +5,12 @@
     top: 50%;
     transform: translateY(-50%);
     right: 100%;
-    @include hide;
+
     transition: $transition;
   }
 
   &:hover .c-like__count {
     transform: translate(-100%, -50%);
-    @include show;
   }
 
   &__btn {

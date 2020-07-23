@@ -78,7 +78,7 @@ const RegistrationForm: React.FC<{}> = () => {
             control="input"
             type="text"
             label="Email"
-            placeholder="Type your email"
+            placeholder="Email doesn't need verification"
             name="email"
           />
           <FormControl

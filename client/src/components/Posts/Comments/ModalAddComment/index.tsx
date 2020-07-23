@@ -9,6 +9,7 @@ import AddCommentForm from './AddCommentForm';
 const ModalAddComment: React.FC<TModalAddCommentProps> = ({
   setShowModal,
   _id,
+  setShowComments,
 }) => {
   // const photo = useSelector((state: AppState) => state.profile.profile?.photo);
 
@@ -35,7 +36,11 @@ const ModalAddComment: React.FC<TModalAddCommentProps> = ({
           </button>
         </div> */}
         <div className="c-modal-add-message__content c-comments-modal-add-comment__content">
-          <AddCommentForm _id={_id} setShowModal={setShowModal} />
+          <AddCommentForm
+            _id={_id}
+            setShowComments={setShowComments}
+            setShowModal={setShowModal}
+          />
         </div>
       </div>
       <Overlay
@@ -53,4 +58,5 @@ export default ModalAddComment;
 type TModalAddCommentProps = {
   _id: string;
   setShowModal: (value: boolean) => void;
+  setShowComments: (value: boolean) => void;
 };

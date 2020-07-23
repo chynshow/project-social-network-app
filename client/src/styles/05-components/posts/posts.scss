@@ -6,9 +6,9 @@
   @include bg-img('/assets/svg/undraw_personal_text_vkd8.svg', 20%, 98% 98%);
   padding-bottom: 15rem;
   position: relative;
-  // @include respond(tablet) {
-  //   min-height: 55vh;
-  // }
+  @include respond(tablet) {
+    min-height: 65vh;
+  }
 
   &__header {
     padding: 2rem 1.5rem;

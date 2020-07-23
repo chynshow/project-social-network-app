@@ -66,7 +66,8 @@ export const getAuthRequest = (): BaseThunk<TAuthActions> => async (
   dispatch
 ) => {
   if (localStorage.token) {
-    instance.defaults.headers.authorization = 'Bearer ' + localStorage.token;
+    instance.defaults.headers.authorization =
+      'Bearer ' + localStorage.getItem('token');
   }
   try {
     const res = await instance.get<TUserResponse>('/api/v1/auth/me');

@@ -71,6 +71,7 @@ const Navigation: React.FC<{}> = () => {
           <span className="c-main-navigation__link-text">Settings</span>
           <FontAwesomeIcon icon={faCogs} />
         </NavLink>
+
         {!isAuth ? (
           switchComponent(pathname)
         ) : (

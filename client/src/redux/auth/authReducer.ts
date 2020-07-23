@@ -17,7 +17,7 @@ import { TUserResponse } from './authActions';
 const initialState = {
   isInit: false,
   isAuth: false,
-  token: null as string | null,
+  token: localStorage.getItem('token') as string | null,
   user: null as null | TUserResponse,
   loading: true,
 };

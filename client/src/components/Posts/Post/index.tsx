@@ -80,12 +80,7 @@ const Post: React.FC<TPost> = ({
         />
         <Likes _id={_id} likes={likes} />
       </div>
-
-      <CommentsContainer
-        _id={_id}
-        comments={comments}
-        showComments={showComments}
-      />
+      {showComments && <CommentsContainer _id={_id} comments={comments} />}
     </div>
   );
 };

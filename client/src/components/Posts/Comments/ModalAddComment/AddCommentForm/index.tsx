@@ -10,6 +10,7 @@ import { updateCommentsRequest } from './../../../../../redux/posts/postsActions
 const AddCommentForm: React.FC<TAddCommentFormProps> = ({
   _id,
   setShowModal,
+  setShowComments,
 }) => {
   const dispatch = useDispatch();
 
@@ -22,6 +23,7 @@ const AddCommentForm: React.FC<TAddCommentFormProps> = ({
   const onSubmit = (value: TInitialValues): void => {
     dispatch(updateCommentsRequest(_id, value.comment));
     setShowModal(false);
+    setShowComments(true);
   };
 
   const validationSchema = Yup.object({
@@ -59,4 +61,5 @@ export default AddCommentForm;
 type TAddCommentFormProps = {
   _id: string;
   setShowModal: (value: boolean) => void;
+  setShowComments: (value: boolean) => void;
 };

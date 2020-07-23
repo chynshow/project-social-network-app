@@ -51,7 +51,11 @@ const Comments: React.FC<TComments> = ({
               timeout={200}
               classNames="c-modal-add-message"
             >
-              <ModalAddComment _id={_id} setShowModal={setShowModal} />
+              <ModalAddComment
+                _id={_id}
+                setShowModal={setShowModal}
+                setShowComments={setShowComments}
+              />
             </CSSTransition>
           )}
         </TransitionGroup>
@@ -63,17 +67,10 @@ const Comments: React.FC<TComments> = ({
 export const CommentsContainer: React.FC<TCommentsContainerProps> = ({
   _id,
   comments,
-  showComments,
 }) => {
   const ownerId = useSelector((state: AppState) => state.auth.user?._id);
   return (
-    <div
-      className={
-        showComments || comments.length < 1
-          ? 'c-comments__items-container c-comments__items-container--active'
-          : 'c-comments__items-container'
-      }
-    >
+    <div className={'c-comments__items-container'}>
       {comments.map((comment) => (
         <Comment
           className={
@@ -97,9 +94,9 @@ export default Comments;
 interface TCommentsContainerProps {
   _id: string;
   comments: Array<TComment>;
-  showComments: boolean;
 }
 
 interface TComments extends TCommentsContainerProps {
   setShowComments: (value: boolean) => void;
+  showComments: boolean;
 }
