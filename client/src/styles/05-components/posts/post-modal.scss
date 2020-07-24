@@ -21,6 +21,9 @@
   &__close-btn {
     top: 20%;
     right: 10%;
+    @include respond(tablet) {
+      @include hide;
+    }
   }
   &__content {
     &::after {

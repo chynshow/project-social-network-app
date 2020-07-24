@@ -109,7 +109,7 @@ const ModalAddUserInfo: React.FC<TModalAddUserInfoProps> = ({
               <div className="l-modal-add-user-info">
                 <button
                   className="c-btn c-btn--secondary"
-                  type="submit"
+                  type="button"
                   onClick={() => setShowModal(false)}
                 >
                   Cancel
@@ -125,7 +125,7 @@ const ModalAddUserInfo: React.FC<TModalAddUserInfoProps> = ({
       <Overlay
         zIndex={2}
         background="#fff"
-        opacity={0.1}
+        opacity={0}
         onClick={() => setShowModal(false)}
       />
     </>

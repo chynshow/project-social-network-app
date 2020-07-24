@@ -10,8 +10,8 @@
     bottom: 0;
     left: 0;
     right: 0;
-    height: auto;
-    z-index: 5;
+    height: $layout-main-nav;
+    z-index: 6;
   }
 
   &__links-container {
@@ -22,9 +22,11 @@
     align-items: center;
 
     @include respond(tablet) {
+      height: 100%;
       margin-top: 0;
       flex-direction: row;
       justify-content: space-evenly;
+      align-items: center;
     }
   }
 
@@ -53,6 +55,11 @@
         border-right: none;
         border-radius: 50%;
       }
+    }
+
+    &--disable {
+      color: $color-grey-light;
+      pointer-events: none;
     }
   }
 }

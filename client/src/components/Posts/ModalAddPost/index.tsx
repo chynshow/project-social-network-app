@@ -34,7 +34,7 @@ const ModalAddPost: React.FC<TModalAddPostProps> = ({ setShowModal }) => {
         </div>
       </div>
       <Overlay
-        opacity={0.02}
+        opacity={0}
         background="#fff"
         zIndex={4}
         onClick={() => setShowModal(false)}

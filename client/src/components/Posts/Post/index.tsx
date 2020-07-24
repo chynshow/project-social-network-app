@@ -61,7 +61,7 @@ const Post: React.FC<TPost> = ({
         )}
         {showContextMenu && (
           <Overlay
-            opacity={0.1}
+            opacity={0}
             background="#fff"
             zIndex={2}
             onClick={() => setShowContextMenu(false)}

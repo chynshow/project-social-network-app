@@ -9,6 +9,7 @@ import {
   CLEAR_PHOTO,
   GET_PROFILE_BY_ID_SUCCESS,
   GET_PROFILE_BY_ID_FAIL,
+  CLEAR_PROFILES,
 } from './profileActionCreators';
 
 import { TProfileResponse } from './profileActions';
@@ -33,6 +34,8 @@ export default (
     case GET_PROFILE_BY_ID_FAIL:
     case CLEAR_PROFILE:
       return { ...state, loading: false, profile: null };
+    case CLEAR_PROFILES:
+      return { ...state, loading: false, profiles: [] };
     case GET_PROFILES_SUCCESS:
       return { ...state, loading: false, profiles: action.payload };
     case GET_PROFILES_FAIL:

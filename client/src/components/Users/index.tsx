@@ -4,12 +4,17 @@ import { getProfilesRequest } from './../../redux/profile/profileActions';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppState } from '../../redux';
 import Loader from '../Common/Loader';
+import { clearProfilesAC } from '../../redux/profile/profileActionCreators';
 
 const Users: React.FC<{}> = () => {
   const dispatch = useDispatch();
 
   React.useEffect(() => {
     dispatch(getProfilesRequest());
+
+    return () => {
+      dispatch(clearProfilesAC());
+    };
   }, []);
 
   const { profiles, loading } = useSelector((state: AppState) => state.profile);

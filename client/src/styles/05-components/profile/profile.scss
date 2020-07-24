@@ -18,7 +18,9 @@
   }
   @include respond(tablet) {
     border-radius: 0;
-    min-height: 85vh;
+    min-height: calc(
+      100vh - (#{$layout-main-header} * 0.65) - #{$layout-main-nav}
+    );
   }
 }
 

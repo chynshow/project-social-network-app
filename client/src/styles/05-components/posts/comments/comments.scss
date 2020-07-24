@@ -33,13 +33,11 @@
   &__show-comments-btn {
     margin-left: 1.5rem;
     transition: $transition;
-    @include hide;
     position: absolute;
-    left: 0;
+    left: 30%;
     @include respond(tablet) {
       position: relative;
       margin: 0.5rem;
-      @include show;
     }
   }
 
@@ -50,8 +48,7 @@
   }
 
   &__header:hover .c-comments__show-comments-btn {
-    @include show;
-    transform: translateX(150%);
+    transform: translateX(100%);
     @include respond(tablet) {
       transform: translateX(0);
       @include show;

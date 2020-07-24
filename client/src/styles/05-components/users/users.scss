@@ -6,7 +6,9 @@
   position: relative;
 
   @include respond(tablet) {
-    min-height: calc(100vh - #{$layout-main-header});
+    min-height: calc(
+      100vh - (#{$layout-main-header} * 0.65) - #{$layout-main-nav}
+    );
     border-radius: 0;
   }
 

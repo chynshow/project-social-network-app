@@ -10,6 +10,7 @@ export const GET_PROFILES_FAIL = 'GET_PROFILES_FAIL';
 export const UPDATE_PROFILE = 'UPDATE_PROFILE';
 export const UPDATE_PHOTO = 'UPDATE_PHOTO';
 export const CLEAR_PROFILE = 'CLEAR_PROFILE';
+export const CLEAR_PROFILES = 'CLEAR_PROFILES';
 export const CLEAR_PHOTO = 'CLEAR_PHOTO';
 
 export const getProfileSuccessAC = (
@@ -56,6 +57,8 @@ export const updatePhotoSuccessAC = (photo: string): TUpdatePhotoSuccess => ({
 
 export const clearProfileAC = (): TClearProfile => ({ type: CLEAR_PROFILE });
 
+export const clearProfilesAC = (): TClearProfiles => ({ type: CLEAR_PROFILES });
+
 export const clearPhotoAC = (): TClearPhoto => ({ type: CLEAR_PHOTO });
 
 export type TGetProfileSuccess = {
@@ -99,6 +102,10 @@ export type TClearProfile = {
   type: typeof CLEAR_PROFILE;
 };
 
+export type TClearProfiles = {
+  type: typeof CLEAR_PROFILES;
+};
+
 export type TClearPhoto = {
   type: typeof CLEAR_PHOTO;
 };
@@ -114,4 +121,5 @@ export type TProfileActions =
   | TUpdatePhotoSuccess
   | TClearProfile
   | TClearPhoto
+  | TClearProfiles
   | TGetPosts;

@@ -5,8 +5,9 @@
   grid-gap: $layout-gap;
 
   @include respond(tablet) {
-    grid-template-rows: minmax(10vh, max-content) min-content;
+    grid-template-rows: minmax(calc(#{$layout-main-header} * 0.65), max-content) min-content;
     grid-template-columns: 100%;
+    grid-gap: calc(#{$layout-gap} / 2);
   }
 }
 

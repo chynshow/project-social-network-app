@@ -44,7 +44,7 @@ const ModalAddComment: React.FC<TModalAddCommentProps> = ({
         </div>
       </div>
       <Overlay
-        opacity={0.01}
+        opacity={0}
         background="#fff"
         zIndex={1}
         onClick={() => setShowModal(false)}

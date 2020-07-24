@@ -49,7 +49,11 @@ const Navigation: React.FC<{}> = () => {
       <ul className="c-main-navigation__links-container">
         <NavLink
           activeClassName="c-main-navigation__link--active"
-          className="c-link c-main-navigation__link"
+          className={
+            isAuth
+              ? 'c-link c-main-navigation__link'
+              : 'c-link c-main-navigation__link c-main-navigation__link--disable'
+          }
           to="/profile"
         >
           <span className="c-main-navigation__link-text">Profile</span>
@@ -57,7 +61,11 @@ const Navigation: React.FC<{}> = () => {
         </NavLink>
         <NavLink
           activeClassName="c-main-navigation__link--active"
-          className="c-link c-main-navigation__link"
+          className={
+            isAuth
+              ? 'c-link c-main-navigation__link'
+              : 'c-link c-main-navigation__link c-main-navigation__link--disable'
+          }
           to="/users"
         >
           <span className="c-main-navigation__link-text">Users</span>
@@ -65,7 +73,11 @@ const Navigation: React.FC<{}> = () => {
         </NavLink>
         <NavLink
           activeClassName="c-main-navigation__link--active"
-          className="c-link c-main-navigation__link"
+          className={
+            isAuth
+              ? 'c-link c-main-navigation__link'
+              : 'c-link c-main-navigation__link c-main-navigation__link--disable'
+          }
           to="/settings"
         >
           <span className="c-main-navigation__link-text">Settings</span>
