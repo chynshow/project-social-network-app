@@ -31,27 +31,13 @@
   }
 
   &__show-comments-btn {
-    margin-left: 1.5rem;
+    margin-left: 0.2rem;
     transition: $transition;
-    position: absolute;
-    left: 30%;
-    @include respond(tablet) {
-      position: relative;
-      margin: 0.5rem;
-    }
   }
 
   &__header:hover .c-comments__add-comment-btn {
     background: $color-violet-dark;
     color: $color-white;
     animation: pulse 2s linear 1;
-  }
-
-  &__header:hover .c-comments__show-comments-btn {
-    transform: translateX(100%);
-    @include respond(tablet) {
-      transform: translateX(0);
-      @include show;
-    }
   }
 }

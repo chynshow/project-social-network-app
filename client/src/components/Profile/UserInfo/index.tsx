@@ -28,15 +28,14 @@ export const UserInfoHeader: React.FC<TUserInfoHeaderProps> = ({
           </span>
         )}
       </h3>
-      <Tooltip label="User information">
-        <button
-          className="c-btn c-user-info__show-more-btn"
-          type="button"
-          onClick={() => setShowContent(!showContent)}
-        >
-          <FontAwesomeIcon icon={showContent ? faChevronUp : faChevronDown} />
-        </button>
-      </Tooltip>
+
+      <button
+        className="c-btn c-user-info__show-more-btn"
+        type="button"
+        onClick={() => setShowContent(!showContent)}
+      >
+        <FontAwesomeIcon icon={showContent ? faChevronUp : faChevronDown} />
+      </button>
     </header>
   );
 };
