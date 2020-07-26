@@ -13,19 +13,19 @@
 
 <div>
  <p>
-<img src="demo-images/img-1.png" width="300px">
-<img src="demo-images/img-2.png" width="300px">
-<img src="demo-images/img-3.png" width="300px">
+<img src="demo-images/img-1.png" width="290px">
+<img src="demo-images/img-2.png" width="290px">
+<img src="demo-images/img-3.png" width="290px">
   </p>
 <p>
-<img src="demo-images/img-4.png" width="300px">
-<img src="demo-images/img-5.png" width="300px">
-<img src="demo-images/img-6.png" width="300px">
+<img src="demo-images/img-4.png" width="290px">
+<img src="demo-images/img-5.png" width="290px">
+<img src="demo-images/img-6.png" width="290px">
 </p>
 <p>
-<img src="demo-images/img-7.png" width="300px">
-<img src="demo-images/img-8.png" width="300px">
-<img src="demo-images/img-9.png" width="300px">
+<img src="demo-images/img-7.png" width="290px">
+<img src="demo-images/img-8.png" width="290px">
+<img src="demo-images/img-9.png" width="290px">
  </p>
 </div>
 
