@@ -1,6 +1,6 @@
 ## Social network
 
-> Full-stack application
+> Full-stack application.
 
 ## Description
 
