@@ -1,8 +1,10 @@
 ## Social network
 
-> Single page application
+> Full-stack application
 
+## Description
 
+>  Full-stack application created by the MERN stack. The project is designed to demonstrate practical knowledge and skills about the React framework, application style with the SASS preprocessor, static typing with the Type Script, http requests with the Axios library and the CRUD RESTAPI.
 
 ### Demo
 
