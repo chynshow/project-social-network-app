@@ -1,10 +1,10 @@
-## Social network
+## Social network (Blog)
 
-Full-stack application.
+Full-stack application created by the MERN stack.
 
 ## Description
 
-Full-stack application created by the MERN stack. The project is designed to demonstrate knowledge and practical skills about the JavaScript framework React, application style with the CSS preprocessor SASS, static typing with the TypeScript, http requests with the Axios library and the RESTAPI based on Nodejs framework Express and NoSQL data base MongoDB.
+The project is designed to demonstrate knowledge and practical skills about the JavaScript framework React, application style with the CSS preprocessor SASS, static typing with the TypeScript, http requests with the Axios library and the RESTAPI based on Nodejs framework Express and NoSQL data base MongoDB.
 
 ### Demo
 
@@ -56,7 +56,7 @@ Full-stack application created by the MERN stack. The project is designed to dem
 
 #### Start with installing the dependencies:
 
-  Run `npm install` to install all required packages.
+  Run `npm install && cd client && npm install && cd ..` to install all required packages.
 
 #### Replacing Mongo URL
 
