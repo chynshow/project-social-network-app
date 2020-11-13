@@ -1,7 +1,7 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "portfolio-app",
+  "description": "blog-backend",
   "main": "server.js",
   "private": true,
   "scripts": {
@@ -11,10 +11,9 @@
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
-  "author": "Serhii",
+  "author": "SC",
   "license": "ISC",
   "dependencies": {
-    "@types/react-transition-group": "^4.4.0",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
